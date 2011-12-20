@@ -22,7 +22,8 @@ module.exports.index = exports.list_posts = function( req, res ) {
 
 module.exports.create_post = function( data, socket ) {
 
-	new Post( { title: data.title, content: data.content } ).save( function (err) {
+	new Post( { title: data.title, content: data.content, latitude: data.latitude, longitude: data.longitude }
+	 ).save( function (err) {
 		
 		if ( !err ) {
 			console.log( 'Success!' );

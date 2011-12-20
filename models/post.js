@@ -4,7 +4,8 @@ var mongoose = require( 'mongoose' )
 var postSchema = new Schema( {
 		title		: String
 	,	content	: String
-	,   latitude : { type: Number, default: 5}
+	,   latitude : { type: Number, default: 5 }
+	,	longitude : { type: Number, default: 5 }
 	,	date    : { type: Date, default: Date.now }
 } );
 

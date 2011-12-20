@@ -24,10 +24,27 @@ $(  document).ready( function () {
         	$( this ).val( $( this ).attr( "alt" ) );
     } );
     // End placeholder code
-    
+     
+if (navigator.geolocation) {
+  /* geolocation is available */
+ 
+  navigator.geolocation.getCurrentPosition(function(position) {
+   //var clat = position.coords.latitude;
+   var clon = position.coords.longitude;
+   var tolerance = .00000001;
+   $( '#lat').html(position.coords.latitude);
+    $( '#lon').html(position.coords.longitude);
+
+  //alert(position.coords.latitude);
+});
+  
+} else {
+  alert("I'm sorry, but geolocation services are not supported by your browser.");
+}
 
     
 });
+
 
 // Hide new post button and show insert post form
 function insertNewPost() {
@@ -61,6 +78,9 @@ function createPost( data ) {
 function socketPost( socket ) {
   var title = $( '#new_crush_box' ).find( 'input' ).val();
   var content = $( '#new_crush_box' ).find( 'textarea' ).val();
+  var latitude= $('#lat').html();
+  var longitude= $('#lon').html();
 
-  socket.emit( 'create_post', { title: title, content: content } );
+  socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude } );
 }
+

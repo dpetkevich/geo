@@ -32,19 +32,29 @@
     <p class="post_body"></p>
     <div class="post_time"></div>
   </div>
-  
+
+
+ 
   <% for ( var i = 0; i < posts.length; i++ )  { %>
-  
+
     <div class="postbox">
       <h2 class="post_title"><%= posts[ i ].title %></h2>
       <p class="post_body"><%= posts[ i ].content %></p>
       <div class="post_time"><%= posts[ i ].date_display() %></div>
     </div>
+
+    <% } %>
   
+
   
-  <% } %>
   
 </div>
 <div id="footer">&copy; FaceCrush 2011 </div>
+  <div id="positions">
+    <div id="lat" style="display:none"> </div>
+    <div id="lon" style="display:none"> </div>
+  </div>
+
+
 
 
