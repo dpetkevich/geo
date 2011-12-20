@@ -1,0 +1,50 @@
+<div id="header">
+  <span id="logo">
+    <b>Crush</b>Stream
+  </span>
+  <span class="nav"> 
+    <a href="">Home</a>
+  </span>
+  <span class="nav">
+    <a href="">Profile</a>
+  </span>
+</div>
+
+<div id="main">
+  
+  <h1>CrushStream</h1>
+
+  
+  <div id="new_crush_button">Post a Crush</div>
+  
+  <div id="new_crush_box" style="display:none">
+
+    <input id="new_post_title" class="defaultText" value="Title" alt="Title"
+      name="post[title]"/>
+    <textarea id="new_post_body" class="defaultText"
+      alt="omg on cross campus" name="post[content]">omg on cross campus</textarea>
+    <button id="submit_post">Submit!</button>
+
+  </div>
+  
+  <div class="postbox" style="display:none">
+    <h2 class="post_title"></h2>
+    <p class="post_body"></p>
+    <div class="post_time"></div>
+  </div>
+  
+  <% for ( var i = 0; i < posts.length; i++ )  { %>
+  
+    <div class="postbox">
+      <h2 class="post_title"><%= posts[ i ].title %></h2>
+      <p class="post_body"><%= posts[ i ].content %></p>
+      <div class="post_time"><%= posts[ i ].date_display() %></div>
+    </div>
+  
+  
+  <% } %>
+  
+</div>
+<div id="footer">&copy; FaceCrush 2011 </div>
+
+
