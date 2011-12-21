@@ -31,7 +31,7 @@ app.configure( 'development', function () {
 
 app.configure( 'production', function () {
   app.use(express.errorHandler() ); 
-	var mongoose_uri = 'mongodb://heroku:crushFlowAdmin@staff.mongohq.com:10084/app1737733';
+	var mongoose_uri = 'mongodb://heroku_app2139216:sfu8ge6non27flbb19sp03pjcm@ds029287.mongolab.com:29287/heroku_app2139216';
 	mongoose.connect( mongoose_uri );
 } );
 
