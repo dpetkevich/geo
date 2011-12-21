@@ -34,17 +34,20 @@
   </div>
 
 
- 
+
   <% for ( var i = 0; i < posts.length; i++ )  { %>
 
-    <div class="postbox">
-      <h2 class="post_title"><%= posts[ i ].title %></h2>
-      <p class="post_body"><%= posts[ i ].content %></p>
-      <div class="post_time"><%= posts[ i ].date_display() %></div>
-    </div>
+   
+        <div class="postbox">
+          <h2 class="post_title"><%= posts[ i ].title %></h2>
+          <p class="post_body"><%= posts[ i ].content %></p>
+          <div class="post_time"><%= posts[ i ].date_display() %></div>
+        </div>
 
     <% } %>
+
   
+
 
   
   
@@ -53,6 +56,7 @@
   <div id="positions">
     <div id="lat" style="display:none"> </div>
     <div id="lon" style="display:none"> </div>
+    <div id="tol" style="display:none"> </div>
   </div>
 
 

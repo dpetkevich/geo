@@ -10,7 +10,7 @@ var express = require( 'express' )
 var app = module.exports = express.createServer()
   , io = require( 'socket.io' ).listen( app );
   
-var posts_controller = require( './controllers/posts_controller.js' )
+var posts_controller = require( './controllers/posts_controller.js' );
 
 // Configuration
 

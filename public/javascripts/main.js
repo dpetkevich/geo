@@ -24,26 +24,55 @@ $(  document).ready( function () {
         	$( this ).val( $( this ).attr( "alt" ) );
     } );
     // End placeholder code
-     
-if (navigator.geolocation) {
-  /* geolocation is available */
- 
-  navigator.geolocation.getCurrentPosition(function(position) {
-   //var clat = position.coords.latitude;
-   var clon = position.coords.longitude;
-   var tolerance = .00000001;
-   $( '#lat').html(position.coords.latitude);
-    $( '#lon').html(position.coords.longitude);
+   
 
-  //alert(position.coords.latitude);
+  /*if (navigator.geolocation) {
+       
+        navigator.geolocation.getCurrentPosition(function(position) {
+         var clat = position.coords.latitude;
+         var clon = position.coords.longitude;
+         var tolerance = .00000001;
+         $('#tol').html(tolerance);
+         $( '#lat').html(position.coords.latitude);
+         $( '#lon').html(position.coords.longitude);
+
+      });
+        
+      } else {
+        alert("I'm sorry, but geolocation services are not supported by your browser.");
+      } */
+
+      if(navigator.geolocation) {
+        getCurrentPosition();
+}
+else{
+alert('Your browser does not support the Geo-Location feature');
+}
 });
-  
-} else {
-  alert("I'm sorry, but geolocation services are not supported by your browser.");
+
+function showPosition(position){
+var lat = position.coords.latitude;
+var lon = position.coords.longitude;
+$('#lat').html(position.coords.latitude);
+$( '#lon').html(position.coords.longitude);
+}
+ 
+function errorMan(){
+alert('Oops; There seems to be some problem');
+}
+ 
+function getCurrentPosition(){
+if(navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(showPosition, errorMan);
+}
+else{
+alert('Your browser does not support the Geo-Location feature');
+}
 }
 
-    
-});
+
+
+
 
 
 // Hide new post button and show insert post form

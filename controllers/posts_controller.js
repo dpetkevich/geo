@@ -4,14 +4,18 @@
 
 var Post = require( '../models/post.js' );
 var util = require( 'util' );
+var tolerance = 0;
+
 
 module.exports.index = exports.list_posts = function( req, res ) {
   
-	Post.find( function ( err, posts ) {
-		
+	Post
+	.where('latitude').gte(tolerance)
+
+	.run( function ( err, posts ) {
 		res.render( 'index.ejs', { title: 'CrushFlow', posts: posts.reverse() } );
 		
-	} );
+	} )
 
 };
 
