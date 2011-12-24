@@ -46,3 +46,13 @@ module.exports.create_post = function( data, socket ) {
 	} );
 
 };
+
+/**** WTG START ****/
+
+module.exports.get_posts = function( req, res ) {
+  Post.find( function( err, posts ) {
+    res.send( { posts: JSON.stringify( posts ) } );
+  } ) 
+}
+
+/**** WTG STOP ****/

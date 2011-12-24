@@ -70,6 +70,20 @@ alert('Your browser does not support the Geo-Location feature');
 }
 }
 
+/**** WTG START ****/
+
+function ajaxPosts( latitude, longitude ) {
+  $.getJSON(
+    '/get_posts',
+    { latitude: latitude, longitude: longitude },
+    function ( posts ) {
+      console.log( posts );
+      return false;
+    }
+  );
+}
+
+/**** WTG STOP ****/
 
 
 

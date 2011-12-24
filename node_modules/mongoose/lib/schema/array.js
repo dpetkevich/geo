@@ -15,7 +15,8 @@ var SchemaType = require('../schematype')
     }
   , MongooseArray = require('../types').Array
   , Mixed = require('./mixed')
-  , Query = require('../query');
+  , Query = require('../query')
+  , isMongooseObject = require('../utils').isMongooseObject
 
 /**
  * Array SchemaType constructor
@@ -142,13 +143,17 @@ SchemaArray.prototype.castForQuery = function ($conditional, val) {
     if (Array.isArray(val)) {
       val = val.map(function (v) {
         if (method) v = method.call(proto, v);
-        return v.toObject ? v.toObject() : v;
+        return isMongooseObject(v)
+          ? v.toObject()
+          : v;
       });
     } else if (method) {
       val = method.call(proto, val);
     }
   }
-  return val && val.toObject ? val.toObject() : val;
+  return val && isMongooseObject(val)
+    ? val.toObject()
+    : val;
 };
 
 SchemaArray.prototype.$conditionalHandlers = {
