@@ -47,9 +47,9 @@ module.exports.create_post = function( data, socket ) {
 /**** WTG START ****/
 
 module.exports.get_posts = function( req, res ) {
-console.log( util.inspect( req ) );
+  console.log( util.inspect( req.query ) );
 
-  	var lat = req.body.latitude;
+  var lat = req.body.latitude;
 	var lon = req.body.longitude;
 	var tolerance = 100;
 	console.log("lat1 is " + lat);
