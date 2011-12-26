@@ -76,11 +76,24 @@ function ajaxPosts( latitude, longitude ) {
   $.getJSON(
     '/get_posts',
     { latitude: latitude, longitude: longitude },
-    function ( posts ) {
+    function ( json ) {
+      var posts = JSON.parse(json.posts);
       console.log( posts );
+         for ( var i = 0; i < posts.length; i++ )  { 
+          $new_post = $( '.postbox' ).first().clone();
+          $new_post.find('.post_title').html(posts[ i ].title);
+          $new_post.find(".post_body").html(posts[ i ].content);
+          $new_post.find( '.post_time' ).html( 'just now.' );
+          $( '#new_crush_box' ).after( $new_post );
+          $new_post.show();
+
+          //$new_post.find(".post_time").html(posts[ i ].date_display());
+         }  
+         // $new_post.css( 'display', 'none' ); 
+
       return false;
     }
-  );
+  )
 }
 
 /**** WTG STOP ****/

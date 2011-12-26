@@ -9,6 +9,8 @@ var express = require( 'express' )
 
 var app = module.exports = express.createServer()
   , io = require( 'socket.io' ).listen( app );
+
+ 
   
 var posts_controller = require( './controllers/posts_controller.js' );
 
@@ -18,6 +20,7 @@ app.configure(function () {
   app.set( 'views' , __dirname + '/views' );
   app.set( 'view engine', 'ejs' );
   app.use( express.bodyParser() );
+  //app.use(require('connect').bodyParser());
   app.use( express.methodOverride() );
   app.use( app.router );
   app.use( express.static(__dirname + '/public') );
@@ -65,7 +68,6 @@ io.sockets.on( 'connection', function ( socket ) {
   }
   
 } );
-
 
 
 var port = process.env.PORT || 3000;
