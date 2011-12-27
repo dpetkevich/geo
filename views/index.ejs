@@ -49,7 +49,21 @@
 <script>
 
   $( document ).ready( function() {
-    ajaxPosts( 1, 1);
+   
+  if (navigator.geolocation) {
+  /* geolocation is available */
+ 
+  navigator.geolocation.getCurrentPosition(function(position) {
+    
+
+   var lat = position.coords.latitude;
+   var lon = position.coords.longitude;
+    ajaxPosts( lat, lon);
+});
+  
+} else {
+  alert("I'm sorry, but geolocation services are not supported by your browser.");
+}
   } );
     
 </script>

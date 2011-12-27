@@ -49,14 +49,19 @@ module.exports.create_post = function( data, socket ) {
 module.exports.get_posts = function( req, res ) {
   console.log( util.inspect( req.query ) );
 
-  var lat = req.body.latitude;
-	var lon = req.body.longitude;
-	var tolerance = 100;
+  var lat = Number(req.query.latitude);
+  var lon = Number(req.query.longitude);
+
+	var tolerance = Number(.001);
 	console.log("lat1 is " + lat);
+	console.log("lat-tol " + (lat-tolerance));
+		console.log("lat+tol " + (lat+tolerance));
+
   Post
-  .where('latitude').lte(0)
-  //.lte(lat+tolerance)
-  //.where('longtiude').gte(lon-tolerance).lte(lon+tolerance)
+  .where('latitude').gte(lat-tolerance)
+  .where('latitude').lte(lat+tolerance)
+  .where('longitude').gte(lon-tolerance)
+  .where('longitude').lte(lon+tolerance)
   .run( function( err, posts ) {
 
     res.send( { posts: JSON.stringify( posts ) } );
