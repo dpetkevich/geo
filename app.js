@@ -15,12 +15,7 @@ var app = module.exports = express.createServer()
 var posts_controller = require( './controllers/posts_controller.js' );
 
 // Configuration
-//shit that might make sockets work on heroku
-io.configure(function () { 
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
-socket = new io.Socket();
+
 
 app.configure(function () {
   app.set( 'views' , __dirname + '/views' );
@@ -44,6 +39,13 @@ app.configure( 'production', function () {
   app.use(express.errorHandler() ); 
 	var mongoose_uri = 'mongodb://heroku_app2139216:sfu8ge6non27flbb19sp03pjcm@ds029287.mongolab.com:29287/heroku_app2139216';
 	mongoose.connect( mongoose_uri );
+
+  //shit that might make sockets work on heroku
+
+  app.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 } );
 
 
