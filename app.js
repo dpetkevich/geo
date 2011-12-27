@@ -15,6 +15,12 @@ var app = module.exports = express.createServer()
 var posts_controller = require( './controllers/posts_controller.js' );
 
 // Configuration
+//shit that might make sockets work on heroku
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
+socket = new io.Socket();
 
 app.configure(function () {
   app.set( 'views' , __dirname + '/views' );
