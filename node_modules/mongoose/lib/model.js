@@ -9,6 +9,7 @@ var Document = require('./document')
   , MongooseError = require('./error')
   , Query = require('./query')
   , utils = require('./utils')
+  , isMongooseObject = utils.isMongooseObject
   , EventEmitter = utils.EventEmitter
   , merge = utils.merge
   , Promise = require('./promise')
@@ -365,11 +366,11 @@ Model.prototype._delta = function _delta () {
           }
         }
 
-        obj[data.path] = val.toObject
+        obj[data.path] = isMongooseObject(val)
           ? val.toObject({ depopulate: 1 }) // MongooseArray
           : Array.isArray(val)
             ? val.map(function (mem) {
-                return mem.toObject
+                return isMongooseObject(mem)
                   ? mem.toObject({ depopulate: 1 })
                   : mem.valueOf
                     ? mem.valueOf()

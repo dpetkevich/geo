@@ -35,21 +35,6 @@
 
 
 
-  <% for ( var i = 0; i < posts.length; i++ )  { %>
-
-   
-        <div class="postbox">
-          <h2 class="post_title"><%= posts[ i ].title %></h2>
-          <p class="post_body"><%= posts[ i ].content %></p>
-          <div class="post_time"><%= posts[ i ].date_display() %></div>
-        </div>
-
-    <% } %>
-
-  
-
-
-  
   
 </div>
 <div id="footer">&copy; FaceCrush 2011 </div>
@@ -58,7 +43,28 @@
     <div id="lon" style="display:none"> </div>
     <div id="tol" style="display:none"> </div>
   </div>
+</div>
 
+<!-- WTG START -->
+<script>
 
+  $( document ).ready( function() {
+   
+  if (navigator.geolocation) {
+  /* geolocation is available */
+ 
+  navigator.geolocation.getCurrentPosition(function(position) {
+    
 
-
+   var lat = position.coords.latitude;
+   var lon = position.coords.longitude;
+    ajaxPosts( lat, lon);
+});
+  
+} else {
+  alert("I'm sorry, but geolocation services are not supported by your browser.");
+}
+  } );
+    
+</script>
+<!-- WTG STOP -->
