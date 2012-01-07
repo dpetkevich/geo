@@ -10,7 +10,7 @@ var tolerance = 0;
 module.exports.index = exports.list_posts = function( req, res ) {
   
 	Post.find( function ( err, posts ) {
-		res.render( 'index.ejs', { title: 'CrushFlow', posts: posts.reverse() } );
+		res.render( 'index.ejs', { title: 'Circa', posts: posts.reverse() } );
 		
 	} )
 

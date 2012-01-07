@@ -8,7 +8,7 @@ $(  document).ready( function () {
     } );
     
     // Atttach click handler to #new_crush_button
-    $( '#new_crush_button' ).click( insertNewPost );
+    //$( '#new_crush_button' ).click( insertNewPost );
     
     // Attach click handler to #submit_post button
     $( '#submit_post' ).click( function () {
@@ -87,7 +87,7 @@ function ajaxPosts( latitude, longitude ) {
   if ( i==.001)
         {
           console.log(i);
-          $('#top').html('Rob House');
+          $('#locname').html('Bass Library');
         }
 
 
@@ -138,7 +138,7 @@ function createPost( data ) {
 
   // Finally, slide in the new post, hide the new_post box,
  	// and re-show the add a crush button
-	$( '#new_crush_box' ).hide();
+//	$( '#new_crush_box' ).hide();
 	$( '#new_crush_button' ).show();
 	$new_post.slideDown( 'slow', function () {
 	} );

@@ -2,6 +2,7 @@ body {
     margin:0px;
     font-family: 'Helvetica Neue', Helvetica, Lucida, Arial, sans-serif;
     font-size:12px;
+    background-color:#A9DFF0;
 }
 a {
     text-decoration:none;
@@ -35,16 +36,37 @@ h1, h2{
 #main {
     margin-top:42px;
     border:solid 1px #ccc;
-    background-color:#fff;
     padding: 15px;
+    padding-top:2px;
     width:500px;
     margin-left:auto;
     margin-right:auto;
     text-align:center;
+    background-color:#FFF9EA;
+    margin-top:5px;
+}
+#top{
+    margin-left: 80px;
+    margin-top:25px;
+
+}
+#maintext{
+    font-size: 45pt;
+    font-weight: lighter;
+   
+}
+#subtext{
+    font-size: 15pt;
+    font-weight: lighter;
+    padding-left:5px;
+}
+#top{
+    margin-left: 80px;
+    margin-top:25px;
 }
 #new_crush_button {
     padding:15px;
-    background-color:#f5f5f5;
+
     color:#000;
     border:solid 1px #999;
     margin:15px;
@@ -66,7 +88,6 @@ h1, h2{
     border:solid 1px #ccc;
     padding:15px;
     text-align:left;
-    background-color:#fff;
     color:#000;
 }
 input#new_post_title, textarea#new_post_body{
@@ -76,12 +97,14 @@ input#new_post_title, textarea#new_post_body{
     padding:4px;
     color:#333;
     font-size:16px;
+
 }
 textarea#new_post_body{
     font-size:12px;
-    resize:vertical;
+    font-weight:medium;
     margin-top:8px;
     min-height:62px;
+    
 }
 .post_time{
     text-align:right;
