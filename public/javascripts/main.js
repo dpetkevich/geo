@@ -139,8 +139,18 @@ function insertNewPost() {
 function createPost( data ) {
 	
 	// Clone an existing post, and set values of the new post
+  if(data.content!="Write Your Post Here.") {
+
+    
   $new_post = $( '.postbox' ).first().clone();
+
+  if (data.title!="Where are you in bass?")
+  {
   $new_post.find( '.post_title' ).html( data.title );
+}
+  else{
+    $new_post.find( '.post_title' ).html( "Somewhere in bass" );
+  }
   $new_post.find( '.post_body' ).html( data.content );
   $new_post.find( '.post_time' ).html( 'just now.' );
 
@@ -153,9 +163,15 @@ function createPost( data ) {
   // Finally, slide in the new post, hide the new_post box,
  	// and re-show the add a crush button
 //	$( '#new_crush_box' ).hide();
-	$( '#new_crush_button' ).show();
+	//$( '#new_crush_button' ).show();
 	$new_post.slideDown( 'slow', function () {
 	} );
+
+  
+    }
+  else{
+    alert("You've gotta write a post!");
+  }
 }
 
 // Create post using socket post
