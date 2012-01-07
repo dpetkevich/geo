@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-    //var socket = io.connect( 'http://localhost/' );
+    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+    var socket = io.connect( 'http://localhost/' );
 
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
@@ -14,7 +14,21 @@ $(  document).ready( function () {
     $( '#submit_post' ).click( function () {
       socketPost( socket );
     } );
-    
+
+   $('#new_post_title').keypress(function(e)
+    {
+        if (e.keyCode == 13)
+        {
+                socketPost( socket );
+        }
+    });
+  $('#new_post_body').keypress(function(e)
+    {
+        if (e.keyCode == 13)
+        {
+                socketPost( socket );
+        }
+    });
     
     // This code handles the default placeholder text
     $( '.defaultText' ).focus( function () {
