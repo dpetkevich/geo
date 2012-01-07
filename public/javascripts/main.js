@@ -1,6 +1,8 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+    var socket = io.connect( 'http://localhost/' );
+
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
     } );
@@ -79,6 +81,16 @@ function ajaxPosts( latitude, longitude ) {
     function ( json ) {
       var posts = JSON.parse(json.posts);
       console.log( posts );
+      console.log (longitude);
+      console.log (latitude);
+      var i=Number(.001);
+  if ( i==.001)
+        {
+          console.log(i);
+          $('#top').html('Rob House');
+        }
+
+
          for ( var i = 0; i < posts.length; i++ )  { 
           $new_post = $( '.postbox' ).first().clone();
           $new_post.find('.post_title').html(posts[ i ].title);
@@ -97,6 +109,8 @@ function ajaxPosts( latitude, longitude ) {
 }
 
 /**** WTG STOP ****/
+
+
 
 
 
@@ -139,4 +153,7 @@ function socketPost( socket ) {
 
   socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude } );
 }
+
+
+
 
