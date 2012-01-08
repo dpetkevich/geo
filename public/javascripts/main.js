@@ -97,12 +97,28 @@ function ajaxPosts( latitude, longitude ) {
       console.log( posts );
       console.log (longitude);
       console.log (latitude);
-      var i=Number(.001);
+      var saybrooklat=Number(0.000327318290368);
+      var saybrooklong=Number(0.0002557554671);
+      var i=.001;
+//beginning the hard coding
+
+  
   if ( i==.001)
         {
-          console.log(i);
+          console.log("latitude is" + latitude);
+          console.log("latitude +tol is " + (latitude+saybrooklat));
           $('#locname').html('Bass Library');
         }
+
+
+
+
+
+
+
+
+
+
 
 
          for ( var i = 0; i < posts.length; i++ )  { 
