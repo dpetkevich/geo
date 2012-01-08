@@ -7,6 +7,8 @@ var postSchema = new Schema( {
 	,   latitude : { type: Number, default: 5 }
 	,	longitude : { type: Number, default: 5 }
 	,	date    : { type: Date, default: Date.now }
+	,	display_date : { type: String, default: "Sometime"}
+
 } );
 
 postSchema.methods.date_display = function ( cb ) {

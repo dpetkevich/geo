@@ -109,7 +109,8 @@ function ajaxPosts( latitude, longitude ) {
           $new_post = $( '.postbox' ).first().clone();
           $new_post.find('.post_title').html(posts[ i ].title);
           $new_post.find(".post_body").html(posts[ i ].content);
-          $new_post.find( '.post_time' ).html(posts[ i ].date );
+          $new_post.find( '.post_time' ).html(posts[i].date);
+     
           $( '#new_crush_box' ).after( $new_post );
           $new_post.show();
 
@@ -175,10 +176,22 @@ function createPost( data ) {
 // Create post using socket post
 function socketPost( socket ) {
   console.log($( '#new_crush_box' ).find( 'input' ).val());
+  $box = $( '#new_crush_box' );
+  if ($box.find('input').val()!= "Where are you in bass?")
+  { 
   var title = $( '#new_crush_box' ).find( 'input' ).val();
   var content = $( '#new_crush_box' ).find( 'textarea' ).val();
   var latitude= $('#lat').html();
   var longitude= $('#lon').html();
+
+    }
+    else {
+      var title = "Somewhere in bass";
+      var content = $( '#new_crush_box' ).find( 'textarea' ).val();
+      var latitude= $('#lat').html();
+      var longitude= $('#lon').html();
+    }
+  
 
   socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude } );
 }
