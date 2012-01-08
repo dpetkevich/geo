@@ -11,24 +11,24 @@ $(  document).ready( function () {
     //$( '#new_crush_button' ).click( insertNewPost );
     
     // Attach click handler to #submit_post button
-    $( '#submit_post' ).click( function () {
-      socketPost( socket );
-    } );
+      $( '#submit_post' ).click( function () {
+        socketPost( socket );
+      } );
 
-   $('#new_post_title').keypress(function(e)
-    {
-        if (e.keyCode == 13)
-        {
-                socketPost( socket );
-        }
-    });
-  $('#new_post_body').keypress(function(e)
-    {
-        if (e.keyCode == 13)
-        {
-                socketPost( socket );
-        }
-    });
+     $('#new_post_title').keypress(function(e)
+      {
+          if (e.keyCode == 13)
+          {
+                  socketPost( socket );
+          }
+      });
+    $('#new_post_body').keypress(function(e)
+      {
+          if (e.keyCode == 13)
+          {
+                  socketPost( socket );
+          }
+      });
     
     // This code handles the default placeholder text
     $( '.defaultText' ).focus( function () {
@@ -109,7 +109,7 @@ function ajaxPosts( latitude, longitude ) {
           $new_post = $( '.postbox' ).first().clone();
           $new_post.find('.post_title').html(posts[ i ].title);
           $new_post.find(".post_body").html(posts[ i ].content);
-          $new_post.find( '.post_time' ).html( 'just now.' );
+          $new_post.find( '.post_time' ).html(posts[ i ].date );
           $( '#new_crush_box' ).after( $new_post );
           $new_post.show();
 
@@ -137,22 +137,20 @@ function insertNewPost() {
 }
 
 function createPost( data ) {
-	
+  var currentTime = new Date();
+	var time = currentTime.getHours()+":"+ currentTime.getMinutes();
 	// Clone an existing post, and set values of the new post
   if(data.content!="Write Your Post Here.") {
 
     
   $new_post = $( '.postbox' ).first().clone();
 
-  if (data.title!="Where are you in bass?")
-  {
+ 
   $new_post.find( '.post_title' ).html( data.title );
-}
-  else{
-    $new_post.find( '.post_title' ).html( "Somewhere in bass" );
-  }
+
+  
   $new_post.find( '.post_body' ).html( data.content );
-  $new_post.find( '.post_time' ).html( 'just now.' );
+  $new_post.find( '.post_time' ).html( time);
 
 	// Hide the new post so we can slide it down nicely
 	$new_post.css( 'display', 'none' );	
@@ -176,6 +174,7 @@ function createPost( data ) {
 
 // Create post using socket post
 function socketPost( socket ) {
+  console.log($( '#new_crush_box' ).find( 'input' ).val());
   var title = $( '#new_crush_box' ).find( 'input' ).val();
   var content = $( '#new_crush_box' ).find( 'textarea' ).val();
   var latitude= $('#lat').html();
