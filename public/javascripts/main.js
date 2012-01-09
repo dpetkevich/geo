@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-    //var socket = io.connect( 'http://localhost/' );
+    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+    var socket = io.connect( 'http://localhost/' );
 
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
@@ -139,8 +139,8 @@ function createPost( data ) {
   var currentTime = new Date();
 	var time = currentTime.getHours()+":"+ currentTime.getMinutes();
 	// Clone an existing post, and set values of the new post
-  if(data.content!="Write Your Post Here.") {
-
+  
+if($("#new_post_body").val()!="Write Your Post Here."){
     
   $new_post = $( '.postbox' ).first().clone();
 
@@ -163,33 +163,43 @@ function createPost( data ) {
 	//$( '#new_crush_button' ).show();
 	$new_post.slideDown( 'slow', function () {
 	} );
-
+}
   
-    }
-  else{
-    alert("You've gotta write a post!");
-  }
+  
+    
+ 
 }
 
 // Create post using socket post
 function socketPost( socket ) {
   console.log($( '#new_crush_box' ).find( 'input' ).val());
-  $box = $( '#new_crush_box' );
-  if ($box.find('input').val()!= "Where are you in bass?")
-  { 
-  var title = $( '#new_crush_box' ).find( 'input' ).val();
-  var content = $( '#new_crush_box' ).find( 'textarea' ).val();
-  var latitude= $('#lat').html();
-  var longitude= $('#lon').html();
+ 
+  if($("#new_post_body").val()!="Write Your Post Here."){
+      
+
+    if($('#new_post_title').val().substring(0,16)!="Where are you in"){
+     console.log('for loop works');
+    console.log($('#new_post_title').val().substring(0,15));
+    var title = $( '#new_crush_box' ).find( 'input' ).val();
+    var content = $( '#new_crush_box' ).find( 'textarea' ).val();
+    var latitude= $('#lat').html();
+    var longitude= $('#lon').html();
+
+      }
+    else{
+    
+    var title = "Somewhere in " + $('#new_post_title').val().substring(17,($('#new_post_title').val().length)-1);
+    var content = $( '#new_crush_box' ).find( 'textarea' ).val();
+    var latitude= $('#lat').html();
+    var longitude= $('#lon').html();
+
 
     }
-    else {
-      var title = "Somewhere in bass";
-      var content = $( '#new_crush_box' ).find( 'textarea' ).val();
-      var latitude= $('#lat').html();
-      var longitude= $('#lon').html();
-    }
-  
+      
+  }
+  else{
+    alert("You've gotta write a post!");
+  }
 
   socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude } );
 }
