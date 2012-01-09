@@ -52,14 +52,47 @@
   navigator.geolocation.getCurrentPosition(function(position) {
     
 
-   var lat = position.coords.latitude;
-   var lon = position.coords.longitude;
+   var lat = Number(position.coords.latitude);
+   var lon = Number(position.coords.longitude);
     ajaxPosts( lat, lon);
+
+
+// beginning the headers
+    var lattol = Number(.00038609166667);
+    var lontol = Number(.000333233333322);
+   
+      
+//Saybrook
+   var saybrooklat = Number(41.3101593916667);
+    var saybrooklong = Number(-72.9295340333333);
+  
+  if ( lat >= (saybrooklat-lattol) && lat <=(saybrooklat+lattol)
+  && lon <= (saybrooklong+lontol) && lon >= (saybrooklong-lontol))
+        {
+          
+          $('#locname').html('Saybrook');
+        }
+// Berkeley
+  var berklat = Number(41.3104362222222);
+  var berklong = Number(-72.9282326777778);
+  
+  if ( lat >= (berklat-lattol) && lat <=(berklat+lattol)
+  && lon <= (berklong+lontol) && lon >= (berklong-lontol))
+        {
+          
+          $('#locname').html('Berkeley South');
+        }
+
 });
   
 } else {
   alert("I'm sorry, but geolocation services are not supported by your browser.");
 }
+
+
+
+
+
   } );
     
 </script>

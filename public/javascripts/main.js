@@ -66,6 +66,8 @@ alert('Your browser does not support the Geo-Location feature');
 }
 });
 
+
+
 function showPosition(position){
 var lat = position.coords.latitude;
 var lon = position.coords.longitude;
@@ -97,27 +99,7 @@ function ajaxPosts( latitude, longitude ) {
       console.log( posts );
       console.log (longitude);
       console.log (latitude);
-      var saybrooklat=Number(0.000327318290368);
-      var saybrooklong=Number(0.0002557554671);
-      var i=.001;
-//beginning the hard coding
-
-  
-  if ( i==.001)
-        {
-          console.log("latitude is" + latitude);
-          console.log("latitude +tol is " + (latitude+saybrooklat));
-          $('#locname').html('Bass Library');
-        }
-
-
-
-
-
-
-
-
-
+    
 
 
 

@@ -52,16 +52,17 @@ module.exports.get_posts = function( req, res ) {
   var lat = Number(req.query.latitude);
   var lon = Number(req.query.longitude);
 
-	var tolerance = Number(.001);
+	var lattol = Number(.00038609166667);
+    var lontol = Number(.000333233333322);
 	console.log("lat1 is " + lat);
-	console.log("lat-tol " + (lat-tolerance));
+	console.log("lat-tol " + (lat-lattol));
 		console.log("lat+tol " + (lat+tolerance));
 
   Post
-  .where('latitude').gte(lat-tolerance)
-  .where('latitude').lte(lat+tolerance)
-  .where('longitude').gte(lon-tolerance)
-  .where('longitude').lte(lon+tolerance)
+  .where('latitude').gte(lat-lattol)
+  .where('latitude').lte(lat+lattol)
+  .where('longitude').gte(lon-lontol)
+  .where('longitude').lte(lon+lontol)
   .run( function( err, posts ) {
 
     res.send( { posts: JSON.stringify( posts ) } );
