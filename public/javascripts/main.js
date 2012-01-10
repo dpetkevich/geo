@@ -163,6 +163,12 @@ if($("#new_post_body").val()!="Write Your Post Here."){
 	//$( '#new_crush_button' ).show();
 	$new_post.slideDown( 'slow', function () {
 	} );
+
+  $('#new_post_body').val("Write Your Post Here.");
+  //$('#new_post_body').attr('alt', 'Beijing Brush Seller');
+
+
+
 }
   
   
@@ -202,6 +208,8 @@ function socketPost( socket ) {
   }
 
   socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude } );
+
+  
 }
 
 
