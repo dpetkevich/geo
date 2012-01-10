@@ -165,7 +165,6 @@ if($("#new_post_body").val()!="Write Your Post Here."){
 	} );
 
   $('#new_post_body').val("Write Your Post Here.");
-  //$('#new_post_body').attr('alt', 'Beijing Brush Seller');
 
 
 
