@@ -33,7 +33,7 @@
 
   
 </div>
-<div id="footer">&copy; Circa: Yale 2011 </div>
+<div id="footer">&copy; Circa: Yale 2012 </div>
   <div id="positions">
     <div id="lat" > </div>
     <div id="lon" > </div>
@@ -71,7 +71,8 @@
         {
           
           $('#locname').html('Saybrook');
-          $('#new_post_title').val("Where are you in Saybrook?")
+          $('#new_post_title').val("Where are you in Saybrook?");
+          $('#new_post_title').attr('alt', "Where are you in Saybrook?");
         }
 //Berkeley
   var berklat = Number(41.3104362222222);
@@ -82,7 +83,8 @@
         {
           
           $('#locname').html('Berkeley South');
-          $('#new_post_title').val("Where are you in Berkeley?")
+          $('#new_post_title').val("Where are you in Berkeley?");
+          $('#new_post_title').attr('alt', "Where are you in Berkeley?");
         }
 // Davies Auditorium
   var davelat=Number(41.31219205);
@@ -92,7 +94,8 @@
         {
           
           $('#locname').html('Davies');
-          $('#new_post_title').val("Where are you in Davies?")
+          $('#new_post_title').val("Where are you in Davies?");
+          $('#new_post_title').attr('alt', "Where are you in Davies?");
         }
 
 // Sudler Hall
@@ -103,7 +106,8 @@
         {
           
           $('#locname').html('Sudler Hall');
-          $('#new_post_title').val("Where are you in Sudler?")
+          $('#new_post_title').val("Where are you in Sudler?");
+          $('#new_post_title').attr('alt', 'Where are you in Sudler?');
         }
 //Dunham
   var dunlat=Number(41.3120644777778);
@@ -113,7 +117,8 @@
         {
           
           $('#locname').html('Dunham');
-          $('#new_post_title').val("Where are you in Dunham?")
+          $('#new_post_title').val("Where are you in Dunham?");
+          $('#new_post_title').attr('alt', 'Where are you in Dunham?');
         }
 
 // Sloane 59
@@ -124,7 +129,8 @@
         {
           
           $('#locname').html('Sloane 59');
-          $('#new_post_title').val("Where are you in Sloane 59?")
+          $('#new_post_title').val("Where are you in Sloane 59?");
+          $('#new_post_title').attr('alt', 'Where are you in Sloane 59?');
         }
 
 // Sloane 57
@@ -135,7 +141,9 @@
         {
           
           $('#locname').html('Sloane 57');
-          $('#new_post_title').val("Where are you in Sloane 57?")
+          $('#new_post_title').val("Where are you in Sloane 57?");
+          $('#new_post_title').attr('alt', 'Where are you in Sloane 57?');
+
         }
 
 // LC 101
@@ -146,7 +154,8 @@
         {
           
           $('#locname').html('LC 101');
-          $('#new_post_title').val("Where are you in LC 101?")
+          $('#new_post_title').val("Where are you in LC 101?");
+          $('#new_post_title').attr('alt', 'Where are you in LC 101?');
         }
 
 //LC 102
@@ -157,7 +166,7 @@
         {
           
           $('#locname').html('LC 102');
-          $('#new_post_title').val("Where are you in LC 102?")
+          $('#new_post_title').val("Where are you in LC 102?");
           $('#new_post_title').attr('alt', 'Where are you in LC 102?');
 
         }
@@ -170,7 +179,21 @@
         {
           
           $('#locname').html('Loria 250');
-          $('#new_post_title').val("Where are you in 250?")
+          $('#new_post_title').val("Where are you in 250?");
+          $('#new_post_title').attr('alt', 'Where are you in 250?');
+
+        }
+  //SCL 110
+
+  var scl110lat=Number(41.3177732333333);
+  var scl110lon = Number(-72.9229179333333);
+  if ( lat >= (scl110lat-lattol) && lat <=(scl110lat+lattol)
+  && lon <= (scl110lon+lontol) && lon >= (scl110lon-lontol))
+        {
+          
+          $('#locname').html('SCL 110');
+          $('#new_post_title').val("Where are you in SCL 110?");
+          $('#new_post_title').attr('alt', 'Where are you in SCL 110?');
         }
 
 });

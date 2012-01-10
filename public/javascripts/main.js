@@ -165,7 +165,7 @@ if($("#new_post_body").val()!="Write Your Post Here."){
 	} );
 
   $('#new_post_body').val("Write Your Post Here.");
-
+  $('#new_post_title').val("Where are you in" + $("#locname").html() + "?");
 
 
 }
