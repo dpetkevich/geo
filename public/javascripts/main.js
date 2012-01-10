@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-    //var socket = io.connect( 'http://localhost/' );
+    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+    var socket = io.connect( 'http://localhost/' );
 
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
@@ -198,7 +198,7 @@ function socketPost( socket ) {
       
   }
   else{
-    alert("You've gotta write a post!");
+    jAlert("You've gotta write a post!", "Circa");
   }
 
   socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude } );
