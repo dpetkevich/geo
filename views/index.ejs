@@ -160,6 +160,17 @@
           $('#new_post_title').val("Where are you in LC 101?")
         }
 
+  //Loria 250
+  var lor250lat=Number(41.3090432666667);
+  var lor250lon = Number(-72.9316202333333);
+  if ( lat >= (lor250lat-lattol) && lat <=(lor250lat+lattol)
+  && lon <= (lor250lon+lontol) && lon >= (lor250lon-lontol))
+        {
+          
+          $('#locname').html('Loria 250');
+          $('#new_post_title').val("Where are you in 250?")
+        }
+
 });
   
 } else {
