@@ -230,6 +230,57 @@
           $('#new_post_title').attr('alt', 'Where are you in Blue State?');
         }
 
+   // OML 202
+
+  var omllat=Number(41.3161918333333);
+  var omllon = Number(-72.9237175666667);
+  if ( lat >= (omllat-lattol) && lat <=(omllat+lattol)
+  && lon <= (omllon+lontol) && lon >= (omllon-lontol))
+        {
+          
+          $('#locname').html('OML 202');
+          $('#new_post_title').val("Where are you in 202?");
+          $('#new_post_title').attr('alt', 'Where are you in 202?');
+        }
+    
+    // Luce Auditorium
+
+  var lulat=Number(41.3143853666667);
+  var lulon = Number(-72.9244436333333);
+  if ( lat >= (lulat-lattol) && lat <=(lulat+lattol)
+  && lon <= (lulon+lontol) && lon >= (lulon-lontol))
+        {
+          
+          $('#locname').html('Luce Auditorium');
+          $('#new_post_title').val("Where are you in Luce?");
+          $('#new_post_title').attr('alt', 'Where are you in Luce?');
+        }
+
+        // Mason 211 Auditorium
+
+  var maslat=Number(41.3124221333333);
+  var maslon = Number(-72.923422);
+  if ( lat >= (maslat-lattol) && lat <=(maslat+lattol)
+  && lon <= (maslon+lontol) && lon >= (maslon-lontol))
+        {
+          
+          $('#locname').html('Mason 211');
+          $('#new_post_title').val("Where are you in 211?");
+          $('#new_post_title').attr('alt', 'Where are you in 211?');
+        }
+
+  // whitney 120
+  
+  var whclat=Number(41.3097617);
+  var whclon = Number(-72.9238007666667);
+  if ( lat >= (whclat-lattol) && lat <=(whclat+lattol)
+  && lon <= (whclon+lontol) && lon >= (whclon-lontol))
+        {
+          
+          $('#locname').html('WHC 120');
+          $('#new_post_title').val("Where are you in WHC 120?");
+          $('#new_post_title').attr('alt', 'Where are you in WHC 120?');
+        }      
 
 });
   
