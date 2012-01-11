@@ -58,8 +58,10 @@
 
 
 // beginning the headers
-    var lattol = Number(.0000938609166667);
-    var lontol = Number(.00009333233333322);
+
+
+   var lattol = Number(.0000938609166667);
+  var lontol = Number(.00009333233333322);
    
       
 //Saybrook
@@ -93,7 +95,7 @@
   && lon <= (davelon+lontol) && lon >= (davelon-lontol))
         {
           
-          $('#locname').html('Davies');
+          $('#locname').html('Davies Auditorium');
           $('#new_post_title').val("Where are you in Davies?");
           $('#new_post_title').attr('alt', "Where are you in Davies?");
         }
@@ -195,6 +197,33 @@
           $('#new_post_title').val("Where are you in SCL 110?");
           $('#new_post_title').attr('alt', 'Where are you in SCL 110?');
         }
+
+  //SSS 114
+
+  var ssslat=Number(41.3116056666667);
+  var ssslon = Number(-72.9252176);
+  if ( lat >= (ssslat-lattol) && lat <=(ssslat+lattol)
+  && lon <= (ssslon+lontol) && lon >= (ssslon-lontol))
+        {
+          
+          $('#locname').html('SSS 114');
+          $('#new_post_title').val("Where are you in SSS 114?");
+          $('#new_post_title').attr('alt', 'Where are you in SSS 114?');
+        }
+
+  // Blue State Wall St.
+
+  var bswlat=Number(41.3104132666667);
+  var bswlon = Number(-72.9255495);
+  if ( lat >= (bswlat-lattol) && lat <=(bswlat+lattol)
+  && lon <= (bswlon+lontol) && lon >= (bswlon-lontol))
+        {
+          
+          $('#locname').html('Blue State (Wall St.)');
+          $('#new_post_title').val("Where are you in Blue State?");
+          $('#new_post_title').attr('alt', 'Where are you in Blue State?');
+        }
+
 
 });
   
