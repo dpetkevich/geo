@@ -1,11 +1,10 @@
-
+<div id="localertdiv">
+ <img  id="localert" src="./images/locheader.png" alt="You've got to allow location tracking for circa to work!" />
+</div>
 <div id="top">
   <div id="maintext">
   Circa: <span id="locname"> Yale</span>
-  <span>
-  <img  id="localert" src="./images/locheader.png" alt="You've got to allow location tracking for circa to work!" />
-
-  </span>
+ 
   </div>
   <div id="subtext">
   chat with the people around you.</div>
@@ -60,7 +59,7 @@
 
    var lat = Number(position.coords.latitude);
    var lon = Number(position.coords.longitude);
-   $("#localert").hide();
+   $("#localertdiv").hide();
     ajaxPosts( lat, lon);
 
 
