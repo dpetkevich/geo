@@ -280,7 +280,61 @@
           $('#locname').html('WHC 120');
           $('#new_post_title').val("Where are you in WHC 120?");
           $('#new_post_title').attr('alt', 'Where are you in WHC 120?');
-        }      
+        }    
+        
+  //Sterling Society Reading Room
+  
+  var soclat=Number(41.3112792333333);
+  var soclon = Number(-72.9282619);
+  if ( lat >= (soclat-lattol) && lat <=(soclat+lattol)
+  && lon <= (soclon+lontol) && lon >= (soclon-lontol))
+        {
+          
+          $('#locname').html('Sterling Reading Room');
+          $('#new_post_title').val("Where are you in the room?");
+          $('#new_post_title').attr('alt', 'Where are you in the room?');
+        }  
+
+  //Sterling Reference Room East  
+  
+  var reflat=Number(41.3108255666667);
+  var reflon = Number(-72.92873725);
+  if ( lat >= (reflat-lattol) && lat <=(reflat+lattol)
+  && lon <= (reflon+lontol) && lon >= (reflon-lontol))
+        {
+          
+          $('#locname').html('Sterling Reference Room');
+          $('#new_post_title').val("Where are you in the room?");
+          $('#new_post_title').attr('alt', 'Where are you in the room?');
+        }  
+
+
+  // Music Room
+  
+  var muslat=Number(41.3113233333333);
+  var muslon = Number(-72.9285892);
+  if ( lat >= (muslat-lattol) && lat <=(muslat+lattol)
+  && lon <= (muslon+lontol) && lon >= (muslon-lontol))
+        {
+          
+          $('#locname').html('Music Library');
+          $('#new_post_title').val("Where are you in the music library?");
+          $('#new_post_title').attr('alt', 'Where are you in the music library?');
+        }  
+
+
+// Below Sterling
+  
+  var bslat=Number(41.3108982333333);
+  var bslon = Number(-72.9282461666667);
+  if ( lat >= (bslat-lattol) && lat <=(bslat+lattol)
+  && lon <= (bslon+lontol) && lon >= (bslon-lontol))
+        {
+          
+          $('#locname').html('Below Sterling');
+          $('#new_post_title').val("Where are you in that place below Sterling?");
+          $('#new_post_title').attr('alt', 'Where are you in that place below Sterling?');
+        }  
 
 });
   
