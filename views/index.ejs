@@ -336,6 +336,46 @@
           $('#new_post_title').attr('alt', 'Where are you in that place below Sterling?');
         }  
 
+// bass 1st floor
+
+  var b1lat=Number(41.3108646666667);
+  var b1lon = Number(-72.9279158);
+  if ( lat >= (b1lat-lattol) && lat <=(b1lat+lattol)
+  && lon <= (b1lon+lontol) && lon >= (b1lon-lontol))
+        {
+          
+          $('#locname').html('Bass Library');
+          $('#new_post_title').val("Where are you in Bass?");
+          $('#new_post_title').attr('alt', 'Where are you in Bass?');
+        }  
+
+// bass cafe
+
+  var bcafelat=Number(41.3106765666667);
+  var bcafelon = Number(-72.9274440333333);
+  if ( lat >= (bcafelat-lattol) && lat <=(bcafelat+lattol)
+  && lon <= (bcafelon+lontol) && lon >= (bcafelon-lontol))
+        {
+          
+          $('#locname').html('Bass Cafe');
+          $('#new_post_title').val("Where are you in Bass Cafe?");
+          $('#new_post_title').attr('alt', 'Where are you in Bass Cafe?');
+        }  
+
+// A&A Library
+
+  var aalat=Number(41.3086329666667);
+  var aalon = Number(-72.9317826);
+  if ( lat >= (aalat-lattol) && lat <=(aalat+lattol)
+  && lon <= (aalon+lontol) && lon >= (aalon-lontol))
+        {
+          
+          $('#locname').html('A&A Library');
+          $('#new_post_title').val("Where are you in the A&A Library?");
+          $('#new_post_title').attr('alt', 'Where are you in the A&A Library?');
+        }  
+
+
 });
   
 } else {
