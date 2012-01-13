@@ -48,6 +48,7 @@ p{
     text-align:center;
     background-color:#FFF9EA;
     margin-top:8px;
+    position:relative;
 }
 #erroralert {
     margin-top:42px;
@@ -153,11 +154,12 @@ textarea#new_post_body{
     margin-right:auto;
 }
 #exp{
-    display:inline;
-        float:left;
+    
+        position:absolute;
+       
         width: 175px;
         margin-top: 50px;
-        margin-left: 40px;
+        margin-left: 80px;
 }
 #localert{
    
