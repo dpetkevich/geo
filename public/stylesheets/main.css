@@ -49,6 +49,21 @@ p{
     background-color:#FFF9EA;
     margin-top:8px;
 }
+#erroralert {
+    margin-top:42px;
+    border:solid 1px #ccc;
+    padding: 15px;
+    padding-top:2px;
+    width:500px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    background-color:#FFF9EA;
+    margin-top:8px;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 10px;
+}
 #top{
     margin-left: 80px;
     margin-top:25px;
@@ -57,6 +72,7 @@ p{
 #maintext{
     font-size: 45pt;
     font-weight: lighter;
+
    
 }
 #subtext{
@@ -67,6 +83,8 @@ p{
 #top{
     margin-left: 80px;
     margin-top:25px;
+
+
 }
 #new_crush_button {
     padding:15px;
@@ -102,6 +120,7 @@ input#new_post_title, textarea#new_post_body{
     color:#333;
     font-size:14px;
     font-weight:bold;
+     color:#ccc;
 
 }
 textarea#new_post_body{
@@ -110,6 +129,7 @@ textarea#new_post_body{
     margin-top:8px;
     min-height:40px;
     margin-bottom:5px;
+    color:#ccc;
     
 }
 .post_time{
@@ -131,5 +151,20 @@ textarea#new_post_body{
     width:200px;
     margin-left:auto;
     margin-right:auto;
+}
+#exp{
+    display:inline;
+        float:left;
+        width: 175px;
+        margin-top: 50px;
+        margin-left: 40px;
+}
+#localert{
+   
+    width: 450px;
+    margin-left: 500px;
+
+
+
 }
 
