@@ -25,8 +25,8 @@
           <input type = "radio"
                  name = "room[name]"
                  id = "sizeMed"
-                 value = "medium" />
-          <label for = "sizeMed">medium</label>
+                 value = "AA Library" />
+          <label for = "sizeMed">AA Library</label>
  
           <input type = "radio"
                  name = "room[name]"
@@ -50,44 +50,17 @@
 
   </div>
   
-  <div class="postbox" style="display:none">
-    <h2 class="post_body"></h2>
-    <span class="post_title"></span>
+ <% for ( var i = 0; i < posts.length; i++ )  { %>
+
+  <div class="postbox" >
+    <h2 class="post_body"><%= posts[ i ].content %></h2>
+    <span class="post_title"><%= posts[ i ].title %></span>
     
-    <span class="post_time"></span>
+    <span class="post_time"><%= posts[ i ].date_display() %></span>
   </div>
 
-   <div class="postbox" >
-    <h2 class="post_body">Not. A. Chance.</h2>
-    <span class="post_title">That cute redhead upfront.</span>
-    
-    <span class="post_time">sometime</span>
-  </div>
-   <div class="postbox" >
-    <h2 class="post_body">Anyone know if that cute redhead up front is single?</h2>
-    <span class="post_title">Somewhere in Loria 250</span>
-    
-    <span class="post_time">sometime</span>
-  </div>
-   <div class="postbox" >
-    <h2 class="post_body">Bet there's someone here that knows</h2>
-    <span class="post_title">Somewhere in Loria 250</span>
-    
-    <span class="post_time">sometime</span>
-  </div>
-   <div class="postbox" >
-    <h2 class="post_body">Heard he's got a giant dong</h2>
-    <span class="post_title">Back of the room</span>
-    
-    <span class="post_time">sometime</span>
-  </div>
-   <div class="postbox" >
-    <h2 class="post_body">Master T would give up one of his balls to have been born black</h2>
-    <span class="post_title">Somewhere in Loria 250</span>
-    
-    <span class="post_time">sometime</span>
-  </div>
-
+  
+ <% } %>
 
 
 

@@ -72,16 +72,16 @@ module.exports.get_posts = function( req, res ) {
 module.exports.admin_get = function( req, res ) {
   console.log( "req body is" + req.body.room.name );
 
- /* var loc = req.query.location;
+  var loc = req.body.room.name 
 
 
   Post
   .where('location', loc)
   .run( function( err, posts ) {
 
-    res.send( { posts: JSON.stringify( posts ) } );
+    res.render( 'admin.ejs', { title: 'Circa', posts: posts.reverse() } );
   } ) 
-  */
+ 
 };
 
 /**** WTG STOP ****/
