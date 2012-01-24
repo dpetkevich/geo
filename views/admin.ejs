@@ -1,1 +1,107 @@
-<h1> admin page </h1>
+
+<div id="top">
+  <div id="maintext">
+  Circa: Admin Page
+ 
+  </div>
+  <div id="subtext">
+  chat with the people around you.</div>
+  </div>
+
+
+<div id="erroralert" style="display:none">
+    Circa's having some trouble! Try refreshing the page a few times. If that doesn't work, then you might be in a place that we don't serve. If you think your location should be served by Circa, let us know at daniel.petkevich@gmail.com.
+  </div>
+
+<form>
+      <fieldset>
+       <legend>Selecting elements</legend>
+       <p>
+          <label>Radio buttons</label>            
+          <input type = "radio"
+                 name = "radSize"
+                 id = "sizeSmall"
+                 value = "small"
+                 checked = "checked" />
+          <label for = "sizeSmall">small</label>
+          
+          <input type = "radio"
+                 name = "radSize"
+                 id = "sizeMed"
+                 value = "medium" />
+          <label for = "sizeMed">medium</label>
+ 
+          <input type = "radio"
+                 name = "radSize"
+                 id = "sizeLarge"
+                 value = "large" />
+          <label for = "sizeLarge">large</label>
+        </p>       
+      </fieldset>     
+    </form>
+
+<div id="main">
+
+  <div id="new_crush_box" >
+    <textarea id="new_post_body" class="defaultText"
+      alt="Write Your Post Here." name="post[content]" value="Write Your Post Here.">Write Your Post Here.</textarea>
+    <input id="new_post_title" class="defaultText" value="Where are you in Yale?" alt="Where are you in Yale?"
+      name="post[title]"/>
+    
+    <button id="submit_post">Submit </button>
+
+  </div>
+  
+  <div class="postbox" style="display:none">
+    <h2 class="post_body"></h2>
+    <span class="post_title"></span>
+    
+    <span class="post_time"></span>
+  </div>
+
+   <div class="postbox" >
+    <h2 class="post_body">Not. A. Chance.</h2>
+    <span class="post_title">That cute redhead upfront.</span>
+    
+    <span class="post_time">sometime</span>
+  </div>
+   <div class="postbox" >
+    <h2 class="post_body">Anyone know if that cute redhead up front is single?</h2>
+    <span class="post_title">Somewhere in Loria 250</span>
+    
+    <span class="post_time">sometime</span>
+  </div>
+   <div class="postbox" >
+    <h2 class="post_body">Bet there's someone here that knows</h2>
+    <span class="post_title">Somewhere in Loria 250</span>
+    
+    <span class="post_time">sometime</span>
+  </div>
+   <div class="postbox" >
+    <h2 class="post_body">Heard he's got a giant dong</h2>
+    <span class="post_title">Back of the room</span>
+    
+    <span class="post_time">sometime</span>
+  </div>
+   <div class="postbox" >
+    <h2 class="post_body">Master T would give up one of his balls to have been born black</h2>
+    <span class="post_title">Somewhere in Loria 250</span>
+    
+    <span class="post_time">sometime</span>
+  </div>
+
+
+
+
+
+  
+</div>
+<div id="footer">&copy; Circa: Yale 2012 </div>
+  <div id="positions">
+    <div id="lat" > </div>
+    <div id="lon" > </div>
+    <div id="tol" style="display:none"> </div>
+  </div>
+</div>
+
+<!-- WTG START -->
