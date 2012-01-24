@@ -47,26 +47,16 @@ module.exports.create_post = function( data, socket ) {
 /**** WTG START ****/
 
 module.exports.get_posts = function( req, res ) {
-  console.log( util.inspect( req.query ) );
+  console.log( "req query is" + util.inspect( req.query ) );
 
-  var lat = Number(req.query.latitude);
-  var lon = Number(req.query.longitude);
+  var loc = req.query.location;
 
-	var lattol = Number(.0000938609166667);
-    var lontol = Number(.00009333233333322);
-	console.log("lat1 is " + lat);
-	console.log("lat-tol " + (lat-lattol));
-		console.log("lat+tol " + (lat+tolerance));
 
   Post
-  .where('latitude').gte(lat-lattol)
-  .where('latitude').lte(lat+lattol)
-  .where('longitude').gte(lon-lontol)
-  .where('longitude').lte(lon+lontol)
+  .where('location', loc)
   .run( function( err, posts ) {
 
     res.send( { posts: JSON.stringify( posts ) } );
-    console.log("lat2 is " + lat);
   } ) 
 };
 

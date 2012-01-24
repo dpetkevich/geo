@@ -90,15 +90,13 @@ alert('Your browser does not support the Geo-Location feature');
 
 /**** WTG START ****/
 
-function ajaxPosts( latitude, longitude ) {
+function ajaxPosts( location ) {
   $.getJSON(
     '/get_posts',
-    { latitude: latitude, longitude: longitude },
+    { location: location },
     function ( json ) {
       var posts = JSON.parse(json.posts);
-      console.log( posts );
-      console.log (longitude);
-      console.log (latitude);
+
     
 
 

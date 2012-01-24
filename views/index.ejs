@@ -89,8 +89,7 @@
 
    var lat = Number(position.coords.latitude);
    var lon = Number(position.coords.longitude);
-   $("#localertdiv").hide();
-    ajaxPosts( lat, lon);
+
 
 
 // beginning the headers
@@ -400,10 +399,27 @@
   && lon <= (aalon+lontol) && lon >= (aalon-lontol))
         {
           
-          $('#locname').html('A&A Library');
-          $('#new_post_title').val("Where are you in the A&A Library?");
-          $('#new_post_title').attr('alt', 'Where are you in the A&A Library?');
+          $('#locname').html('AA Library');
+          $('#new_post_title').val("Where are you in the AA Library?");
+          $('#new_post_title').attr('alt', 'Where are you in the AA Library?');
         }  
+
+ // My Room
+ 
+  var mroomlat=Number(41.3103479333333);
+  var mroomlon = Number(-72.9297462666667);
+  if ( lat >= (mroomlat-lattol) && lat <=(mroomlat+lattol)
+  && lon <= (mroomlon+lontol) && lon >= (mroomlon-lontol))
+        {
+          
+          $('#locname').html('My Room');
+          $('#new_post_title').val("Where are you in your room?");
+          $('#new_post_title').attr('alt', 'Where are you in your room?');
+        }  
+
+
+  
+
 else{
 
 
@@ -416,6 +432,10 @@ else{
 
 
 }
+
+ var loc = $('#locname').html();
+   console.log("location is" + loc);
+    ajaxPosts( loc );
 
 });
   
