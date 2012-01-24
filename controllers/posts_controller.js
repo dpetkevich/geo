@@ -16,6 +16,15 @@ module.exports.index = exports.list_posts = function( req, res ) {
 
 };
 
+module.exports.admin_index = exports.list_posts = function( req, res ) {
+  
+	Post.find( function ( err, posts ) {
+		res.render( 'admin.ejs', { title: 'Circa', posts: posts.reverse() } );
+		
+	} )
+
+};
+
 
 /*
  * Handler to create new post
