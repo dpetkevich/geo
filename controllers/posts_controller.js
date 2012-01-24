@@ -16,7 +16,7 @@ module.exports.index = exports.list_posts = function( req, res ) {
 
 };
 
-module.exports.admin_index = exports.list_posts = function( req, res ) {
+module.exports.admin_list = exports.list_posts = function( req, res ) {
   
 	Post.find( function ( err, posts ) {
 		res.render( 'admin.ejs', { title: 'Circa', posts: posts.reverse() } );
@@ -67,6 +67,21 @@ module.exports.get_posts = function( req, res ) {
 
     res.send( { posts: JSON.stringify( posts ) } );
   } ) 
+};
+
+module.exports.admin_get = function( req, res ) {
+  console.log( "req body is" + req.body.room.name );
+
+ /* var loc = req.query.location;
+
+
+  Post
+  .where('location', loc)
+  .run( function( err, posts ) {
+
+    res.send( { posts: JSON.stringify( posts ) } );
+  } ) 
+  */
 };
 
 /**** WTG STOP ****/
