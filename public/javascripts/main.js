@@ -189,6 +189,7 @@ function socketPost( socket ) {
     var content = $( '#new_crush_box' ).find( 'textarea' ).val();
     var latitude= $('#lat').html();
     var longitude= $('#lon').html();
+    var location = $('#locname').html();
 
       }
     else{
@@ -197,6 +198,7 @@ function socketPost( socket ) {
     var content = $( '#new_crush_box' ).find( 'textarea' ).val();
     var latitude= $('#lat').html();
     var longitude= $('#lon').html();
+    var location = $('#locname').html();
 
 
     }
@@ -206,7 +208,7 @@ function socketPost( socket ) {
     jAlert("You've gotta write a post!", "Circa");
   }
 
-  socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude } );
+  socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude, location: location } );
 
   
 }
