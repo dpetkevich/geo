@@ -81,9 +81,9 @@ alert('Your browser does not support the Geo-Location feature');
 function submitRoom(){
   var selected =$("input:radio[name=room[name]]:checked");
   var val =selected.val();
-  console.log('function working');
+  console.log('selected val is' + val);
 selected.attr('checked','checked');
-//console.log
+console.log("attribute is " + selected.attr('checked'));
    $('#locname').html(val);
 
 }
