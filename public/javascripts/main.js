@@ -42,21 +42,7 @@ var socket = io.connect( 'http://localhost/' );
     // End placeholder code
    
 
-  /*if (navigator.geolocation) {
-       
-        navigator.geolocation.getCurrentPosition(function(position) {
-         var clat = position.coords.latitude;
-         var clon = position.coords.longitude;
-         var tolerance = .00000001;
-         $('#tol').html(tolerance);
-         $( '#lat').html(position.coords.latitude);
-         $( '#lon').html(position.coords.longitude);
 
-      });
-        
-      } else {
-        alert("I'm sorry, but geolocation services are not supported by your browser.");
-      } */
 
       if(navigator.geolocation) {
         getCurrentPosition();
