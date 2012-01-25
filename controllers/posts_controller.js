@@ -69,21 +69,21 @@ module.exports.get_posts = function( req, res ) {
   } ) 
 };
 
-module.exports.admin_get = function( req, res ) {
+module.exports.admin_get = exports.list_posts = function( req, res ) {
  console.log( "req params is" + req.body.room.name );
 
-  /*var loc = req.params.room.name 
+  var loc = req.body.room.name;
 
 
   Post
   .where('location', loc)
   .run( function( err, posts ) {
 
-  
-    res.send( { posts: JSON.stringify( posts ) } );
-   
+  	
+    res.render( 'admin.ejs', { title: 'Circa', posts: posts.reverse() } );
+   console.log('success');
   } ) 
-  */
+  
  
 };
 

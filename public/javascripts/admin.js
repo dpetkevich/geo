@@ -46,7 +46,7 @@ $(  document).ready( function () {
 
    
 
-   });
+  
    //console.log(" locname html is " +  $('#locname').html($('#sizeSmall').val()));
   /*if (navigator.geolocation) {
        
