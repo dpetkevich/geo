@@ -15,7 +15,7 @@
   </div>
 
 <div id='radio'>   
-	<form method='POST' action="get_admin_posts" id="radio_form">       
+	      
           <input type = "radio"
                  name = "room[name]"
                  
@@ -35,8 +35,8 @@
                  value = "Bass Library" />
           <label for = "sizeLarge">Bass Library</label>
             
-        <input type='submit' id='radioSubmit' value='submit'/>
-        </form>
+        <button id='radioSubmit'> Submit </button>
+        
     </div>
 
 <div id="main">
@@ -51,17 +51,16 @@
 
   </div>
   
-  <% for ( var i = 0; i < posts.length; i++ )  { %>
 
 
- <div class="postbox">
-    <h2 class="post_body"><%= posts[ i ].content %></h2>
-    <span class="post_title"><%= posts[ i ].title %></span>
-    
-    <span class="post_time"><%= posts[ i ].date_display() %></span>
+
+ <div class="postbox"  style="display:none">
+    <h2 class="post_body"></h2>
+    <span class="post_title"></span>
+    <span class="post_time"></span>
   </div>
 
- <% } %>
+
 
 
   

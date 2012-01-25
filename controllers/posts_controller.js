@@ -69,10 +69,10 @@ module.exports.get_posts = function( req, res ) {
   } ) 
 };
 
-module.exports.admin_get = exports.list_posts = function( req, res ) {
- console.log( "req params is" + req.body.room.name );
+module.exports.admin_get  = function( req, res ) {
+ //console.log( "req params is" + req.body.room.name );
 
-  var loc = req.body.room.name;
+  var loc = req.query.location;
 
 
   Post
@@ -80,11 +80,12 @@ module.exports.admin_get = exports.list_posts = function( req, res ) {
   .run( function( err, posts ) {
 
   	
-    res.render( 'admin.ejs', { title: 'Circa', posts: posts.reverse() } );
-   console.log('success');
+        res.send( { posts: JSON.stringify( posts ) } );
   } ) 
   
  
 };
+
+
 
 /**** WTG STOP ****/

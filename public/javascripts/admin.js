@@ -60,11 +60,19 @@ $(  document).ready( function () {
 
       $( '#radioSubmit' ).click( function () {
         submitRoom();
+        var loc = $('#locname').html();
+        console.log("loca is " + loc);
+        ajaxPosts( loc );
       } );
 
 
       if(navigator.geolocation) {
         getCurrentPosition();
+
+
+
+
+
 }
 else{
 alert('Your browser does not support the Geo-Location feature');
@@ -86,6 +94,31 @@ selected.attr('checked','checked');
 console.log("attribute is " + selected.attr('checked'));
    $('#locname').html(val);
 
+}
+
+function ajaxPosts( location ) {
+  $.getJSON(
+    '/get_admin_posts',
+    { location: location },
+    function ( json ) {
+      var posts = JSON.parse(json.posts);
+
+          for ( var i = 0; i < posts.length; i++ )  { 
+          $new_post = $( '.postbox' ).first().clone();
+          $new_post.find('.post_title').html(posts[ i ].title);
+          $new_post.find(".post_body").html(posts[ i ].content);
+          $new_post.find( '.post_time' ).html(posts[i].date);
+     
+          $( '#new_crush_box' ).after( $new_post );
+          $new_post.show();
+
+          //$new_post.find(".post_time").html(posts[ i ].date_display());
+         }  
+         // $new_post.css( 'display', 'none' ); 
+
+      return false;
+    }
+  )
 }
 
 
