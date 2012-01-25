@@ -93,6 +93,7 @@ function submitRoom(){
 selected.attr('checked','checked');
 console.log("attribute is " + selected.attr('checked'));
    $('#locname').html(val);
+   selected.prop('checked', false);
 
 }
 
@@ -101,8 +102,10 @@ function ajaxPosts( location ) {
     '/get_admin_posts',
     { location: location },
     function ( json ) {
-      var posts = JSON.parse(json.posts);
-
+      
+       var posts = JSON.parse(json.posts);
+        console.log(posts);
+        $('.postbox').hide();
           for ( var i = 0; i < posts.length; i++ )  { 
           $new_post = $( '.postbox' ).first().clone();
           $new_post.find('.post_title').html(posts[ i ].title);
@@ -115,7 +118,7 @@ function ajaxPosts( location ) {
           //$new_post.find(".post_time").html(posts[ i ].date_display());
          }  
          // $new_post.css( 'display', 'none' ); 
-
+          
       return false;
     }
   )
