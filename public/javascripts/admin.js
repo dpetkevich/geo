@@ -94,6 +94,8 @@ selected.attr('checked','checked');
 console.log("attribute is " + selected.attr('checked'));
    $('#locname').html(val);
    selected.prop('checked', false);
+     $('#new_post_title').val("Where are you in " + $("#locname").html() + "?");
+
 
 }
 
@@ -195,7 +197,6 @@ if($("#new_post_body").val()!="Write Your Post Here."){
   } );
 
   $('#new_post_body').val("Write Your Post Here.");
-  $('#new_post_title').val("Where are you in " + $("#locname").html() + "?");
 
 
 }
