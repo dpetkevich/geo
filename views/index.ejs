@@ -77,11 +77,9 @@
     <div id="lightpost" style="display:none"> 
 
 
-<h2>
+<h2>Circa is a chatroom only for people in the same lecture hall or library as you.</h2>
+<p> Allow your browser to track your location by clicking allow at the top of your browser window.</p>
 
-    Circa is a chatroom only for people in the same lecture hall or library as you.
-</h2>
-<button id="closebox"> Lezgo </button>
 
     </div>
   </div>
@@ -94,15 +92,13 @@
     var post = $('#lightpost')
    $.fancybox( post.show());
 
- $( '#closebox' ).click( function () {
-        $.fancybox.close();
-      } );
+ 
 
   if (navigator.geolocation) {
   /* geolocation is available */
- 
+
   navigator.geolocation.getCurrentPosition(function(position) {
-    
+     $.fancybox.close();
       
 
    var lat = Number(position.coords.latitude);
