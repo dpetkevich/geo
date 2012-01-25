@@ -74,6 +74,7 @@
     <div id="lat" > </div>
     <div id="lon" > </div>
     <div id="tol" style="display:none"> </div>
+    <div id="lightpost" style="display:none"> Circa is a chatroom only for people in the same lecture hall or library as you.</div>
   </div>
 </div>
 
@@ -81,7 +82,11 @@
 <script>
 
   $( document ).ready( function() {
-   
+    var post = $('#lightpost')
+   $.fancybox( post.show());
+
+
+
   if (navigator.geolocation) {
   /* geolocation is available */
  
