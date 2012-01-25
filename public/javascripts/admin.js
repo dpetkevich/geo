@@ -58,7 +58,7 @@ $(  document).ready( function () {
         alert("I'm sorry, but geolocation services are not supported by your browser.");
       } */
 
-      $( '#radioSubmit' ).click( function () {
+      $( '.rbutton' ).click( function () {
         submitRoom();
         var loc = $('#locname').html();
         console.log("loca is " + loc);
@@ -93,7 +93,6 @@ function submitRoom(){
 selected.attr('checked','checked');
 console.log("attribute is " + selected.attr('checked'));
    $('#locname').html(val);
-   selected.prop('checked', false);
      $('#new_post_title').val("Where are you in " + $("#locname").html() + "?");
 
 
