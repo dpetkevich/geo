@@ -40,10 +40,14 @@ $(  document).ready( function () {
           $( this ).val( $( this ).attr( "alt" ) );
     } );
     // End placeholder code
+   //var val = $("#radio_form input[type='radio'];checked").val();
+   //$('#locname').html($('#sizeSmall').val());
+   //console.log(" val is " + val);
+
    
-   $('#locname').html($('#sizeSmall').val());
-   console.log(" val is " + $('#sizeSmall').val());
-   console.log(" locname html is " +  $('#locname').html($('#sizeSmall').val()));
+
+   });
+   //console.log(" locname html is " +  $('#locname').html($('#sizeSmall').val()));
   /*if (navigator.geolocation) {
        
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -68,6 +72,13 @@ alert('Your browser does not support the Geo-Location feature');
 }
 });
 
+//function radiopush(){
+  //var val = $("input:radio[name=room[name]]:checked").val();
+   //$('#locname').html($('#sizeSmall').val());
+   //console.log(" val is " + val);
+  // $('#locname').html(val);
+
+//}
 
 
 function showPosition(position){

@@ -15,27 +15,27 @@
   </div>
 
 <div id='radio'>   
-	<form method='post' action='/get_admin_posts'>       
+	<form method='POST' action="/get_admin_posts" id="radio_form">       
           <input type = "radio"
                  name = "room[name]"
-                 id = "sizeSmall"
+                 
                  value = "My Room"
-                 checked = "checked" />
+                 />
           <label for = "sizeSmall">My Room</label>
           
           <input type = "radio"
                  name = "room[name]"
-                 id = "sizeMed"
+                
                  value = "AA Library" />
           <label for = "sizeMed">AA Library</label>
  
           <input type = "radio"
                  name = "room[name]"
-                 id = "sizeLarge"
-                 value = "large" />
-          <label for = "sizeLarge">large</label>
+                
+                 value = "Bass Library" />
+          <label for = "sizeLarge">Bass Library</label>
             
-        <input type='submit' value='submit'/>
+        <input type='submit' id='radioSubmit' value='submit'/>
         </form>
     </div>
 
@@ -51,19 +51,17 @@
 
   </div>
   
- <% for ( var i = 0; i < posts.length; i++ )  { %>
+  <% for ( var i = 0; i < posts.length; i++ )  { %>
 
-  <div class="postbox" >
+
+ <div class="postbox" style="display:none">
     <h2 class="post_body"><%= posts[ i ].content %></h2>
     <span class="post_title"><%= posts[ i ].title %></span>
     
     <span class="post_time"><%= posts[ i ].date_display() %></span>
   </div>
 
-  
  <% } %>
-
-
 
 
   
@@ -75,5 +73,16 @@
     <div id="tol" style="display:none"> </div>
   </div>
 </div>
+<script>
 
+  $( document ).ready( function() {
+   
+ 	
+
+
+
+
+  } );
+    
+</script>
 <!-- WTG START -->
