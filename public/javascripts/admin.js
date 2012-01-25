@@ -2,11 +2,13 @@ $(  document).ready( function () {
     
     //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
   
-
+   
       $( '#radio input' ).click( function () {
         submitRoom();
+        $('.postbox').hide();
         var loc = $('#locname').html();
         console.log("loca is " + loc);
+
         ajaxPosts( loc );
       } );
 
