@@ -33,11 +33,11 @@ var socket = io.connect( 'http://localhost/' );
     // This code handles the default placeholder text
     $( '.defaultText' ).focus( function () {
         if ( $( this ).val() === $( this ).attr( "alt" ) )
-        	$( this ).val( "" );
+          $( this ).val( "" );
     } );  
     $( '.defaultText' ).blur( function () {
         if ( $( this ).val() === "" )
-        	$( this ).val( $( this ).attr( "alt" ) );
+          $( this ).val( $( this ).attr( "alt" ) );
     } );
     // End placeholder code
    
@@ -51,8 +51,6 @@ else{
 alert('Your browser does not support the Geo-Location feature');
 }
 });
-
-
 
 function showPosition(position){
 var lat = position.coords.latitude;
@@ -112,51 +110,26 @@ function ajaxPosts( location ) {
 
 
 
-
-// Hide new post button and show insert post form
-function insertNewPost() {
-	$( '#new_crush_box' ).show();
-	$( '#new_crush_button' ).hide();
-}
-
 function createPost( data ) {
-  var currentTime = new Date();
-	var time = currentTime.getHours()+":"+ currentTime.getMinutes();
-	// Clone an existing post, and set values of the new post
   
-if($("#new_post_body").val()!="Write Your Post Here."){
-    
+  // Clone an existing post, and set values of the new post
   $new_post = $( '.postbox' ).first().clone();
-
- 
   $new_post.find( '.post_title' ).html( data.title );
-
-  
   $new_post.find( '.post_body' ).html( data.content );
-  $new_post.find( '.post_time' ).html( time);
+  $new_post.find( '.post_time' ).html( 'just now.' );
 
-	// Hide the new post so we can slide it down nicely
-	$new_post.css( 'display', 'none' );	
-	
+  // Hide the new post so we can slide it down nicely
+  $new_post.css( 'display', 'none' ); 
+  
   // Insert the new post in the page
   $( '#new_crush_box' ).after( $new_post );
 
   // Finally, slide in the new post, hide the new_post box,
- 	// and re-show the add a crush button
-//	$( '#new_crush_box' ).hide();
-	//$( '#new_crush_button' ).show();
-	$new_post.slideDown( 'slow', function () {
-	} );
-
-  $('#new_post_body').val("Write Your Post Here.");
-  $('#new_post_title').val("Where are you in " + $("#locname").html() + "?");
-
-
-}
-  
-  
-    
- 
+  // and re-show the add a crush button
+  //$( '#new_crush_box' ).hide();
+  //$( '#new_crush_button' ).show();
+  $new_post.slideDown( 'slow', function () {
+  } );
 }
 
 // Create post using socket post
@@ -193,10 +166,8 @@ function socketPost( socket ) {
   }
 
   socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude, location: location } );
-
+$('#new_post_body').val("Write Your Post Here.");
+  $('#new_post_title').val("Where are you in " + $("#locname").html() + "?");
   
 }
-
-
-
 
