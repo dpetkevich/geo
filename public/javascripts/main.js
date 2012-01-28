@@ -156,6 +156,7 @@ function socketPost( socket ) {
     var latitude= $('#lat').html();
     var longitude= $('#lon').html();
     var location = $('#locname').html();
+    var username = "defaultname";
 
 
     }
@@ -165,7 +166,7 @@ function socketPost( socket ) {
     jAlert("You've gotta write a post!", "Circa");
   }
 
-  socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude, location: location } );
+  socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude, location: location, username: username } );
 $('#new_post_body').val("Write Your Post Here.");
   $('#new_post_title').val("Where are you in " + $("#locname").html() + "?");
   

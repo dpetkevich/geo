@@ -89,15 +89,15 @@
 
   $( document ).ready( function() {
     
-console.log("Cookies are " + document.cookie);
+console.log("Cookies are " + document.cookie.value);
  var post = $('#lightpost')
-   $.fancybox( post.show());
+   //$.fancybox( post.show());
 
   if (navigator.geolocation) {
   /* geolocation is available */
 
   navigator.geolocation.getCurrentPosition(function(position) {
-     $.fancybox.close();
+    // $.fancybox.close();
       
 
    var lat = Number(position.coords.latitude);

@@ -35,7 +35,7 @@ module.exports.create_post = function( data, socket ) {
 	
 
 
-	new Post( { title: data.title, content: data.content, latitude: data.latitude, longitude: data.longitude, location: data.location, username: username }
+	new Post( { title: data.title, content: data.content, latitude: data.latitude, longitude: data.longitude, location: data.location, username: data.username}
 	 ).save( function (err) {
 		
 		if ( !err ) {
@@ -97,7 +97,7 @@ i=0;
   .run( function( err, posts ) {
 
   	console.log("name is " + name);
-  	res.cookie('uname', name , { maxAge: 5000 });
+  	res.cookie('uname', name , { maxAge: 20000 });
     res.send( { posts: JSON.stringify( posts ) } );
   } ) 
 };
