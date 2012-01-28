@@ -58,27 +58,37 @@ module.exports.create_post = function( data, socket ) {
 
 /**** WTG START ****/
 var i =0; 
+var namelist = ["1", "2", "3", "4" ];
 module.exports.get_posts = function( req, res ) {
   console.log( "req query is" + util.inspect( req.query ) );
 	var loc = req.query.location;
 	
+console.log("i at the beginning of the function is " + i);
 
 
-var namelist = ["masterblaster", "loserface" ];
 //"houdini", "wow", "user2", "user 3"
-name = namelist[i];
+name = namelist[0];
 namelist.push(name);
 console.log ("array before loop is  " + namelist);
-for(var j=0; j<(namelist.length)-2; j++)
+for(var j=0; j<((namelist.length)-1); j++)
 {
 	namelist[j]=namelist[(j+1)];
 	console.log("index j is " + namelist[j]);
 	console.log("index j+1 is" + namelist[(j+1)]);
 
 };
+namelist.pop();
 console.log ("array after loop is " + namelist);
 
-i++;
+if (i<namelist.length)
+{
+	i++;
+}
+else{
+	
+i=0;
+
+}
 
   	
 	
