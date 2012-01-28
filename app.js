@@ -13,7 +13,7 @@ var app = module.exports = express.createServer()
  
   
 var posts_controller = require( './controllers/posts_controller.js' );
-
+var RedisStore = require('connect-redis')(express);
 // Configuration
 
 
@@ -21,7 +21,8 @@ app.configure(function () {
   app.set( 'views' , __dirname + '/views' );
   app.set( 'view engine', 'ejs' );
   app.use( express.bodyParser() );
-  //app.use(require('connect').bodyParser());
+  app.use(express.cookieParser());
+  app.use(express.session({ secret: "keyboard cat", store: new RedisStore }));
   app.use( express.methodOverride() );
   app.use( app.router );
   app.use( express.static(__dirname + '/public') );

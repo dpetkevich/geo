@@ -32,7 +32,10 @@ module.exports.admin_list = exports.list_posts = function( req, res ) {
 
 module.exports.create_post = function( data, socket ) {
 
-	new Post( { title: data.title, content: data.content, latitude: data.latitude, longitude: data.longitude, location: data.location }
+	
+
+
+	new Post( { title: data.title, content: data.content, latitude: data.latitude, longitude: data.longitude, location: data.location, username: username }
 	 ).save( function (err) {
 		
 		if ( !err ) {
@@ -65,7 +68,9 @@ module.exports.get_posts = function( req, res ) {
   .where('location', loc)
   .run( function( err, posts ) {
 
+  	res.cookie('rememberme', 'yes', { maxAge: 900000 });
     res.send( { posts: JSON.stringify( posts ) } );
+    console.log()
   } ) 
 };
 
@@ -79,7 +84,7 @@ module.exports.admin_get  = function( req, res ) {
   .where('location', loc)
   .run( function( err, posts ) {
 
-  	
+  		
         res.send( { posts: JSON.stringify( posts ) } );
   } ) 
   

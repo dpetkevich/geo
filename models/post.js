@@ -8,6 +8,7 @@ var postSchema = new Schema( {
 	,	longitude : { type: Number, default: 5 }
 	,	date    : { type: Date, default: Date.now }
 	, 	location : String
+	, 	username : String
 	//,	display_date : { type: String, default: "Sometime"}
 
 } );
