@@ -69,7 +69,7 @@ var namelist = ["masterblaster", "loserface" ];
 name = namelist[i];
 namelist.push(name);
 console.log ("array before loop is  " + namelist);
-for(var j=0; j<(namelist.length); j++)
+for(var j=0; j<(namelist.length)-2; j++)
 {
 	namelist[j]=namelist[(j+1)];
 	console.log("index j is " + namelist[j]);
