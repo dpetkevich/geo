@@ -60,15 +60,23 @@ module.exports.create_post = function( data, socket ) {
 
 module.exports.get_posts = function( req, res ) {
   console.log( "req query is" + util.inspect( req.query ) );
+var loc = req.query.location;
+	var sess = req.session;
 
-  var loc = req.query.location;
+  var namelist = ["masterblaster", "loserface", "houdini", "wow", "user2", "user 3"];
+  var name = namelist[Math.floor(Math.random()*6)];
+  name=req.session.name;
 
+  console.log("the name is" + name);
+  
 
   Post
   .where('location', loc)
   .run( function( err, posts ) {
 
-  	res.cookie('rememberme', 'yes', { maxAge: 900000 });
+
+
+  	res.cookie('uname', name , { maxAge: 900000 });
     res.send( { posts: JSON.stringify( posts ) } );
     console.log()
   } ) 
