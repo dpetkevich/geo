@@ -4,13 +4,14 @@ $(  document).ready( function () {
 //var socket = io.connect( 'http://localhost/' );
 
   console.log("Cookies are " + document.cookie);
-var cookie = document.cookie;
+/*var cookie = document.cookie;
 
 var index = cookie.indexOf('=');
 var name = cookie.substring((index+1));
 $('#username').html(name);
 console.log("cookie value is " + name);
 console.log("#username content is" + $('#username').html());
+*/
 
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
