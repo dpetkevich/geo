@@ -36,7 +36,7 @@ i=0;
 }
   
 	Post.find( function ( err, posts ) {
-		//res.cookie('uname', name , { maxAge: 60000 });
+		res.cookie('uname', name , { maxAge: 60000 });
 		res.render( 'index.ejs', { title: 'Circa', posts: posts.reverse() } );
 		
 	} )
