@@ -6,10 +6,37 @@ var Post = require( '../models/post.js' );
 var util = require( 'util' );
 var tolerance = 0;
 
+var i =0; 
+var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
+
 
 module.exports.index = exports.list_posts = function( req, res ) {
+
+name = namelist[0];
+namelist.push(name);
+console.log ("array before loop is  " + namelist);
+for(var j=0; j<((namelist.length)-1); j++)
+{
+	namelist[j]=namelist[(j+1)];
+	console.log("index j is " + namelist[j]);
+	console.log("index j+1 is" + namelist[(j+1)]);
+
+};
+namelist.pop();
+console.log ("array after loop is " + namelist);
+
+if (i<namelist.length)
+{
+	i++;
+}
+else{
+	
+i=0;
+
+}
   
 	Post.find( function ( err, posts ) {
+		res.cookie('uname', name , { maxAge: 120000 });
 		res.render( 'index.ejs', { title: 'Circa', posts: posts.reverse() } );
 		
 	} )
@@ -57,8 +84,7 @@ module.exports.create_post = function( data, socket ) {
 };
 
 /**** WTG START ****/
-var i =0; 
-var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
+
 module.exports.get_posts = function( req, res ) {
   console.log( "req query is" + util.inspect( req.query ) );
 	var loc = req.query.location;
@@ -67,28 +93,7 @@ console.log("i at the beginning of the function is " + i);
 
 
 //"houdini", "wow", "user2", "user 3"
-name = namelist[0];
-namelist.push(name);
-console.log ("array before loop is  " + namelist);
-for(var j=0; j<((namelist.length)-1); j++)
-{
-	namelist[j]=namelist[(j+1)];
-	console.log("index j is " + namelist[j]);
-	console.log("index j+1 is" + namelist[(j+1)]);
 
-};
-namelist.pop();
-console.log ("array after loop is " + namelist);
-
-if (i<namelist.length)
-{
-	i++;
-}
-else{
-	
-i=0;
-
-}
 
   	
 	
@@ -96,8 +101,8 @@ i=0;
   .where('location', loc)
   .run( function( err, posts ) {
 
-  	console.log("name is " + name);
-  	res.cookie('uname', name , { maxAge: 120000 });
+  	
+  	
     res.send( { posts: JSON.stringify( posts ) } );
   } ) 
 };
