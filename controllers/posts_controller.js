@@ -58,7 +58,7 @@ module.exports.create_post = function( data, socket ) {
 
 /**** WTG START ****/
 var i =0; 
-var namelist = ["1", "2", "3", "4" ];
+var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
 module.exports.get_posts = function( req, res ) {
   console.log( "req query is" + util.inspect( req.query ) );
 	var loc = req.query.location;

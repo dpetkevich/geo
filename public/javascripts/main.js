@@ -98,7 +98,7 @@ function ajaxPosts( location ) {
           $new_post = $( '.postbox' ).first().clone();
           $new_post.find('.post_title').html(posts[ i ].title);
           $new_post.find(".post_body").html(posts[ i ].content);
-          $new_post.find( '.post_time' ).html(posts[i].date);
+          $new_post.find( '.post_time' ).html(posts[i].username);
      
           $( '#new_crush_box' ).after( $new_post );
           $new_post.show();
@@ -125,7 +125,7 @@ function createPost( data ) {
   $new_post = $( '.postbox' ).first().clone();
   $new_post.find( '.post_title' ).html( data.title );
   $new_post.find( '.post_body' ).html( data.content );
-  $new_post.find( '.post_time' ).html( 'just now.' );
+  $new_post.find( '.post_time' ).html( data.username );
 
   // Hide the new post so we can slide it down nicely
   $new_post.css( 'display', 'none' ); 
