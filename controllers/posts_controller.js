@@ -97,7 +97,7 @@ i=0;
   .run( function( err, posts ) {
 
   	console.log("name is " + name);
-  	res.cookie('uname', name , { maxAge: 20000 });
+  	res.cookie('uname', name , { maxAge: 120000 });
     res.send( { posts: JSON.stringify( posts ) } );
   } ) 
 };

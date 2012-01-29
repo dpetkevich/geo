@@ -70,10 +70,13 @@
 </div>
 <div id="footer">&copy; Circa: Yale 2012 </div>
   <div id="positions">
-    <div id="lat" > </div>
-    <div id="lon" > </div>
+    <div id="lat" style="display:none"> </div>
+    <div id="lon" style="display:none"> </div>
     <div id="tol" style="display:none"> </div>
-    <div id="lightpost" style="display:none"> 
+    <div id="username" >blank </div>
+ 
+
+<div id="lightpost">
 
 
 <h2>Circa is a chatroom only for people in the same lecture hall or library as you.</h2>
@@ -82,14 +85,14 @@
 
     </div>
   </div>
-</div>
+
 
 <!-- WTG START -->
 <script>
 
   $( document ).ready( function() {
     
-console.log("Cookies are " + document.cookie.value);
+
  var post = $('#lightpost')
    //$.fancybox( post.show());
 
