@@ -114,10 +114,10 @@ console.log("data in delete_post is " + data.id);
 			console.log( 'Success!' );
 			
 			// Emit message to all other sockets
-			socket.broadcast.emit( 'new_post_destroyed', data );
+			socket.broadcast.emit( 'new_post_destroyed');
 			
 			// Also emit message to the socket that created it
-			socket.emit( 'new_post_destroyed', data );
+			socket.emit( 'new_post_destroyed');
 			
 		} else {
 			console.log( 'Had an error' + err );

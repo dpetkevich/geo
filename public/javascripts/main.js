@@ -106,13 +106,17 @@ function ajaxPosts( location ) {
           $new_post.show();
 
           //for the admin destroy me
+          var socket = io.connect( 'http://localhost/' );
           $( '.destroyPost' ).click( function () {
-            var socket = io.connect( 'http://localhost/' );
-              var target = $(this).parent('.postbox');
-              target.hide();
-              destroyPost(socket, target);
+            
+              console.log('inside ajax call');
+                var target = $(this).parent('.postbox');
+                target.hide();
+                destroyPost(socket, target);
+    } );
+              
 
-          } );
+        
      
 
           //$new_post.find(".post_time").html(posts[ i ].date_display());
