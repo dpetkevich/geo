@@ -7,5 +7,7 @@
     , "ejs": ">= 0.0.1"
 		, "mongoose": "2.x.x"
 		, "socket.io": "0.x.x"
+		, "connect": "1.x.x"
+		, "connect-redis": "1.x.x"
   }
 }
