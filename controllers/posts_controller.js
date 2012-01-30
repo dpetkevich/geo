@@ -20,6 +20,8 @@ if (passCookie !== undefined)
 	{
 		
 		Post.find( function ( err, posts ) {
+
+			
 		res.render( 'index.ejs', { title: 'Circa', posts: posts.reverse() } );
 		
 		
@@ -102,6 +104,32 @@ module.exports.create_post = function( data, socket ) {
 	} );
 
 };
+
+module.exports.delete_post = function (data, socket){
+		
+console.log("data in delete_post is " + data.id);
+ Post.findOne( { _id: data.id}).remove( function (err) {
+		
+		if ( !err ) {
+			console.log( 'Success!' );
+			
+			// Emit message to all other sockets
+			socket.broadcast.emit( 'new_post_destroyed', data );
+			
+			// Also emit message to the socket that created it
+			socket.emit( 'new_post_destroyed', data );
+			
+		} else {
+			console.log( 'Had an error' + err );
+		}
+		
+
+	} );
+
+};
+
+	
+
 
 /**** WTG START ****/
 

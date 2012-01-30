@@ -101,9 +101,19 @@ function ajaxPosts( location ) {
           $new_post.find('.post_title').html(posts[ i ].title);
           $new_post.find(".post_body").html(posts[ i ].content);
           $new_post.find( '.post_time' ).html(posts[i].username);
-     
+          $new_post.find('.post_id').html(posts[i]._id);
           $( '#new_crush_box' ).after( $new_post );
           $new_post.show();
+
+          //for the admin destroy me
+          $( '.destroyPost' ).click( function () {
+            var socket = io.connect( 'http://localhost/' );
+              var target = $(this).parent('.postbox');
+              target.hide();
+              destroyPost(socket, target);
+
+          } );
+     
 
           //$new_post.find(".post_time").html(posts[ i ].date_display());
          }  
@@ -180,7 +190,7 @@ function socketPost( socket ) {
   }
 
   socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude, location: location, username: username } );
-$('#new_post_body').val("Write Your Post Here.");
+  $('#new_post_body').val("Write Your Post Here.");
   $('#new_post_title').val("Where are you in " + $("#locname").html() + "?");
   
 }

@@ -6,7 +6,7 @@ var routes = [
 	{ method: "post", path: "/", handler: posts_controller.create_post },
   	{ method: "get", path: "/get_posts", handler: posts_controller.get_posts }, // ADDED BY WTG
   	{ method: "get", path: "/admin", handler: posts_controller.admin_list },
-  //	{ method: "post", path: "/admin", handler: posts_controller.create_post },
+  	{ method: "post", path: "/admin", handler: posts_controller.delete_post },
   	{ method: "get", path: "/get_admin_posts", handler: posts_controller.get_posts} 
  
 ]

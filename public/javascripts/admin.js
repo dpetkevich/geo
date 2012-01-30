@@ -12,7 +12,7 @@ $(  document).ready( function () {
         ajaxPosts( loc );
       } );
 
-
+      
      
 });
 
@@ -35,6 +35,15 @@ console.log("attribute is " + selected.attr('checked'));
 
 }
 
+function destroyPost( socket, targetPost ) {
 
+     console.log("entering destroy post method");
+    var id=targetPost.find('.post_id').html();
+
+
+  socket.emit( 'delete_post', { id: id } );
+
+  
+}
 
 
