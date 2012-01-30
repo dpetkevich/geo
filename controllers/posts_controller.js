@@ -10,20 +10,34 @@ var i =0;
 var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
 
 
-module.exports.index = exports.list_posts = function( req, res ) {
 
-name = namelist[0];
+
+
+module.exports.index = exports.list_posts = function( req, res ) {
+console.log("req.cookies.uname is " + req.cookies.uname);
+var passCookie= req.cookies.uname;
+if (passCookie !== undefined)
+	{
+		
+		Post.find( function ( err, posts ) {
+		res.render( 'index.ejs', { title: 'Circa', posts: posts.reverse() } );
+		
+		
+	} )
+	}
+
+else{
+	console.log("passcookie statement initiated");
+	name = namelist[0];
 namelist.push(name);
-console.log ("array before loop is  " + namelist);
 for(var j=0; j<((namelist.length)-1); j++)
 {
 	namelist[j]=namelist[(j+1)];
-	console.log("index j is " + namelist[j]);
-	console.log("index j+1 is" + namelist[(j+1)]);
+	
 
 };
 namelist.pop();
-console.log ("array after loop is " + namelist);
+
 
 if (i<namelist.length)
 {
@@ -34,12 +48,18 @@ else{
 i=0;
 
 }
-  
 	Post.find( function ( err, posts ) {
+		console.log("name in the else statement is" + name);
 		res.cookie('uname', name , { maxAge: 60000 });
 		res.render( 'index.ejs', { title: 'Circa', posts: posts.reverse() } );
 		
+		
 	} )
+	
+
+}
+
+
 
 };
 
