@@ -45,7 +45,10 @@ app.configure( 'production', function () {
 
 } );
 
-
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 // Attach routes
 for ( var i = 0; i < routes.length; i++ ) {
 	var method = routes[ i ][ "method" ];
