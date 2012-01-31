@@ -84,7 +84,7 @@ module.exports.create_post = function( data, socket ) {
 	
 
 
-	new Post( { title: data.title, content: data.content, latitude: data.latitude, longitude: data.longitude, location: data.location, username: data.username}
+	new Post( {  content: data.content, latitude: data.latitude, longitude: data.longitude, location: data.location, username: data.username}
 	 ).save( function (err) {
 		
 		if ( !err ) {

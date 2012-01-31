@@ -37,7 +37,7 @@ vertical-align: middle; margin-top: -1px;
 }
 
 #bar2{
-    margin-top:60px;
+    margin-top:15px;
 
 
 }
@@ -75,8 +75,7 @@ vertical-align: middle; margin-top: -1px;
     padding:15px;
     text-align:left;
     color:#000;
-    position:relative;
-    z-index:1;
+  
 }
 
 #main {

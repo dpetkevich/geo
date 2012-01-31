@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-//var socket = io.connect( 'http://localhost/' );
+    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+var socket = io.connect( 'http://localhost/' );
 
 
 
@@ -98,7 +98,6 @@ function ajaxPosts( location ) {
 
          for ( var i = 0; i < posts.length; i++ )  { 
           $new_post = $( '.postbox' ).first().clone();
-          $new_post.find('.post_title').html(posts[ i ].title);
           $new_post.find(".post_body").html(posts[ i ].content);
           $new_post.find( '.post_time' ).html(posts[i].username);
           $new_post.find('.post_id').html(posts[i]._id);
@@ -139,7 +138,6 @@ function createPost( data ) {
   
   // Clone an existing post, and set values of the new post
   $new_post = $( '.postbox' ).first().clone();
-  $new_post.find( '.post_title' ).html( data.title );
   $new_post.find( '.post_body' ).html( data.content );
   $new_post.find( '.post_time' ).html( data.username );
 
@@ -163,39 +161,21 @@ function socketPost( socket ) {
  
   if($("#new_post_body").val()!="Write Your Post Here."){
       
-
-    if($('#new_post_title').val().substring(0,16)!="Where are you in"){
-     console.log('for loop works');
-    console.log($('#new_post_title').val().substring(0,15));
-    var title = $( '#new_crush_box' ).find( 'input' ).val();
     var content = $( '#new_crush_box' ).find( 'textarea' ).val();
     var latitude= $('#lat').html();
     var longitude= $('#lon').html();
     var location = $('#locname').html();
-    var username = $('#username').html();
+    var username = $('#username').html()
 
 
-      }
-    else{
-    
-    var title = "Somewhere in " + $('#new_post_title').val().substring(17,($('#new_post_title').val().length)-1);
-    var content = $( '#new_crush_box' ).find( 'textarea' ).val();
-    var latitude= $('#lat').html();
-    var longitude= $('#lon').html();
-    var location = $('#locname').html();
-    var username = $('#username').html();
-
-
-    }
-      
   }
   else{
     jAlert("You've gotta write a post!", "Circa");
   }
 
-  socket.emit( 'create_post', { title: title, content: content, latitude: latitude, longitude: longitude, location: location, username: username } );
+  socket.emit( 'create_post', { content: content, latitude: latitude, longitude: longitude, location: location, username: username } );
   $('#new_post_body').val("Write Your Post Here.");
-  $('#new_post_title').val("Where are you in " + $("#locname").html() + "?");
+ 
   
 }
 
