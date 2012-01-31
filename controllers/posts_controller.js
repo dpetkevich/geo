@@ -100,7 +100,7 @@ module.exports.create_post = function( data, socket ) {
 			console.log( 'Had an error' + err );
 		}
 		
-
+ 
 	} );
 
 };

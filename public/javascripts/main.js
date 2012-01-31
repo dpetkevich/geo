@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-var socket = io.connect( 'http://localhost/' );
+    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+//var socket = io.connect( 'http://localhost/' );
 
 
 
@@ -106,7 +106,7 @@ function ajaxPosts( location ) {
           $new_post.show();
 
           //for the admin destroy me
-          var socket = io.connect( 'http://localhost/' );
+          
           $( '.destroyPost' ).click( function () {
             
               console.log('inside ajax call');
