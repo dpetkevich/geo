@@ -1,8 +1,9 @@
 body {
     margin:0px;
-    font-family: 'Helvetica Neue', Helvetica, Lucida, Arial, sans-serif;
+    font-family: 'Garamond', 'Helvetica Neue', Helvetica, Lucida, Arial, sans-serif;
     font-size:12px;
-    background-color:#A9DFF0;
+    background-color:#27AAE1;
+
 }
 a {
     text-decoration:none;
@@ -17,35 +18,69 @@ h1, h2{
     position:absolute;
 
 }
-#radio input{
-    
+#radio input{  
 vertical-align: middle; margin-top: -1px;
 }
 
-
-
-#header {
-    background-color:#f5f5f5;
-    padding:12px;
-    color:#000;
-    border:solid 1px #ccc;
-    width:100%;
-    position:fixed;
-    top:0px;
-    left:0px;
-}
 #logo{
-    margin-left:100px;
-    font-size:14px;
-    padding:0px;
+    margin-left:53px;
+    margin-top:62px;
+    display:inline-block;
 }
-.nav{
-    margin-left:20px;
-    padding:0px;
+#locname{
+   
+    display:inline-block;
+    font-size:68px;
+    margin-left:6px;
+    position:relative;
+    bottom:8px;
+}
+
+#bar2{
+    margin-top:60px;
+
+
+}
+#pointercon{
+    display:inline-block;
+    height:auto;
+    position:relative;
+    bottom:45px;
+    z-index:0;
+
+}
+
+#bubblecon{
+    display:inline-block;
+    margin-left:60px;
+    position:relative;
+    z-index:0;
+
+}
+#new_crush_box{
+    display:inline-block;
+    margin-top:0px;
+    padding:15px;
+    text-align:left;
+    color:#000;
+    position:relative;
+    z-index:1;
+    margin-left:405px;
+    bottom:175px;
+}
+
+.postbox{
+    margin-top:0px;
+    border-bottom:solid 1px #ccc;
+    padding:15px;
+    text-align:left;
+    color:#000;
+    position:relative;
+    z-index:1;
 }
 
 #main {
-    margin-top:42px;
+    
     border:solid 1px #ccc;
     padding: 15px;
     padding-top:2px;
@@ -55,7 +90,7 @@ vertical-align: middle; margin-top: -1px;
     text-align:center;
     background-color:#FFF9EA;
     margin-top:8px;
-    position:relative;
+   
 }
 #erroralert {
     margin-top:42px;
@@ -72,54 +107,10 @@ vertical-align: middle; margin-top: -1px;
     font-size: 20px;
     padding-top: 10px;
 }
-#top{
-    margin-left: 80px;
-    margin-top:25px;
-
-}
-#maintext{
-    font-size: 45pt;
-    font-weight: lighter;
-
-   
-}
-#subtext{
-    font-size: 15pt;
-    font-weight: lighter;
-    padding-left:5px;
-}
-#top{
-    margin-left: 80px;
-    margin-top:25px;
 
 
-}
-#new_crush_button {
-    padding:15px;
 
-    color:#000;
-    border:solid 1px #999;
-    margin:15px;
-    height:16px;
-    line-height:16px;
-    width:250px;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center;
-}
-#new_crush_button:hover{
-    font-weight:bold;
-    background-color:#fff;
-    border:solid 1px #333;
-    cursor:pointer;
-}
-.postbox, #new_crush_box{
-    margin-top:0px;
-    border-bottom:solid 1px #ccc;
-    padding:15px;
-    text-align:left;
-    color:#000;
-}
+
 input#new_post_title, textarea#new_post_body{
     display:block;
     width:400px;
@@ -160,14 +151,7 @@ textarea#new_post_body{
     margin-left:auto;
     margin-right:auto;
 }
-#exp{
-    
-        position:absolute;
-       
-        width: 175px;
-        margin-top: 50px;
-        margin-left: 80px;
-}
+
 #localert{
    
     width: 450px;
