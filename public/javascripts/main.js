@@ -92,22 +92,30 @@ function ajaxPosts( location ) {
     function ( json ) {
       var posts = JSON.parse(json.posts);
 
-    
+    console.log(posts);
 
 
 
-         for ( var i = 0; i < 20; i++ )  { 
+         for ( var i = 0; i < posts.length; i++ )  { 
           $new_post = $( '.postbox' ).first().clone();
           $new_post.find(".post_title").html(posts[i].username);
           $new_post.find(".post_body").html(posts[ i ].content);
-          $new_post.find( '.post_time' ).html('just now');
           $new_post.find('.post_id').html(posts[i]._id);
+          //print elapsed time
+          
+
+          var d = posts[i].date;
+          d = new Date(d);
+         $new_post.attr('data-datetime',d );
+           updateElapsed(".postbox",1000);
+          
           $first_post=$('.postbox').first();
           $first_post.before( $new_post );
           $new_post.show();
 
           //for the admin destroy me
           
+          /*
           $( '.destroyPost' ).click( function () {
             
               console.log('inside ajax call');
@@ -115,13 +123,16 @@ function ajaxPosts( location ) {
                 target.hide();
                 destroyPost(socket, target);
     } );
-              
-            $('.postbox').last().css("border-bottom", "0px");
+    */
+           
+           };  
+           $('.postbox').last().css("border-bottom", "0px") 
+            console.log("css on last post is" + $('.postbox').last().css("border-bottom", "0px"));
         
      
 
           //$new_post.find(".post_time").html(posts[ i ].date_display());
-         }  
+         
 
 
          // $new_post.css( 'display', 'none' ); 
@@ -139,11 +150,15 @@ function ajaxPosts( location ) {
 
 
 function createPost( data ) {
-  
+  var now = new Date();
   // Clone an existing post, and set values of the new post
   $new_post = $( '.postbox' ).first().clone();
   $new_post.find( '.post_body' ).html( data.content );
-  $new_post.find( '.post_time' ).html( data.username );
+  $new_post.find( '.post_title' ).html( data.username );
+  $new_post.find( '.post_time' ).html("");
+  //dealing with time
+  $new_post.attr('data-datetime', now);
+  updateElapsed(".postbox", 1000);
 
   // Hide the new post so we can slide it down nicely
   $new_post.css( 'display', 'none' ); 
@@ -162,7 +177,7 @@ function createPost( data ) {
 
 // Create post using socket post
 function socketPost( socket ) {
-  console.log($( '#new_crush_box' ).find( 'input' ).val());
+
  
   if($("#new_post_body").val()!="Write Your Post Here."){
       

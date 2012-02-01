@@ -20,7 +20,7 @@ function updateElapsed( selector, interval ) {
         $( obj ).find( '.elapsed' ).html( displayElapsed( elapsed ) );
   	  }
 	  }, interval );
-  
+    
 }
 
 function displayElapsed( elapsed ) {
