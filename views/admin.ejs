@@ -1,21 +1,41 @@
-		<script type='text/javascript' src="/javascripts/admin.js"></script>
-
+  <script type='text/javascript' src="/javascripts/admin.js"></script>
 <div id="top">
-  <div id="maintext">
-  Admin Circa: <span id="locname"> Yale</span>
- 
+  
+  <img  id="logo" src="./images/logo.png" alt="Circa Logo" />
+
+
+  <div id="locname"> yale</div>
+
   </div>
-  <div id="subtext">
-  chat with the people around you.</div>
+  
+
+
+
+
+
+   <div id="bar2">
+      <div id="pointercon">
+        <img  id="pointer" src="./images/pointer.png" alt="textPointer" />
+      </div>
+      <div id='bubblecon'>
+        <img  id="bubble" src="./images/bubble.png" alt="textPointer" />
+      </div>
+
+
+<div id="new_crush_box" >
+    <textarea id="new_post_body" class="defaultText"
+      alt="Write Your Post Here." name="post[content]" value="Write Your Post Here.">Write Your Post Here.</textarea>
+   
+    
+    <button id="submit_post">Submit </button>
+
   </div>
 
 
-<div id="erroralert" style="display:none">
-    Circa's having some trouble! Try refreshing the page a few times. If that doesn't work, then you might be in a place that we don't serve. If you think your location should be served by Circa, let us know at daniel.petkevich@gmail.com.
   </div>
 
 <div id='radio'>   
-	      
+        
           <input type = "radio"
                  name = "room[name]"
                  value = "My Room"
@@ -128,26 +148,31 @@
                  name = "room[name]"
                  value = "AA Library" />
           <label>AA Library</label>
+          <br/> 
+          <input type = "radio"
+                 name = "room[name]"
+                 value = "AA Library" />
+          <label>AA Library</label>
+          <br/> 
+          <input type = "radio"
+                 name = "room[name]"
+                 value = "LC 101" />
+          <label>LC 101</label>
+          <br/> 
+          <input type = "radio"
+                 name = "room[name]"
+                 value = "LC 102" />
+          <label>LC 102</label>
+
           
         
     </div>
 
-<div id="main">
 
-  <div id="new_crush_box" >
-    <textarea id="new_post_body" class="defaultText"
-      alt="Write Your Post Here." name="post[content]" value="Write Your Post Here.">Write Your Post Here.</textarea>
-    <input id="new_post_title" class="defaultText" value="Where are you in Yale?" alt="Where are you in Yale?"
-      name="post[title]"/>
+  <div id="postlist">
     
-    <button id="submit_post">Submit </button>
 
-  </div>
-  
-
-
-
- <div class="postbox"  style="display:none">
+<div class="postbox"  style="display:none">
     <h2 class="post_body"></h2>
     <span class="post_title"></span>
     <span class="post_time"></span>
@@ -158,34 +183,27 @@
 
 
 
-  
-</div>
+  </div>
+
+
+
+
+
+ 
+
 <div id="footer">&copy; Circa: Yale 2012 </div>
   <div id="positions">
-    <div id="lat" > </div>
-    <div id="lon" > </div>
+    <div id="lat" style="display:none"> </div>
+    <div id="lon" style="display:none"> </div>
     <div id="tol" style="display:none"> </div>
-  </div>
-</div>
-<script>
-
-  $( document ).ready( function() {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- } );
+   
+      <div id="username" />black</div>
     
-</script>
+  
+ 
+
+
+  </div>
+
+
+<!-- WTG START -->
