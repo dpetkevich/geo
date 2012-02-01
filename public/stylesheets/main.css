@@ -3,6 +3,7 @@ body {
     font-family: 'Garamond', 'Helvetica Neue', Helvetica, Lucida, Arial, sans-serif;
     font-size:12px;
     background-color:#27AAE1;
+    min-width:960px;
 
 }
 a {
@@ -137,6 +138,7 @@ input#new_post_title, textarea#new_post_body{
     font-size:14px;
     font-weight:bold;
      color:#ccc;
+     resize:none;
 
 }
 textarea#new_post_body{

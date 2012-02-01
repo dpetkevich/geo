@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-//var socket = io.connect( 'http://localhost/' );
+    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+var socket = io.connect( 'http://localhost/' );
 
 
 
@@ -96,10 +96,11 @@ function ajaxPosts( location ) {
 
 
 
-         for ( var i = 0; i < posts.length; i++ )  { 
+         for ( var i = 0; i < 20; i++ )  { 
           $new_post = $( '.postbox' ).first().clone();
+          $new_post.find(".post_title").html(posts[i].username);
           $new_post.find(".post_body").html(posts[ i ].content);
-          $new_post.find( '.post_time' ).html(posts[i].username);
+          $new_post.find( '.post_time' ).html('just now');
           $new_post.find('.post_id').html(posts[i]._id);
           $first_post=$('.postbox').first();
           $first_post.before( $new_post );
