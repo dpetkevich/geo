@@ -36,16 +36,10 @@
 
   </div>
 
+  <div id="postlist">
+    
 
-
-
-
- 
-<div id="main">
- 
-  
-  
-  <div class="postbox" style="display:none">
+ <div class="postbox" style="display:none">
     <h2 class="post_body"></h2>
     <span class="post_title"></span>
     
@@ -57,38 +51,20 @@
     <span class="post_title">That cute redhead upfront.</span>
     
     <span class="post_time">sometime</span>
-  </div>
-   <div class="postbox" >
-    <h2 class="post_body">Anyone know if that cute redhead up front is single?</h2>
-    <span class="post_title">Somewhere in Loria 250</span>
-    
-    <span class="post_time">sometime</span>
-  </div>
-   <div class="postbox" >
-    <h2 class="post_body">Bet there's someone here that knows</h2>
-    <span class="post_title">Somewhere in Loria 250</span>
-    
-    <span class="post_time">sometime</span>
-  </div>
-   <div class="postbox" >
-    <h2 class="post_body">Heard he's got a giant dong</h2>
-    <span class="post_title">Back of the room</span>
-    
-    <span class="post_time">sometime</span>
-  </div>
-   <div class="postbox" >
-    <h2 class="post_body">Master T would give up one of his balls to have been born black</h2>
-    <span class="post_title">Somewhere in Loria 250</span>
-    
-    <span class="post_time">sometime</span>
+
+    </div>
+
+
+
+
   </div>
 
 
 
 
 
-  
-</div>
+ 
+
 <div id="footer">&copy; Circa: Yale 2012 </div>
   <div id="positions">
     <div id="lat" style="display:none"> </div>
@@ -135,13 +111,13 @@ $('#username').html(name1);
 
 
  var post = $('#lightpost')
-   //$.fancybox( post.show());
+   $.fancybox( post.show());
 
   if (navigator.geolocation) {
   /* geolocation is available */
 
   navigator.geolocation.getCurrentPosition(function(position) {
-    // $.fancybox.close();
+     $.fancybox.close();
       
 
    var lat = Number(position.coords.latitude);

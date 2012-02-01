@@ -101,7 +101,8 @@ function ajaxPosts( location ) {
           $new_post.find(".post_body").html(posts[ i ].content);
           $new_post.find( '.post_time' ).html(posts[i].username);
           $new_post.find('.post_id').html(posts[i]._id);
-          $( '#new_crush_box' ).after( $new_post );
+          $first_post=$('.postbox').first();
+          $first_post.before( $new_post );
           $new_post.show();
 
           //for the admin destroy me
@@ -114,12 +115,14 @@ function ajaxPosts( location ) {
                 destroyPost(socket, target);
     } );
               
-
+            $('.postbox').last().css("border-bottom", "0px");
         
      
 
           //$new_post.find(".post_time").html(posts[ i ].date_display());
          }  
+
+
          // $new_post.css( 'display', 'none' ); 
 
       return false;
@@ -145,7 +148,8 @@ function createPost( data ) {
   $new_post.css( 'display', 'none' ); 
   
   // Insert the new post in the page
-  $( '#new_crush_box' ).after( $new_post );
+  $first_post=$('.postbox').first();
+  $first_post.before( $new_post );
 
   // Finally, slide in the new post, hide the new_post box,
   // and re-show the add a crush button
