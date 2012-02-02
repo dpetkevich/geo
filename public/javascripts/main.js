@@ -44,10 +44,12 @@ var socket = io.connect( 'http://localhost/' );
     $( '.defaultText' ).focus( function () {
         if ( $( this ).val() === $( this ).attr( "alt" ) )
           $( this ).val( "" );
+          $( this ).css('color','black');
     } );  
     $( '.defaultText' ).blur( function () {
         if ( $( this ).val() === "" )
           $( this ).val( $( this ).attr( "alt" ) );
+          $( this ).css('color','#ccc');
     } );
     // End placeholder code
    

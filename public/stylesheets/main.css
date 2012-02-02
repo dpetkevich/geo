@@ -6,7 +6,25 @@ body {
     min-width:960px;
 
 }
+
+#lightpost{
+        opacity:.8;
+        width:598px;
+        height:530px;
+        background:#444;
+}   
+
+#lightbox{
+    -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+       -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+
+
+    
+}
+
 a {
+
     text-decoration:none;
     color:#000;
 }
@@ -36,9 +54,15 @@ vertical-align: middle; margin-top: -1px;
     position:relative;
     bottom:8px;
 }
+#subtext{
+    font-size:20px;
+    margin-left:55px;
+    position:relative;
+    top:-15px;
+}
 
 #bar2{
-    margin-top:15px;
+    margin-top:25px;
 
 
 }
