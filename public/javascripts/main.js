@@ -108,7 +108,7 @@ function ajaxPosts( location ) {
  
     } 
 
-           var socket = io.connect( 'http://localhost/' );
+           //var socket = io.connect( 'http://localhost/' );
             
            $('.postbox').last().css("border-bottom", "0px") ;
             console.log("css on last post is" + $('.postbox').last().css("border-bottom", "0px"));

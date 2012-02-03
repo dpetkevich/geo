@@ -41,9 +41,6 @@ function destroyPost(  targetPost, socket ) {
     console.log("id is " + id);
 socket.emit( 'delete_post', { _id: id} );
 
-  
-
-  
 }
 
 
