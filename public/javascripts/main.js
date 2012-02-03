@@ -1,10 +1,11 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-    //var socket = io.connect( 'http://localhost/' );
+    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+    var socket = io.connect( 'http://localhost/' );
 
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
+  
     } );
     
     // Atttach click handler to #new_crush_button
@@ -136,6 +137,7 @@ function ajaxPosts( location ) {
 
 function createPost( data ) {
   var now = new Date();
+  console.log('entering create post method');
   // Clone an existing post, and set values of the new post
   $new_post = $( '.postbox' ).first().clone();
   $new_post.find( '.post_body' ).html( data.content );
@@ -162,7 +164,7 @@ function createPost( data ) {
 
 // Create post using socket post
 function socketPost( socket ) {
-
+console.log("here's the socketpost method");
  
   if($("#new_post_body").val()!="Write Your Post Here."){
       

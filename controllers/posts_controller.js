@@ -82,7 +82,7 @@ module.exports.admin_list = exports.list_posts = function( req, res ) {
 module.exports.create_post = function( data, socket ) {
 
 	
-
+console.log("here's the create post method");
 
 	new Post( {  content: data.content, latitude: data.latitude, longitude: data.longitude, location: data.location, username: data.username}
 	 ).save( function (err) {
