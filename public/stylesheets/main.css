@@ -7,21 +7,14 @@ body {
 
 }
 
-#lightpost{
-        opacity:.8;
+.lightbox{
+        opacity:1;
         width:598px;
         height:530px;
 }   
 
-#lwrapper{
-    opacity: 1;
-    -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-       -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 
 
-
-}
 
 a {
 

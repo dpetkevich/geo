@@ -114,7 +114,7 @@
 					css: {
 						cursor: 'pointer'
 					},
-					closeClick: true
+					closeClick: false
 				},
 				title: {
 					type: 'float' // 'float', 'inside', 'outside' or 'over'

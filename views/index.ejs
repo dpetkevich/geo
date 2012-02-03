@@ -76,12 +76,11 @@
   
  
 
-<div id="lightpost">
-        <div id="lwrapper">
+<div id="lightpost" >
 
-              <img  id="lightbox" src="./images/lightbox.png" alt="lightbox text" />
-
-        </div>
+              <img  id="chromebox" class="lightbox" src="./images/chromearrow.png" alt="lightbox text" style="display:none" />
+              <img  id="firefoxbox" class="lightbox" src="./images/firefoxarrow.png" alt="lightbox text" style="display:none" />
+                  
 </div>
 
 
@@ -90,8 +89,28 @@
 
   $( document ).ready( function() {
   
-  
-   
+  if (BrowserDetect.browser==="Chrome")
+  {
+      var post = $('#chromebox');
+
+  }
+
+  if (BrowserDetect.browser==="Firefox")
+  {
+      var post = $('#firefoxbox');
+
+  }
+
+  if (BrowserDetect.browser==="IE")
+  {
+      //do something
+
+  }
+
+
+     $.fancybox( post.show());
+
+   console.log("browers is " +BrowserDetect.browser);
   var cookie1 = document.cookie;
 
   var index1 = cookie1.indexOf('=');
@@ -102,14 +121,8 @@
 $('#username').html(name1);
 
 
- 
-    
 
 
-
-
- var post = $('#lightpost')
-   $.fancybox( post.show());
 
   if (navigator.geolocation) {
   /* geolocation is available */
