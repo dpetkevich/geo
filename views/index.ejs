@@ -80,7 +80,7 @@
 
               <img  id="chromebox" class="lightbox" src="./images/chromearrow.png" alt="lightbox text" style="display:none" />
               <img  id="firefoxbox" class="lightbox" src="./images/firefoxarrow.png" alt="lightbox text" style="display:none" />
-                  
+              <img  id="safaribox" class="lightbox" src="./images/safariarrow.png" alt="lightbox text" style="display:none" />      
 </div>
 
 
@@ -101,7 +101,11 @@
 
   }
 
-  if (BrowserDetect.browser==="IE")
+  if (BrowserDetect.browser==="Safari")
+  {
+      var post = $('#safaribox');
+  }
+   if (BrowserDetect.browser==="IE")
   {
       //do something
 
