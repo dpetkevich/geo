@@ -110,7 +110,7 @@
   {
       var post = $('#safaribox');
   }
-   if (BrowserDetect.browser==="Internet Explorer")
+   if (BrowserDetect.browser==="MSIE")
   {
       var post = $('#iebox');
   }
@@ -424,8 +424,8 @@ $('#username').html(name1);
 
   var b1lat=Number(41.3108646666667);
   var b1lon = Number(-72.9279158);
-  if ( lat >= (b1lat-lattol) && lat <=(b1lat+lattol)
-  && lon <= (b1lon+lontol) && lon >= (b1lon-lontol))
+  if ( lat >= (b1lat-lattol1) && lat <=(b1lat+lattol1)
+  && lon <= (b1lon+lontol1) && lon >= (b1lon-lontol1))
         {
           
           $('#locname').html('Bass Library');
