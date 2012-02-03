@@ -105,10 +105,10 @@ module.exports.create_post = function( data, socket ) {
 
 };
 
-module.exports.delete_post = function (req,res){
+module.exports.delete_post = function (data, socket ){
 		
-console.log("data in delete_post is " + data.id);
- Post.findOne( { _id: data.id}).remove( function (err) {
+console.log("data in delete_post is " + data._id);
+ Post.findOne( { _id: data._id}).remove( function (err) {
 		
 		if ( !err ) {
 			console.log( 'Success!' );
@@ -128,7 +128,6 @@ console.log("data in delete_post is " + data.id);
 
 };
 
-	*/
 
 
 /**** WTG START ****/

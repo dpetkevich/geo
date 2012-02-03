@@ -84,7 +84,7 @@ function ajaxPosts( location ) {
     function ( json ) {
       var posts = JSON.parse(json.posts);
 
-    console.log(posts);
+    
 
 
 
@@ -108,17 +108,17 @@ function ajaxPosts( location ) {
  
     } 
 
-           
+           var socket = io.connect( 'http://localhost/' );
             
            $('.postbox').last().css("border-bottom", "0px") ;
             console.log("css on last post is" + $('.postbox').last().css("border-bottom", "0px"));
             
              $( '.destroyPost' ).click( function () {
             
-              console.log('inside ajax call');
+              
                 var target = $(this).parent('.postbox');
                 target.hide();
-                destroyPost(target);
+                destroyPost(target, socket);
                   });
      
 
