@@ -13,7 +13,12 @@ body {
         height:530px;
 }   
 
-#safaribox#iebox{
+#safaribox{
+    width:473px;
+    height:699px;
+
+}
+#iebox{
     width:473px;
     height:699px;
 
