@@ -15,7 +15,7 @@
 .fancybox-outer {
 	padding: 0;
 	margin: 0;
-	color: #444;
+	
 	text-shadow: none;
 	-webkit-border-radius: 4px;
 	   -moz-border-radius: 4px;
@@ -27,9 +27,7 @@
 }
 
 .fancybox-opened .fancybox-outer {
-	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	   -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	
 }
 
 .fancybox-inner {
@@ -78,9 +76,7 @@
 	z-index: 1010;
 }
 
-.fancybox-close, .fancybox-prev span, .fancybox-next span {
-	background-image: url('fancybox_sprite.png');
-}
+
 
 .fancybox-close {
 	position: absolute;
