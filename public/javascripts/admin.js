@@ -12,7 +12,13 @@ $(  document).ready( function () {
         ajaxPosts( loc );
       } );
 
-      
+      $( '.destroyPost' ).click( function () {
+            
+              console.log('inside ajax call');
+                var target = $(this).parent('.postbox');
+                target.hide();
+                destroyPost(target);
+                  });
      
 });
 
@@ -35,13 +41,13 @@ console.log("attribute is " + selected.attr('checked'));
 
 }
 
-function destroyPost( socket, targetPost ) {
+function destroyPost(  targetPost ) {
 
      console.log("entering destroy post method");
     var id=targetPost.find('.post_id').html();
 
 
-  socket.emit( 'delete_post', { id: id } );
+  
 
   
 }
