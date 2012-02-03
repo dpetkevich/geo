@@ -1,0 +1,1 @@
+var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];

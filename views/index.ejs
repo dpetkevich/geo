@@ -80,7 +80,9 @@
 
               <img  id="chromebox" class="lightbox" src="./images/chromearrow.png" alt="lightbox text" style="display:none" />
               <img  id="firefoxbox" class="lightbox" src="./images/firefoxarrow.png" alt="lightbox text" style="display:none" />
-              <img  id="safaribox" class="lightbox" src="./images/safariarrow.png" alt="lightbox text" style="display:none" />      
+              <img  id="safaribox" class="lightbox" src="./images/safariarrow.png" alt="lightbox text" style="display:none" />   
+              <img  id="iebox" class="lightbox" src="./images/iearrow.png" alt="lightbox text" style="display:none" />      
+   
 </div>
 
 
@@ -89,14 +91,17 @@
 
   $( document ).ready( function() {
   
+ 
+
   if (BrowserDetect.browser==="Chrome")
   {
       var post = $('#chromebox');
 
   }
 
-  if (BrowserDetect.browser==="Firefox")
-  {
+  if (BrowserDetect.browser==="Firefox" )
+  { 
+    
       var post = $('#firefoxbox');
 
   }
@@ -105,16 +110,15 @@
   {
       var post = $('#safaribox');
   }
-   if (BrowserDetect.browser==="IE")
+   if (BrowserDetect.browser==="Internet Explorer")
   {
-      //do something
-
+      var post = $('#iebox');
   }
 
 
      $.fancybox( post.show());
 
-   console.log("browers is " +BrowserDetect.browser);
+   console.log("browers is " +BrowserDetect.browser + " version is " + BrowserDetect.version);
   var cookie1 = document.cookie;
 
   var index1 = cookie1.indexOf('=');
@@ -140,11 +144,14 @@ $('#username').html(name1);
 
 
 
+
 // beginning the headers
 
 
-   var lattol = Number(.0000938609166667);
+  var lattol = Number(.0000938609166667);
   var lontol = Number(.00009333233333322);
+  var lattol1 = Number(.0002);
+  var lontol1 = Number(.0002);
    
       
 //Saybrook
@@ -443,8 +450,9 @@ $('#username').html(name1);
 
   var aalat=Number(41.3086329666667);
   var aalon = Number(-72.9317826);
-  if ( lat >= (aalat-lattol) && lat <=(aalat+lattol)
-  && lon <= (aalon+lontol) && lon >= (aalon-lontol))
+ 
+  if ( lat >= (aalat-lattol1) && lat <=(aalat+lattol1)
+  && lon <= (aalon+lontol1) && lon >= (aalon-lontol1))
         {
           
           $('#locname').html('AA Library');
