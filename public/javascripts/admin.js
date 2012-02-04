@@ -34,7 +34,7 @@ console.log("attribute is " + selected.attr('checked'));
 
 }
 
-function destroyPost(  targetPost, socket ) {
+function deletePost(  targetPost, socket ) {
     
      console.log("entering destroy post method");
     var id=targetPost.find('.post_id').html();
@@ -42,5 +42,6 @@ function destroyPost(  targetPost, socket ) {
 socket.emit( 'delete_post', { _id: id} );
 
 }
+
 
 

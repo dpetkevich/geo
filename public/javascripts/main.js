@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-    var socket = io.connect( 'http://localhost/' );
+    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+    //var socket = io.connect( 'http://localhost/' );
 
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
@@ -114,12 +114,13 @@ function ajaxPosts( location ) {
            $('.postbox').last().css("border-bottom", "0px") ;
             console.log("css on last post is" + $('.postbox').last().css("border-bottom", "0px"));
             
+            socket.on('new_post_deleted')
              $( '.destroyPost' ).click( function () {
             
               
                 var target = $(this).parent('.postbox');
                 target.hide();
-                destroyPost(target, socket);
+                deletePost(target, socket);
                   });
      
 
