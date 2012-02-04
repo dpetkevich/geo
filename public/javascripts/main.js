@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-    //var socket = io.connect( 'http://localhost/' );
+    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+    var socket = io.connect( 'http://localhost/' );
 
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
@@ -33,7 +33,9 @@ $(  document).ready( function () {
     
     // This code handles the default placeholder text
     $( '.defaultText' ).focus( function () {
+      console.log("in method val is "+ $(this).val() + " and attr is " + $(this).attr("alt"));
         if ( $( this ).val() === $( this ).attr( "alt" ) )
+          console.log("entering if statement");
           $( this ).val( "" );
           $( this ).css('color','black');
     } );  
@@ -183,7 +185,9 @@ console.log("here's the socketpost method");
 
   socket.emit( 'create_post', { content: content, latitude: latitude, longitude: longitude, location: location, username: username } );
   $('#new_post_body').val("Write Your Post Here.");
- 
-  
+   $('#new_post_body').blur();
+ console.log("attribute is " + $('#new_post_body').attr("alt"));
+   console.log("value is " + $('#new_post_body').val());
+
 }
 
