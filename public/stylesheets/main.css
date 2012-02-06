@@ -30,11 +30,31 @@ a {
     text-decoration:none;
     color:#000;
 }
-h1, h2{
+h1, .post_body, .quotes{
     margin:0px;
     font-size:20px;
     padding-bottom:2px;
+     font-weight:bold;
+     display:inline-block ;
 }
+
+.quote1,.quote2{
+    display:inline-block;
+    margin:0px;
+    font-size:20px;
+    padding-bottom:2px;
+     font-weight:bold;
+}
+
+.textwrap{
+    position:relative;
+    left:5px;
+
+}
+.quote1{
+    float:left;
+}
+
 #radio {
     position:absolute;
 
@@ -181,14 +201,24 @@ textarea#new_post_body{
     font-style:italic;
     font-size:11px;
     color:#999;
-    float:right;
-   
+}
+.textrwap{
+    
+
 
 }
-.post_title{
+.post_title,.dash{
     
-    font-size:11px;
-    color:#999;
+    font-size:18px;
+    color:black;
+    float:left;
+   
+}
+
+.dash{
+    position:relative;
+    left:3px;
+
 }
 #footer{
    
