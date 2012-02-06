@@ -30,25 +30,24 @@ a {
     text-decoration:none;
     color:#000;
 }
-h1, .post_body, .quotes{
+h1, .post_body{
     margin:0px;
     font-size:20px;
     padding-bottom:2px;
-     font-weight:bold;
-     display:inline-block ;
+    font-weight:bold;
+    display:inline-block ;
 }
 
 .quote1,.quote2{
-    display:inline-block;
     margin:0px;
     font-size:20px;
-    padding-bottom:2px;
-     font-weight:bold;
+    font-weight:bold;
 }
 
 .textwrap{
     position:relative;
-    left:5px;
+    
+    
 
 }
 .quote1{
