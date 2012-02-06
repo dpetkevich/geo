@@ -85,6 +85,7 @@ vertical-align: middle; margin-top: -1px;
 
 #bar2{
     margin-top:25px;
+    height:200px;
 
 
 }
@@ -118,12 +119,12 @@ vertical-align: middle; margin-top: -1px;
 #postlist{
     display:inline-block;
     border:solid;
-    margin-left:383px;
+    left:170px;
     width:515px;
     background-color:white;
     border-radius: 15px;
     position:relative;
-    top:-110px;
+    
     border-style: solid;
     border-width:1pt;
     border-color:black;
@@ -133,7 +134,14 @@ vertical-align: middle; margin-top: -1px;
 
 
 }
+#explanation{
+    float:left;
+    position:relative;
+    left:60px;
 
+
+
+}
 .postbox{
     margin-top:0px;
     border-bottom:solid 1px #ccc;
