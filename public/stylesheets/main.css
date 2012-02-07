@@ -141,7 +141,7 @@ vertical-align: middle; margin-top: -1px;
 .postbox{
     margin-top:0px;
     border-bottom:solid 1px #ccc;
-    padding:15px;
+    padding:10px;
     text-align:left;
     color:#000;
   
@@ -159,6 +159,11 @@ vertical-align: middle; margin-top: -1px;
     background-color:#FFF9EA;
     margin-top:8px;
    
+}
+#positions{
+    position:fixed;
+    bottom:0px;
+
 }
 #erroralert {
     margin-top:42px;

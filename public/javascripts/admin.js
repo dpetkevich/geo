@@ -11,13 +11,7 @@ $(  document).ready( function () {
 
         ajaxPosts( loc );
       } );
-  $( '.destroyPost' ).click( function () {
-            
-              
-                var target = $(this).parent('.postbox');
-                target.hide();
-                
-                  });
+
       
 });
 

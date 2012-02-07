@@ -65,10 +65,10 @@
 
  
 
-<div id="footer" style="display:none">&copy; Circa: Yale 2012 </div>
+
   <div id="positions">
-    <div id="lat" style="display:none"> </div>
-    <div id="lon" style="display:none"> </div>
+    <div id="lat" > </div>
+    <div id="lon" > </div>
     <div id="tol" style="display:none"> </div>
    </div>
       <div id="username" style="display:none" >black</div>
@@ -152,7 +152,8 @@ $('#username').html(name1);
   var lontol = Number(.00009333233333322);
   var lattol1 = Number(.0002);
   var lontol1 = Number(.0002);
-   
+  var lattold =  Number(.00005);
+  var lontold = Number(.00005);
       
 //Saybrook
    var saybrooklat = Number(41.3101593916667);
@@ -189,6 +190,7 @@ $('#username').html(name1);
           $('#new_post_title').val("Where are you in Davies?");
           $('#new_post_title').attr('alt', "Where are you in Davies?");
         }
+        
 
 // Sudler Hall
   var sudlat=Number(41.3103403333333);
@@ -202,10 +204,10 @@ $('#username').html(name1);
           $('#new_post_title').attr('alt', 'Where are you in Sudler?');
         }
 //Dunham
-  var dunlat=Number(41.3120644777778);
-  var dunlon = Number(-72.9251531777778);
-  if ( lat >= (dunlat-lattol) && lat <=(dunlat+lattol)
-  && lon <= (dunlon+lontol) && lon >= (dunlon-lontol))
+  var dunlat=Number(41.3122608333333);
+  var dunlon = Number(-72.9249771);
+  if ( lat >= (dunlat-lattol1) && lat <=(dunlat+lattol1)
+  && lon <= (dunlon+lontol1) && lon >= (dunlon-lontol1))
         {
           
           $('#locname').html('Dunham');
@@ -225,18 +227,7 @@ $('#username').html(name1);
           $('#new_post_title').attr('alt', 'Where are you in Sloane 59?');
         }
 
-// Sloane 57
-  var s57lat=Number(41.3174052333333);
-  var s57lon = Number(-72.9231922666667);
-  if ( lat >= (s57lat-lattol) && lat <=(s57lat+lattol)
-  && lon <= (s57lon+lontol) && lon >= (s57lon-lontol))
-        {
-          
-          $('#locname').html('Sloane 57');
-          $('#new_post_title').val("Where are you in Sloane 57?");
-          $('#new_post_title').attr('alt', 'Where are you in Sloane 57?');
 
-        }
 
 // LC 101
  var lc101lat=Number(41.3086307);
@@ -331,8 +322,8 @@ $('#username').html(name1);
 
   var lulat=Number(41.3143853666667);
   var lulon = Number(-72.9244436333333);
-  if ( lat >= (lulat-lattol) && lat <=(lulat+lattol)
-  && lon <= (lulon+lontol) && lon >= (lulon-lontol))
+  if ( lat >= (lulat-lattol1) && lat <=(lulat+lattol1)
+  && lon <= (lulon+lontol1) && lon >= (lulon-lontol1))
         {
           
           $('#locname').html('Luce Auditorium');
