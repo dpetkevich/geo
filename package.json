@@ -9,5 +9,6 @@
 		, "socket.io": "0.x.x"
 		, "connect": "1.x.x"
 		, "connect-redis": "1.x.x"
+    , "mongodb": "0.9.8-7"
   }
 }
