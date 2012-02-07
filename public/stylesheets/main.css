@@ -31,11 +31,13 @@ a {
     color:#000;
 }
 h1, .post_body{
-    margin:0px;
+    margin-top:1px;
+    margin-bottom:1px;
     font-size:20px;
     padding-bottom:2px;
     font-weight:bold;
     display:inline-block ;
+
 }
 
 .quote1,.quote2{
@@ -44,12 +46,7 @@ h1, .post_body{
     font-weight:bold;
 }
 
-.textwrap{
-    position:relative;
-    
-    
 
-}
 .quote1{
     float:left;
 }
@@ -218,7 +215,7 @@ textarea#new_post_body{
     
     font-size:18px;
     color:black;
-    float:left;
+
    
 }
 
