@@ -171,8 +171,9 @@
     <h2 class="post_body"></h2>
     <span class="post_title"></span>
     <span class="elapsed" class="post_time"></span>
-    <span class="post_id"></span>
-    <button class="destroyPost">Destroy Post</button>
+    <form action="/admin" method="Post">
+    <input type="hidden" class="post_id" name="post[id]" val="0"></input>
+    <button type="Submit">Destroy Post</button>
   </div>
 
 

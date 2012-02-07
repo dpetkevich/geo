@@ -43,6 +43,8 @@ $(  document).ready( function () {
           $( this ).val( $( this ).attr( "alt" ) );
           $( this ).css('color','#ccc');
     } );
+
+  
     // End placeholder code
    
 
@@ -94,7 +96,7 @@ function ajaxPosts( location ) {
           $new_post = $( '.postbox' ).first().clone();
           $new_post.find(".post_title").html(posts[i].username);
           $new_post.find(".post_body").html(posts[ i ].content);
-          $new_post.find('.post_id').html(posts[i]._id);
+          $new_post.find('.post_id').val(posts[i]._id);
           //print elapsed time
           
 
@@ -116,13 +118,7 @@ function ajaxPosts( location ) {
             console.log("css on last post is" + $('.postbox').last().css("border-bottom", "0px"));
             
             //socket.on('new_post_deleted')
-             $( '.destroyPost' ).click( function () {
-            
-              
-                var target = $(this).parent('.postbox');
-                target.hide();
-                deletePost(target, socket);
-                  });
+             
      
 
       return false;

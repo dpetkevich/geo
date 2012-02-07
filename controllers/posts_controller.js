@@ -105,24 +105,13 @@ console.log("here's the create post method");
 
 };
 
-module.exports.delete_post = function (data, socket ){
+module.exports.delete_post = exports.list_posts =function (req,res ){
 		
-console.log("data in delete_post is " + data._id);
- Post.findOne( { _id: data._id}).remove( function (err) {
+console.log("req.body in delete_post is " + req.body.post.id);
+ Post.findOne( { _id: req.body.post.id}).remove( function (err, posts) {
 		
-		if ( !err ) {
-			console.log( 'Success!' );
-			
-			// Emit message to all other sockets
-			//socket.broadcast.emit( 'new_post_deleted', data);
-			
-			// Also emit message to the socket that created it
-			//socket.emit( 'new_post_deleted', data);
-			
-		} else {
-			console.log( 'Had an error' + err );
-		}
 		
+		res.render( 'admin.ejs', { title: 'Circa' } );
 
 	} );
 
