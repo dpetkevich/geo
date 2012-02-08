@@ -5,11 +5,11 @@
   , "dependencies": {
       "express": "2.5.0"
     , "ejs": ">= 0.0.1"
-		, "mongoose": "2.x.x"
 		, "socket.io": "0.x.x"
 		, "connect": "1.x.x"
 		, "connect-redis": "1.x.x"
-    , "mongodb": "0.9.8-7"
+    , "mongodb": "0.9.8-5"
+    , "mongoose": "2.x.x"
     , "hooks": "0.1.9"
     , "socket.io-client": "0.8.7"
   }
