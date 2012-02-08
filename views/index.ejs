@@ -135,7 +135,7 @@ $('#username').html(name1);
   if (navigator.geolocation) {
   /* geolocation is available */
 
-  navigator.geolocation.getCurrentPosition(function(position) {
+  navigator.geolocation.watchPosition(function(position) {
      $.fancybox.close();
       
 
@@ -462,6 +462,18 @@ $('#username').html(name1);
           $('#locname').html('My Room');
           $('#new_post_title').val("Where are you in your room?");
           $('#new_post_title').attr('alt', 'Where are you in your room?');
+        }  
+
+ // SLB Auditorium
+ 
+  var mroomlat=Number(41.3121417);
+  var mroomlon = Number(-72.9275419);
+  if ( lat >= (mroomlat-lattol) && lat <=(mroomlat+lattol)
+  && lon <= (mroomlon+lontol) && lon >= (mroomlon-lontol))
+        {
+          
+          $('#locname').html('SLB Auditorium');
+       
         }  
 
 
