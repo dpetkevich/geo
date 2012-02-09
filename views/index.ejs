@@ -166,6 +166,9 @@ $('#username').html(name1);
   var lattold =  Number(.00005);
   var lontold = Number(.00005);
       
+  //for sterling ref
+  var lattolsr = Number(.0002);
+  var lontolsr = Number(.0002);
 //Saybrook
    var saybrooklat = Number(41.3101593916667);
     var saybrooklong = Number(-72.9295340333333);
@@ -381,12 +384,23 @@ $('#username').html(name1);
           $('#new_post_title').attr('alt', 'Where are you in the room?');
         }  
 
+  // stacks  
+  var stacklat=Number(41.3112042);
+  var stacklon = Number(-72.9292318333333);
+  if ( lat >= (stacklat-lattolb) && lat <=(stacklat+lattolb)
+  && lon <= (stacklon+lontolb) && lon >= (stacklon-lontolb))
+        {
+          
+          $('#locname').html('Stacks');
+       
+        }        
+
   //Sterling Reference Room East  
   
   var reflat=Number(41.3108255666667);
   var reflon = Number(-72.92873725);
-  if ( lat >= (reflat-lattol1) && lat <=(reflat+lattol1)
-  && lon <= (reflon+lontol1) && lon >= (reflon-lontol1))
+  if ( lat >= (reflat-lattolsr) && lat <=(reflat+lattolsr)
+  && lon <= (reflon+lontolsr) && lon >= (reflon-lontolsr))
         {
           
           $('#locname').html('Sterling Reference Room');
@@ -437,13 +451,13 @@ $('#username').html(name1);
 
 // bass basement 
 
-  var b1lat=Number(41.3108763333333);
-  var b1lon = Number(-72.9277187);
-  if ( lat >= (b1lat-lattolb) && lat <=(b1lat+lattolb)
-  && lon <= (b1lon+lontolb) && lon >= (b1lon-lontolb))
+  var bblat=Number(41.3108763333333);
+  var bblon = Number(-72.9277187);
+  if ( lat >= (bblat-lattolb) && lat <=(bblat+lattolb)
+  && lon <= (bblon+lontolb) && lon >= (bblon-lontolb))
         {
           
-          $('#locname').html('Bass Libraryb');
+          $('#locname').html('Bass Library');
           $('#new_post_title').val("Where are you in Bass?");
           $('#new_post_title').attr('alt', 'Where are you in Bass?');
         }  
@@ -489,10 +503,10 @@ $('#username').html(name1);
 
  // SLB Auditorium
  
-  var mroomlat=Number(41.3121417);
-  var mroomlon = Number(-72.9275419);
-  if ( lat >= (mroomlat-lattol) && lat <=(mroomlat+lattol)
-  && lon <= (mroomlon+lontol) && lon >= (mroomlon-lontol))
+  var slblat=Number(41.3121417);
+  var slblon = Number(-72.9275419);
+  if ( lat >= (slblat-lattol) && lat <=(slblat+lattol)
+  && lon <= (slblon+lontol) && lon >= (slblon-lontol))
         {
           
           $('#locname').html('SLB Auditorium');
