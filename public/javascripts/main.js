@@ -88,7 +88,7 @@ function ajaxPosts( location ) {
     function ( json ) {
       var posts = JSON.parse(json.posts);
 
-    
+      $('.postbox').slice(1).remove();
 
 
          for ( var i = 0; i < posts.length; i++ )  { 
