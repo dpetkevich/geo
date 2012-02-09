@@ -142,7 +142,7 @@ $('#username').html(name1);
   if (navigator.geolocation) {
   /* geolocation is available */
 
-  navigator.geolocation.watchPosition(function(position) {
+  navigator.geolocation.getCurrentPosition(function(position) {
      $.fancybox.close();
       
 
