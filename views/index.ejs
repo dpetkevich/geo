@@ -75,14 +75,16 @@
     
   
  
+<div id="footer">
+Copyright Circa:Yale 2012. Contact: circayale@gmail.com
+  <div id="lightpost" >
 
-<div id="lightpost" >
-
-              <img  id="chromebox" class="lightbox" src="./images/chromearrow.png" alt="lightbox text" style="display:none" />
-              <img  id="firefoxbox" class="lightbox" src="./images/firefoxarrow.png" alt="lightbox text" style="display:none" />
-              <img  id="safaribox" class="lightbox" src="./images/safariarrow.png" alt="lightbox text" style="display:none" />   
-              <img  id="iebox" class="lightbox" src="./images/iearrow.png" alt="lightbox text" style="display:none" />      
-   
+                <img  id="chromebox" class="lightbox" src="./images/chromearrow.png" alt="lightbox text" style="display:none" />
+                <img  id="firefoxbox" class="lightbox" src="./images/firefoxarrow.png" alt="lightbox text" style="display:none" />
+                <img  id="safaribox" class="lightbox" src="./images/safariarrow.png" alt="lightbox text" style="display:none" />   
+                <img  id="iebox" class="lightbox" src="./images/iearrow.png" alt="lightbox text" style="display:none" />      
+     
+  </div>
 </div>
 
 
@@ -95,8 +97,13 @@
 
   if (BrowserDetect.browser==="Chrome")
   {
+    if(BrowserDetect.browser==="Windows")
+    {
+      var post = $('#firefoxbox');
+      }
+    else{
       var post = $('#chromebox');
-
+    }
   }
 
   if (BrowserDetect.browser==="Firefox" )
