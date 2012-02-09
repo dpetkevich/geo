@@ -135,7 +135,7 @@ $('#username').html(name1);
   if (navigator.geolocation) {
   /* geolocation is available */
 
-  navigator.geolocation.watchPosition(function(position) {
+  navigator.geolocation.getCurrentPosition(function(position) {
      $.fancybox.close();
       
 
@@ -154,8 +154,8 @@ $('#username').html(name1);
   var lontol1 = Number(.0001);
 
   //for bass
-  var lattolb = Number(.0001);
-  var lontolb = Number(.0001);
+  var lattolb = Number(.0005);
+  var lontolb = Number(.0005);
   var lattold =  Number(.00005);
   var lontold = Number(.00005);
       
@@ -432,8 +432,8 @@ $('#username').html(name1);
 
   var bcafelat=Number(41.3106765666667);
   var bcafelon = Number(-72.9274440333333);
-  if ( lat >= (bcafelat-lattol) && lat <=(bcafelat+lattol)
-  && lon <= (bcafelon+lontol) && lon >= (bcafelon-lontol))
+  if ( lat >= (bcafelat-lattol1) && lat <=(bcafelat+lattol1)
+  && lon <= (bcafelon+lontol1) && lon >= (bcafelon-lontol1))
         {
           
           $('#locname').html('Bass Cafe');
@@ -500,8 +500,14 @@ else{
    console.log("location is" + loc);
     ajaxPosts( loc );
 
-});
+}, displayerror, {enableHighAccuracy: true, maximumAge:0});
   
+function displayerror()
+{
+  alert("meow");
+
+}
+
 } else {
   alert("I'm sorry, but geolocation services are not supported by your browser.");
 }
