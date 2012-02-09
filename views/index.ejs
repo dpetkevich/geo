@@ -150,8 +150,12 @@ $('#username').html(name1);
 
   var lattol = Number(.0000938609166667);
   var lontol = Number(.00009333233333322);
-  var lattol1 = Number(.0002);
-  var lontol1 = Number(.0002);
+  var lattol1 = Number(.0006);
+  var lontol1 = Number(.0006);
+
+  //for bass
+  var lattolb = Number(.0006);
+  var lontolb = Number(.0006);
   var lattold =  Number(.00005);
   var lontold = Number(.00005);
       
@@ -415,8 +419,8 @@ $('#username').html(name1);
 
   var b1lat=Number(41.3108646666667);
   var b1lon = Number(-72.9279158);
-  if ( lat >= (b1lat-lattol1) && lat <=(b1lat+lattol1)
-  && lon <= (b1lon+lontol1) && lon >= (b1lon-lontol1))
+  if ( lat >= (b1lat-lattolb) && lat <=(b1lat+lattolb)
+  && lon <= (b1lon+lontolb) && lon >= (b1lon-lontolb))
         {
           
           $('#locname').html('Bass Library');
