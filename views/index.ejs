@@ -135,7 +135,7 @@ $('#username').html(name1);
   if (navigator.geolocation) {
   /* geolocation is available */
 
-  navigator.geolocation.watchPosition(function(position) {
+  navigator.geolocation.getCurrentPosition(function(position) {
      $.fancybox.close();
       
 
@@ -150,12 +150,12 @@ $('#username').html(name1);
 
   var lattol = Number(.0000938609166667);
   var lontol = Number(.00009333233333322);
-  var lattol1 = Number(.0006);
-  var lontol1 = Number(.0006);
+  var lattol1 = Number(.0001);
+  var lontol1 = Number(.0001);
 
   //for bass
-  var lattolb = Number(.0006);
-  var lontolb = Number(.0006);
+  var lattolb = Number(.0001);
+  var lontolb = Number(.0001);
   var lattold =  Number(.00005);
   var lontold = Number(.00005);
       

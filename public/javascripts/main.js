@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-    //var socket = io.connect( 'http://localhost/' );
+    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+    var socket = io.connect( 'http://localhost/' );
 
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
@@ -89,7 +89,6 @@ function ajaxPosts( location ) {
       var posts = JSON.parse(json.posts);
 
     
-
 
 
          for ( var i = 0; i < posts.length; i++ )  { 
