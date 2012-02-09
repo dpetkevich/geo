@@ -1,6 +1,6 @@
 $(  document).ready( function () {
     
-    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+   var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
     //var socket = io.connect( 'http://localhost/' );
 
     socket.on( 'new_post_created', function ( data ) {
