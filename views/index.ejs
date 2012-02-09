@@ -435,6 +435,18 @@ $('#username').html(name1);
           $('#new_post_title').attr('alt', 'Where are you in Bass?');
         }  
 
+// bass basement 
+
+  var b1lat=Number(41.3108763333333);
+  var b1lon = Number(-72.9277187);
+  if ( lat >= (b1lat-lattolb) && lat <=(b1lat+lattolb)
+  && lon <= (b1lon+lontolb) && lon >= (b1lon-lontolb))
+        {
+          
+          $('#locname').html('Bass Library');
+          $('#new_post_title').val("Where are you in Bass?");
+          $('#new_post_title').attr('alt', 'Where are you in Bass?');
+        }  
 // bass cafe
 
   var bcafelat=Number(41.3106765666667);
