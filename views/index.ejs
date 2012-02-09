@@ -155,14 +155,14 @@ $('#username').html(name1);
 // beginning the headers
 
 
-  var lattol = Number(.0000938609166667);
-  var lontol = Number(.00009333233333322);
-  var lattol1 = Number(.0001);
-  var lontol1 = Number(.0001);
+  var lattol = Number(.0001);
+  var lontol = Number(.0001);
+  var lattol1 = Number(.0002);
+  var lontol1 = Number(.0002);
 
   //for bass
-  var lattolb = Number(.0005);
-  var lontolb = Number(.0005);
+  var lattolb = Number(.0003);
+  var lontolb = Number(.0003);
   var lattold =  Number(.00005);
   var lontold = Number(.00005);
       
@@ -385,8 +385,8 @@ $('#username').html(name1);
   
   var reflat=Number(41.3108255666667);
   var reflon = Number(-72.92873725);
-  if ( lat >= (reflat-lattol) && lat <=(reflat+lattol)
-  && lon <= (reflon+lontol) && lon >= (reflon-lontol))
+  if ( lat >= (reflat-lattol1) && lat <=(reflat+lattol1)
+  && lon <= (reflon+lontol1) && lon >= (reflon-lontol1))
         {
           
           $('#locname').html('Sterling Reference Room');
@@ -443,7 +443,7 @@ $('#username').html(name1);
   && lon <= (bcafelon+lontol1) && lon >= (bcafelon-lontol1))
         {
           
-          $('#locname').html('Bass Cafe');
+          $('#locname').html('Bass Library');
           $('#new_post_title').val("Where are you in Bass Cafe?");
           $('#new_post_title').attr('alt', 'Where are you in Bass Cafe?');
         }  
