@@ -129,7 +129,8 @@ Copyright Circa:Yale 2012. Contact: circayale@gmail.com
   var cookie1 = document.cookie;
 
   var index1 = cookie1.indexOf('uname=');
-  var name1 = cookie1.substring((index1+6));
+  var index2 = cookie1.indexOf(';',index1);
+  var name1 = cookie1.substring((index1+6), index2);
   console.log("name1 is " + name1);
 
 
