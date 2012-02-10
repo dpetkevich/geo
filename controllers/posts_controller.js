@@ -25,7 +25,7 @@ if (passCookie !== undefined)
 		Post.find( function ( err, posts ) {
 
 			
-		res.render( 'index.ejs', { title: 'Circa', posts: posts.reverse() } );
+		res.render( 'index.ejs', { title: 'Circa:Yale', posts: posts.reverse() } );
 		
 		
 	} )
@@ -42,7 +42,7 @@ else{
 	Post.find( function ( err, posts ) {
 		console.log("name in the else statement is" + name);
 		res.cookie('uname', name , { maxAge: 10000 });
-		res.render( 'index.ejs', { title: 'Circa', posts: posts.reverse() } );
+		res.render( 'index.ejs', { title: 'Circa:Yale', posts: posts.reverse() } );
 		
 		
 	} )
@@ -58,7 +58,7 @@ else{
 module.exports.admin_list = exports.list_posts = function( req, res ) {
   
 	Post.find( function ( err, posts ) {
-		res.render( 'admin.ejs', { title: 'Circa', posts: posts.reverse() } );
+		res.render( 'admin.ejs', { title: 'Circa:Yale', posts: posts.reverse() } );
 		
 	} )
 
@@ -101,7 +101,7 @@ console.log("req.body in delete_post is " + req.body.post.id);
  Post.findOne( { _id: req.body.post.id}).remove( function (err, posts) {
 		
 		
-		res.render( 'admin.ejs', { title: 'Circa' } );
+		res.render( 'admin.ejs', { title: 'Circa:Yale' } );
 
 	} );
 
