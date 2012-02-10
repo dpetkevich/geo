@@ -6,11 +6,11 @@ var Post = require( '../models/post.js' );
 var util = require( 'util' );
 var tolerance = 0;
 
-var i =0; 
-var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
+//var i =0; 
+//var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
 
-var list1 = ["1","2","3","4","5","6","7","8","9","10"];
-var list2 = ["a","b","c","d","e","f","g","h","i","j","k","l"];
+var list1 = ["1","2","3","4"];
+var list2 = ["a","b","c","d"];
 
 
 
@@ -31,26 +31,12 @@ if (passCookie !== undefined)
 
 else{
 	console.log("passcookie statement initiated");
-	name = namelist[0];
-namelist.push(name);
-for(var j=0; j<((namelist.length)-1); j++)
-{
-	namelist[j]=namelist[(j+1)];
-	
+	var indexa = Math.floor(Math.random()*list1.length);
+	var indexb = Math.floor(Math.random()*list2.length);
 
-};
-namelist.pop();
+	console.log("list1lenght is " + list1.length);
+	name = String(list1[indexa] + "-" + list2[indexb]);
 
-
-if (i<namelist.length)
-{
-	i++;
-}
-else{
-	
-i=0;
-
-}
 	Post.find( function ( err, posts ) {
 		console.log("name in the else statement is" + name);
 		res.cookie('uname', name , { maxAge: 10000 });
@@ -59,12 +45,13 @@ i=0;
 		
 	} )
 	
-
-}
-
-
+	}
 
 };
+
+
+
+
 
 module.exports.admin_list = exports.list_posts = function( req, res ) {
   
@@ -126,7 +113,7 @@ module.exports.get_posts = function( req, res ) {
   console.log( "req query is" + util.inspect( req.query ) );
 	var loc = req.query.location;
 	
-console.log("i at the beginning of the function is " + i);
+
 
 
 //"houdini", "wow", "user2", "user 3"
