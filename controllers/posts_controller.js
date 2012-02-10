@@ -6,11 +6,13 @@ var Post = require( '../models/post.js' );
 var util = require( 'util' );
 var tolerance = 0;
 
+var list1 = require( '../models/adj.js' );
+var list2 = require( '../models/noun.js' );
 //var i =0; 
 //var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
 
-var list1 = ["1","2","3","4"];
-var list2 = ["a","b","c","d"];
+//var list1 = ["1","2","3","4"];
+//var list2 = ["a","b","c","d"];
 
 
 
@@ -35,7 +37,7 @@ else{
 	var indexb = Math.floor(Math.random()*list2.length);
 
 	console.log("list1lenght is " + list1.length);
-	name = String(list1[indexa] + "-" + list2[indexb]);
+	name = list1[indexa] + "-" + list2[indexb];
 
 	Post.find( function ( err, posts ) {
 		console.log("name in the else statement is" + name);
