@@ -9,7 +9,8 @@ var tolerance = 0;
 var i =0; 
 var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
 
-
+var list1 = ["1","2","3","4","5","6","7","8","9","10"];
+var list2 = ["a","b","c","d","e","f","g","h","i","j","k","l"];
 
 
 
