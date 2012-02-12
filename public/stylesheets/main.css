@@ -141,7 +141,7 @@ vertical-align: middle; margin-top: -1px;
     width:515px;
     background-color:white;
     border-radius: 15px;
-    position:absolute;
+    position:relative;
     
     border-style: solid;
     border-width:1pt;
@@ -149,6 +149,13 @@ vertical-align: middle; margin-top: -1px;
        box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.8);
     -moz-box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.8);
     -webkit-box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.8);
+
+
+}
+
+#midsection{
+       position:relative;
+
 
 
 }
@@ -259,11 +266,11 @@ textarea#new_post_body{
 }
 #footer{
    
-   position:relative;
-    height:40px;
-    top:20px;
+   position:absolute;
+   bottom:-50px;
     font-size:14px;
     left:350px;
+    display:block;
 
 
 }
@@ -274,4 +281,14 @@ textarea#new_post_body{
     margin-left: 500px;
 
 }
+#hyale{
+    opacity:.7;
+}
+
+#hyale:hover{
+    opacity:1;
+
+}
+
+
 
