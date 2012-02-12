@@ -37,7 +37,7 @@ else{
 	var indexb = Math.floor(Math.random()*list2.length);
 
 	console.log("list1lenght is " + list1.length);
-	name = list1[indexa] + "-" + list2[indexb];
+	name = list1[indexa] + list2[indexb];
 
 	Post.find( function ( err, posts ) {
 		console.log("name in the else statement is" + name);
