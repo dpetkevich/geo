@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-   var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-   //var socket = io.connect( 'http://localhost/' );
+   //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+   var socket = io.connect( 'http://localhost/' );
 
     socket.on( 'new_post_created', function ( data ) {
       createPost( data );
@@ -74,7 +74,7 @@ $(  document).ready( function () {
 
     // End placeholder code
    
-
+ $('.postbox').last().css("border-bottom", "0px") ;
 
 
       if(navigator.geolocation) {
@@ -114,11 +114,11 @@ function ajaxPosts( location ) {
     { location: location },
     function ( json ) {
       var posts = JSON.parse(json.posts);
-
+        posts=posts.reverse();
       //$('.postbox').slice(1).remove();
 
 
-         for ( var i = 0; i < posts.length; i++ )  { 
+         for ( var i = (posts.length-1); i >= (posts.length-30); i-- )  { 
           $new_post = $( '.postbox' ).first().clone();
           $new_post.find(".post_title").html(posts[i].username);
           $new_post.find(".post_body").html(posts[ i ].content);
@@ -140,7 +140,7 @@ function ajaxPosts( location ) {
 
            //var socket = io.connect( 'http://localhost/' );
             
-           $('.postbox').last().css("border-bottom", "0px") ;
+          
             console.log("css on last post is" + $('.postbox').last().css("border-bottom", "0px"));
             
             //socket.on('new_post_deleted')

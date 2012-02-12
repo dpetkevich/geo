@@ -24,7 +24,7 @@ var list2 =
 ,'squeeze'
 ,'beast'
 ,'goldman'
-,'asshole'
+
 ];
 
 module.exports = list2;
