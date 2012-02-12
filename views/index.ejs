@@ -5,7 +5,9 @@
 
   <div id='namewrapper'>
     <div id="locname"> yale</div>
-    <img  id="locarrow" src="./images/locarrow.png" alt="You're here. Right?" />
+      <img  id="locarrow" src="./images/locarrow.png" alt="You're here. Right?" />
+      <img  id="qmark" src="./images/qmark.png" alt="?" />
+      <img  id="locerror" src="./images/locerror.png" alt="Whoops! Try refreshing the page a few times." style="display:none"/>
 
   </div>  
     <div id='subtext'>chat with the people around you.</div>
@@ -14,9 +16,7 @@
   
 
 
-<div id="erroralert" style="display:none">
-    Circa's having some trouble! Try refreshing the page a few times. If that doesn't work, then you might be in a place that we don't serve. If you think your location should be served by Circa, let us know at daniel.petkevich@gmail.com.
-  </div>
+
 
 
    <div id="bar2">
@@ -39,35 +39,37 @@
 
 
 <img  id="explanation" src="./images/exp.png" alt="explanation" />
+<img  id="exphover" src="./images/explanation.png" alt="explanation" style="display:none" />
+
+<div id="rightwrap">
+    <div id="postlist">
+        
+
+     <div class="postbox" data-datetime="blank" style="display:none">
+        <div class="post_title"></div>
+          <div class="post_body"></div>
+        <div class="elapsed" class="post_time"></div>
+      </div>
+
+       <div class="postbox" data-datetime="blank">
+        <h2 class="post_body">Not. A. Chance.</h2>
+        <span class="post_title">That cute redhead upfront.</span>
+        
+        <span class="elapsed" class="post_time">sometime</span>
+
+        </div>
 
 
-  <div id="postlist">
+      </div>
     
 
- <div class="postbox" data-datetime="blank" style="display:none">
-    <div class="post_title"></div>
-      <div class="post_body"></div>
-    <div class="elapsed" class="post_time"></div>
-  </div>
+</div>
 
-   <div class="postbox" data-datetime="blank">
-    <h2 class="post_body">Not. A. Chance.</h2>
-    <span class="post_title">That cute redhead upfront.</span>
-    
-    <span class="elapsed" class="post_time">sometime</span>
 
+
+   <div id="footer">
+        Copyright Circa:Yale 2012. Contact: circayale@gmail.com
     </div>
-
-
-
-
-  </div>
-
-
-
-
-
- 
 
 
   <div id="positions" style="display:none">
@@ -79,8 +81,7 @@
     
   
  
-<div id="footer">
-Copyright Circa:Yale 2012. Contact: circayale@gmail.com
+
   <div id="lightpost" >
 
                 <img  id="chromebox" class="lightbox" src="./images/chromearrow.png" alt="lightbox text" style="display:none" />
@@ -89,7 +90,8 @@ Copyright Circa:Yale 2012. Contact: circayale@gmail.com
                 <img  id="iebox" class="lightbox" src="./images/iearrow.png" alt="lightbox text" style="display:none" />      
      
   </div>
-</div>
+
+
 
 
 <!-- WTG START -->

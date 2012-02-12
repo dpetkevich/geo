@@ -44,7 +44,34 @@ $(  document).ready( function () {
           $( this ).css('color','#ccc');
     } );
 
-  
+ 
+
+  //exp button
+ $( '#explanation' ).mouseover( function () {
+        $(this).fadeOut(500);
+        $('#exphover').fadeIn(500);
+        }
+      );
+      
+   $( '#exphover' ).mouseout( function () {
+        $(this).fadeOut(100);
+        $('#explanation').fadeIn(100);
+        }
+      );  
+
+  // question button
+   $( '#qmark' ).mouseover( function () {
+        $(this).hide()
+        $('#locerror').show();
+        }
+      );
+      
+   $( '#locerror' ).mouseout( function () {
+        $(this).hide();
+        $('#qmark').show();
+        }
+      );  
+
     // End placeholder code
    
 
