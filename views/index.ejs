@@ -4,7 +4,7 @@
   <img  id="logo" src="./images/logo.png" alt="Circa Logo" />
 
   <div id='namewrapper'>
-    <div id="locname"> yale</div>
+    <div id="locname">yale</div>
       <img  id="locarrow" src="./images/locarrow.png" alt="You're here. Right?" />
       <img  id="qmark" src="./images/qmark.png" alt="?" />
       <img  id="locerror" src="./images/locerror.png" alt="Whoops! Try refreshing the page a few times." style="display:none"/>
@@ -26,8 +26,9 @@
           <div id='bubblecon'>
             <img  id="bubble" src="./images/bubble.png" alt="textPointer" />
           </div>
-
-
+          <div id="roamcon" style="display:none">
+           <img  id="bubble" src="./images/roaming.png" alt="textPointer" />
+          </div>  
     <div id="new_crush_box" >
         <textarea id="new_post_body" class="defaultText"
           alt="Write Your Post Here." name="post[content]" value="Write Your Post Here.">Write Your Post Here.</textarea>
@@ -508,7 +509,7 @@ $('#username').html(name1);
         }  
 
  // My Room
- 
+/*
   var mroomlat=Number(41.3103479333333);
   var mroomlon = Number(-72.9297462666667);
   if ( lat >= (mroomlat-lattol) && lat <=(mroomlat+lattol)
@@ -519,7 +520,7 @@ $('#username').html(name1);
           $('#new_post_title').val("Where are you in your room?");
           $('#new_post_title').attr('alt', 'Where are you in your room?');
         }  
-
+*/
  // SLB Auditorium
  
   var slblat=Number(41.3121417);
@@ -545,7 +546,14 @@ $('#username').html(name1);
         }  
 
 
-  
+  if($('#locname').html()==='yale')
+    {
+      $('#roamcon').show();
+      $('#new_crush_box').hide();
+      $("#footer").hide();
+
+
+    }
 
 else{
 

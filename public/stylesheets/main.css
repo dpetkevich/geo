@@ -97,7 +97,7 @@ vertical-align: middle; margin-top: -1px;
 #locerror{
     position:relative;
     left:-5px;
-    bottom:-30px;
+    bottom:-33px;
     z-index:1;
 
 }
@@ -121,6 +121,17 @@ vertical-align: middle; margin-top: -1px;
     margin-left:60px;
     position:relative;
     z-index:0;
+
+}
+
+#roamcon{
+     display:inline-block;
+    left:378px;
+
+    top:-3px;
+    position:absolute;
+    z-index:1;
+
 
 }
 #new_crush_box{
