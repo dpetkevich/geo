@@ -81,7 +81,7 @@
     <div id="lon" > </div>
     <div id="tol" > </div>
    </div>
-      <div id="username" style="display:none" >black</div>
+      <div id="username" style="display:none" >nolikecookies</div>
     
   
  
@@ -137,10 +137,10 @@
 
    console.log("browers is " +BrowserDetect.browser + " version is " + BrowserDetect.version);
   var cookie1 = document.cookie;
-
+  console.log("cookies is "+ cookie1);
   var index1 = cookie1.indexOf('uname=');
   var index2 = cookie1.indexOf(';',index1);
-  if (index2 >= 0){
+  if (index2 > 0){
     
       var name1 = cookie1.substring((index1+6), index2);
 
