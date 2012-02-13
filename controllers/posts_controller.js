@@ -41,7 +41,7 @@ else{
 
 	Post.find( function ( err, posts ) {
 		console.log("name in the else statement is" + name);
-		res.cookie('uname', name , { maxAge: 10000 });
+		res.cookie('uname', name , { maxAge: 5400000 });
 		res.render( 'index.ejs', { title: 'Circa:Yale', posts: posts.reverse() } );
 		
 		
