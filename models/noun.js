@@ -24,6 +24,7 @@ var list2 =
 ,'squeeze'
 ,'beast'
 ,'goldman'
+, 'lovin'
 
 ];
 
