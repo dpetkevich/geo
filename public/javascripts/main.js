@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-   //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-   var socket = io.connect( 'http://localhost/' );
+   var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+   //var socket = io.connect( 'http://localhost/' );
    
    
     socket.on( 'new_post_created', function ( data ) {
@@ -123,7 +123,7 @@ function ajaxPosts( location ) {
       //$('.postbox').slice(1).remove();
 
 
-         for ( var i = 0; i <25; i++ )  { 
+         for ( var i = 0; i <posts.length; i++ )  { 
           $new_post = $( '#tpostbox' ).clone();
           $new_post.find(".post_title").html(posts[i].username);
           $new_post.find(".post_body").html(posts[ i ].content);
