@@ -79,7 +79,7 @@
   </div>
 
 
-  <div id="positions" style="display:none">
+  <div id="positions" style="">
     <div id="lat" > </div>
     <div id="lon" > </div>
     <div id="tol" > </div>
@@ -551,10 +551,10 @@ $('#username').html(name1);
 
 // SLB 27
  
-  var jr =Number(41.3102018333333);
-  var jr = Number(-72.9296708666666);
-  if ( lat >= (jr-lattol) && lat <=(jr+lattol)
-  && lon <= (jr+lontol) && lon >= (jr-lontol))
+  var jrlat =Number(41.3101869 );
+  var jrlon= Number(-72.9296622);
+  if ( lat >= (jrlat-lattol) && lat <=(jrlat+lattol)
+  && lon <= (jrlon+lontol) && lon >= (jrlon-lontol))
         {
           
           $('#locname').html('Josh');
