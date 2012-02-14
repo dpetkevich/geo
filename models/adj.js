@@ -1,10 +1,8 @@
 var list1 = 
 [
-'rancid'
 ,'chief'
 ,'dank'
 ,'swarthy'
-,'shit'
 ,'frat'
 ,'DKE'
 ,'theta'
@@ -23,6 +21,7 @@ var list1 =
 ,'power'
 ,'section'
 ,'mc'
+,'prancing'
 ];
 
 

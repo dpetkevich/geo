@@ -2,7 +2,8 @@ $(  document).ready( function () {
     
    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
    //var socket = io.connect( 'http://localhost/' );
-
+   var ttl = $('title')
+   
     socket.on( 'new_post_created', function ( data ) {
       
 
@@ -192,6 +193,7 @@ function createPost( data ) {
   $new_post.slideDown( 'slow', function () {
   } );
 
+  $('title').html('Circa:Yale New Post!');
   
 }
 
