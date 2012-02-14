@@ -79,7 +79,7 @@
   </div>
 
 
-  <div id="positions" style="display:none">
+  <div id="positions" style="display:non">
     <div id="lat" > </div>
     <div id="lon" > </div>
     <div id="tol" > </div>
@@ -499,19 +499,18 @@ $('#username').html(name1);
         }  
 
 // A&A Library
-/*
+
   var aalat=Number(41.3086329666667);
   var aalon = Number(-72.9317826);
  
   if ( lat >= (aalat-lattol1) && lat <=(aalat+lattol1)
   && lon <= (aalon+lontol1) && lon >= (aalon-lontol1))
         {
-          
           $('#locname').html('AA Library');
           $('#new_post_title').val("Where are you in the AA Library?");
           $('#new_post_title').attr('alt', 'Where are you in the AA Library?');
         }  
-*/
+
  // My Room
 
   var mroomlat=Number(41.3103479333333);
@@ -549,7 +548,7 @@ $('#username').html(name1);
        
         }  
 
-// SLB 27
+// josh
  
   var jrlat =Number(41.3101869 );
   var jrlon= Number(-72.9296622);
@@ -558,6 +557,18 @@ $('#username').html(name1);
         {
           
           $('#locname').html('Josh');
+       
+        }  
+
+// SLB 27
+ 
+  var klat =Number(41.3168964333333 );
+  var klon= Number(-72.9238190666667);
+  if ( lat >= (klat-lattol1) && lat <=(klat+lattol1)
+  && lon <= (klon+lontol1) && lon >= (klon-lontol1))
+        {
+          
+          $('#locname').html('Kroon');
        
         }  
 
