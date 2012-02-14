@@ -138,7 +138,7 @@ function ajaxPosts( location ) {
            updateElapsed(".postbox",1000);
           
           $last_post=$('.postbox').last();
-          $last_post.before( $new_post1 );
+          $last_post.before( $new_post );
           $new_post.show();
 
  
