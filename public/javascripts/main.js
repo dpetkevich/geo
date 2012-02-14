@@ -119,11 +119,12 @@ function ajaxPosts( location ) {
     function ( json ) {
       var posts = JSON.parse(json.posts);
        posts=posts.reverse();
+
       //$('.postbox').slice(1).remove();
 
 
          for ( var i = 0; i <25; i++ )  { 
-          $new_post = $( '.postbox' ).first().clone();
+          $new_post = $( '#tpostbox' ).clone();
           $new_post.find(".post_title").html(posts[i].username);
           $new_post.find(".post_body").html(posts[ i ].content);
           $new_post.find('.post_id').val(posts[i]._id);
@@ -135,8 +136,8 @@ function ajaxPosts( location ) {
          $new_post.attr('data-datetime',d );
            updateElapsed(".postbox",1000);
           
-          $first_post=$('.postbox').last();
-          $first_post.before( $new_post );
+          $last_post=$('.postbox').last();
+          $last_post.before( $new_post );
           $new_post.show();
 
  
@@ -171,7 +172,7 @@ function createPost( data ) {
 
 
 
-  $new_post = $( '.postbox' ).first().clone();
+  $new_post = $( '#tpostbox' ).clone();
   $new_post.find( '.post_body' ).html( data.content );
   $new_post.find( '.post_title' ).html( data.username );
   $new_post.find( '.post_time' ).html("");
