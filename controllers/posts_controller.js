@@ -124,7 +124,7 @@ module.exports.get_posts = function( req, res ) {
   	
 	
   Post
-  .where('location', loc).desc('date')
+  .where('location', loc).asc('date')
   .run( function( err, posts ) {
 
   	
