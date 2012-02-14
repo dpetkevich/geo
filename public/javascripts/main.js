@@ -193,7 +193,12 @@ function createPost( data ) {
   $new_post.slideDown( 'slow', function () {
   } );
 
+  $('title').html('Circa:Yale (1)');
   
+  setTimeout("$('title').html('Circa:Yale');",60000);
+
+  
+
 
   
 }

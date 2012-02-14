@@ -20,7 +20,6 @@ var list2 =
 ,'wings'
 ,'basement'
 ,'box'
-,'asian'
 ,'squeeze'
 ,'beast'
 ,'goldman'
