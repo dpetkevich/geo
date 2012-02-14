@@ -161,7 +161,7 @@ function ajaxPosts( location ) {
 
 
 
-
+var c =0;
 
 function createPost( data ) {
   var now = new Date();
@@ -193,9 +193,26 @@ function createPost( data ) {
   $new_post.slideDown( 'slow', function () {
   } );
 
-  $('title').html('Circa:Yale (1)');
+$('.postbox').css('margin-top','0px');
+$('.postbox').css('border-bottom','solid 1px #ccc');
+$('.postbox').css('padding','10px');
+$('.postbox').css('text-align','left');
+$('.postbox').css('color','#000');
+$('.postbox').css('height','auto');
   
-  setTimeout("$('title').html('Circa:Yale');",60000);
+  
+
+c++;
+  $('title').html('Circa:Yale (' + c + ')');
+  
+  $( 'body' ).mousemove( function () {
+        $('title').html('Circa:Yale');
+        c=0;
+        }
+      );
+      
+
+  //setTimeout("$('title').html('Circa:Yale');",60000);
 
   
 
