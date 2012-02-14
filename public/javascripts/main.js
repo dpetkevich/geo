@@ -194,7 +194,7 @@ function createPost( data ) {
   } );
 
 $('.postbox').css('margin-top','0px');
-$('.postbox').css('border-bottom','solid 1px #ccc');
+
 $('.postbox').css('padding','10px');
 $('.postbox').css('text-align','left');
 $('.postbox').css('color','#000');
