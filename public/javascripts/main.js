@@ -133,7 +133,7 @@ function ajaxPosts( location ) {
 
           var d = posts[i].date;
           d = new Date(d);
-         $new_post.attr('data-datetime',d );
+         $new_post1.attr('data-datetime',d );
            updateElapsed(".postbox",1000);
           
           $last_post=$('.postbox').last();
