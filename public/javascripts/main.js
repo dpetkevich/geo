@@ -124,7 +124,7 @@ function ajaxPosts( location ) {
       //$('.postbox').slice(1).remove();
 
 
-         for ( var i = 0; i <25it p; i++ )  { 
+         for ( var i = 0; i <25; i++ )  { 
           $new_post = $( '#tpostbox' ).clone();
           $new_post.find(".post_title").html(posts[i].username);
           $new_post.find(".post_body").html(posts[ i ].content);
