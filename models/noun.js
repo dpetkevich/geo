@@ -10,10 +10,7 @@ var list2 =
 ,'star'
 ,'miller'
 ,'levin'
-,'balls'
-,'boner'
 ,'city'
-,'freak'
 ,'squirrel'
 ,'meme'
 ,'horny'
@@ -25,6 +22,9 @@ var list2 =
 ,'goldman'
 , 'lovin'
 ,"unicorn"
+,'balls'
+,'society'
+,'bulldog'
 
 ];
 

@@ -15,7 +15,6 @@ var list1 =
 ,'angry'
 ,'wounded'
 ,'drunk'
-,'greasy'
 ,'wet'
 ,'wild'
 ,'power'
