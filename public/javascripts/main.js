@@ -54,12 +54,14 @@ $(  document).ready( function () {
  $( '#explanation' ).mouseover( function () {
         $(this).fadeOut(500);
         $('#exphover').fadeIn(500);
+        $('#join').hide();
         }
       );
       
    $( '#exphover' ).mouseout( function () {
         $(this).fadeOut(100);
         $('#explanation').fadeIn(100);
+        $('#join').show();
         }
       );  
 
@@ -76,6 +78,14 @@ $(  document).ready( function () {
         }
       );  
 
+  
+     $( '#legal' ).click( function () {
+        alert('Circa does not have permission to use the yale name.')
+      } );
+
+   $( '#join' ).click( function () {
+        alert('We need good people, especially a tech lead. Email circacampus@gmail.com.')
+      } );
     // End placeholder code
    
  $('.postbox').last().css("border-bottom", "0px") ;
@@ -205,10 +215,10 @@ $('.postbox').css('height','auto');
   
 
 c++;
-  $('title').html('Circa:Yale (' + c + ')');
+  $('title').html('Circa (' + c + ')');
   
   $( 'body' ).mousemove( function () {
-        $('title').html('Circa:Yale');
+        $('title').html('Circa');
         c=0;
         }
       );

@@ -25,6 +25,12 @@ body {
 
 }
 
+#legal{
+    position:absolute;
+    top: 5px;
+    right: 5px;
+
+}
 
 a {
 
@@ -175,6 +181,12 @@ vertical-align: middle; margin-top: -1px;
     position:absolute;
     left:60px;
 
+}
+
+#join{
+    position:absolute;
+    left:60px;
+    top: 300px;
 }
 
 #exphover{

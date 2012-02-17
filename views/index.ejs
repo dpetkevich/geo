@@ -4,7 +4,7 @@
   <img  id="logo" src="./images/logo.png" alt="Circa Logo" />
 
   <div id='namewrapper'>
-    <div id="locname">yale</div>
+    <div id="locname">somewhere at yale</div>
       <img  id="locarrow" src="./images/locarrow.png" alt="You're here. Right?" />
       <img  id="qmark" src="./images/qmark.png" alt="?" />
       <img  id="locerror" src="./images/locerror.png" alt="Whoops! Try refreshing the page a few times." style="display:none"/>
@@ -13,7 +13,10 @@
     <div id='subtext'>chat with the people around you.</div>
 
   </div>
-  
+  <div id="legal">
+       <img  id="legal" src="./images/legal.png" alt="Circa does not have permission to use the yale name." />
+
+  </div>
 
 
 
@@ -27,7 +30,7 @@
             <img  id="bubble" src="./images/bubble.png" alt="textPointer" />
           </div>
           <div id="roamcon" style="display:none">
-           <img  id="bubble" src="./images/roaming.png" alt="textPointer" />
+           <img  id="bubble" src="./images/roaming1.png" alt="textPointer" />
           </div>  
     <div id="new_crush_box" >
         <textarea id="new_post_body" class="defaultText"
@@ -41,7 +44,7 @@
 
     <img  id="explanation" src="./images/exp.png" alt="explanation" />
     <img  id="exphover" src="./images/explanation.png" alt="explanation" style="display:none" />
-
+    <img  id="join" src="./images/join.png" alt="join" />
     
         <div id="postlist">
             
@@ -572,8 +575,20 @@ $('#username').html(name1);
        
         }  
 
+// Commons
+ 
+  var comlat =Number(41.3116931 );
+  var comlon= Number(-72.9262979333333);
+  if ( lat >= (comlat-lattolb) && lat <=(comlat+lattolb)
+  && lon <= (comlon+lontolb) && lon >= (comlon-lontolb))
+        {
+          
+          $('#locname').html('Commons');
+       
+        }  
 
-  if($('#locname').html()==='yale')
+
+if($('#locname').html()==='somewhere at yale')
     {
       $('#roamcon').show();
       $('#new_crush_box').hide();
@@ -581,6 +596,7 @@ $('#username').html(name1);
       $(".postbox").hide();
 
     }
+    
 
 else{
 
