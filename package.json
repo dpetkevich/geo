@@ -12,5 +12,6 @@
     , "mongoose": "2.x.x"
     , "hooks": "0.1.9"
     , "socket.io-client": "0.8.7"
+    , "uglify-js": "1.0.6"
   }
 }
