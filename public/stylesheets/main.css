@@ -8,6 +8,31 @@ body {
 
 }
 
+
+#lanwrap{
+    width:600px;
+    position:relative;
+    z-index:2;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #0E75BC;
+    border-radius: 15px;
+    border:solid;
+    box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.8);
+
+}
+
+#text{
+    font-size:24px;
+}
+
+#contentwrap{
+    padding:10px;
+
+
+}
 .lightbox{
         opacity:1;
         width:598px;
