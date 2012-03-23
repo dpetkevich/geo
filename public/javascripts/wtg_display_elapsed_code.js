@@ -41,9 +41,9 @@ function displayElapsed( elapsed ) {
     var seconds = Math.round( elapsed / 1000 );
     
     if ( seconds === 1 ) {
-      return "about 1 second ago";
+      return "circa 1 second ago";
     } else {
-      return "about " + seconds + " seconds ago";
+      return "circa " + seconds + " seconds ago";
     }
 
   } else if ( elapsed < minute * 59.5 ) { // 59.5 minutes
@@ -51,9 +51,9 @@ function displayElapsed( elapsed ) {
     var minutes = Math.round( elapsed / minute );
     
     if ( minutes === 1 ) {
-      return "about 1 minute ago";
+      return "circa 1 minute ago";
     } else {
-      return "about " + minutes + " minutes ago";
+      return "circa " + minutes + " minutes ago";
     }
     
     
@@ -62,9 +62,9 @@ function displayElapsed( elapsed ) {
     var hours = Math.round( elapsed / hour );
     
     if ( hours === 1 ) {
-      return "about 1 hour ago";
+      return "circa 1 hour ago";
     } else {
-      return "about " + hours + " hours ago";
+      return "circa " + hours + " hours ago";
     }
     
   } else if ( elapsed < day * 13.5 ) {  // 13.5 days
@@ -72,9 +72,9 @@ function displayElapsed( elapsed ) {
     var days = Math.round( elapsed / day );
     
     if ( days === 1 ) {
-      return "about 1 day ago";
+      return "circa 1 day ago";
     } else {
-      return "about " + days + " days ago";
+      return "circa " + days + " days ago";
     }
   
   } else if ( elapsed < week * 3.5 ) {  // 3.5 weeks
@@ -82,9 +82,9 @@ function displayElapsed( elapsed ) {
     var weeks = Math.round( elapsed / week );
     
     if ( weeks === 1 ) {
-      return "about 1 week ago";
+      return "circa 1 week ago";
     } else {
-      return "about " + weeks + " weeks ago";
+      return "circa " + weeks + " weeks ago";
     }
   
   } else if ( elapsed < month * 11.5 ) {  // 11.5 months
@@ -92,9 +92,9 @@ function displayElapsed( elapsed ) {
     var months = Math.round( elapsed / month );
     
     if ( months === 1 ) {
-      return "about 1 month ago";
+      return "circa 1 month ago";
     } else {
-      return "about " + months + " months ago";
+      return "circa " + months + " months ago";
     }
     
   } else {
@@ -102,9 +102,9 @@ function displayElapsed( elapsed ) {
     var years = Math.round( elapsed / year );
 
     if ( years === 1 ) {
-      return "about 1 year ago";
+      return "circa 1 year ago";
     } else {
-      return "about " + years + " years ago";
+      return "circa " + years + " years ago";
     }
     
   }

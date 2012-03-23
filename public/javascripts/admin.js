@@ -1,7 +1,7 @@
 $(  document).ready( function () {
     
-    //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
-  
+    var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+  //var socket = io.connect( 'http://localhost/' );
    
       $( '#radio input' ).click( function () {
         submitRoom();
@@ -12,7 +12,9 @@ $(  document).ready( function () {
         ajaxPosts( loc );
       } );
 
-      
+      $( '#submit_admin_post' ).click( function () {
+        socketAdminPost( socket );
+      } );
 });
 
 //function radiopush(){
@@ -34,6 +36,29 @@ console.log("attribute is " + selected.attr('checked'));
 
 }
 
+function socketAdminPost( socket ) {
+console.log("here's the socketpost method");
+ 
+  if($("#new_post_body").val()!="Write Your Post Here."){
+      
+    var content = $( '#new_crush_box' ).find( 'textarea' ).val();
+    var latitude= $('#lat').html();
+    var longitude= $('#lon').html();
+    var location = $('#locname').html();
+    var username = $('#admin_user_id').val();
+
+
+  }
+  else{
+    jAlert("You've gotta write a post!", "Circa");
+  }
+
+  socket.emit( 'create_post', { content: content, latitude: latitude, longitude: longitude, location: location, username: username } );
+  $('#new_post_body').val("Write Your Post Here.");
+   $('#new_post_body').blur();
+
+
+}
 
 
 

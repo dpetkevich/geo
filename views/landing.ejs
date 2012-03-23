@@ -82,7 +82,7 @@
   </div>
 
 
-  <div id="positions" style="display:none">
+  <div id="positions" style="displaynone">
     <div id="lat" > </div>
     <div id="lon" > </div>
     <div id="tol" > </div>
@@ -92,8 +92,26 @@
   
  
 
-  <div id="lightpost" >
+<div id="lightpost" >
+<div id="lanwrap">
+  <div id="contentwrap" style="display:none">
+      <img  id="logolan" src="./images/logov3.png" alt="Circa Logo" />
 
+        <div id="text">
+          Circa is a way to connect with people in the same place as you. It recently released at Yale University as a chatroom for students in the same lecture hall or library. 
+
+          <br/>
+          <br/>
+          We're currently working on the next version of Circa. If you're interested in joining the circa team, or you want to learn more about it, email circacampus@gmail.com.
+
+           <br/>
+          <br/>
+          <br />
+
+        - the Circa Team
+        </div>
+  </div>
+</div>
                 <img  id="chromebox" class="lightbox" src="./images/chromearrow.png" alt="lightbox text" style="display:none" />
                 <img  id="firefoxbox" class="lightbox" src="./images/firefoxarrow.png" alt="lightbox text" style="display:none" />
                 <img  id="safaribox" class="lightbox" src="./images/safariarrow.png" alt="lightbox text" style="display:none" />   
@@ -111,35 +129,12 @@
   
  
 
-  if (BrowserDetect.browser==="Chrome")
-  {
-    if(BrowserDetect.browser==="Windows")
-    {
-      var post = $('#firefoxbox');
-      }
-    else{
-      var post = $('#chromebox');
-    }
-  }
 
-  if (BrowserDetect.browser==="Firefox" )
-  { 
-    
-      var post = $('#firefoxbox');
+      var post = $('#lanwrap');
+     
 
-  }
-
-  if (BrowserDetect.browser==="Safari")
-  {
-      var post = $('#safaribox');
-  }
-   if (BrowserDetect.browser==="Explorer")
-  {
-      var post = $('#iebox');
-  }
-
-
-     $.fancybox( post.show());
+     //uncomment this to show the landing page
+    // $.fancybox( post.show());
 
    console.log("browers is " +BrowserDetect.browser + " version is " + BrowserDetect.version);
   var cookie1 = document.cookie;
@@ -170,7 +165,6 @@ $('#username').html(name1);
   /* geolocation is available */
 
   navigator.geolocation.getCurrentPosition(function(position) {
-     $.fancybox.close();
       
 
    var lat = Number(position.coords.latitude);
@@ -199,10 +193,6 @@ $('#username').html(name1);
 //Saybrook
    var saybrooklat = Number(41.3101593916667);
     var saybrooklong = Number(-72.9295340333333);
-
-//redfin
- var lontolr=Number(.01);
- var lattolr=Number(.01);
   
   if ( lat >= (saybrooklat-lattol) && lat <=(saybrooklat+lattol)
   && lon <= (saybrooklong+lontol) && lon >= (saybrooklong-lontol))
@@ -557,7 +547,6 @@ $('#username').html(name1);
         }  
 
 // josh
-/*
  
   var jrlat =Number(41.3101869 );
   var jrlon= Number(-72.9296622);
@@ -568,7 +557,7 @@ $('#username').html(name1);
           $('#locname').html('Josh');
        
         }  
-*/
+
 // SLB 27
  
   var klat =Number(41.3168964333333 );
@@ -593,18 +582,7 @@ $('#username').html(name1);
        
         }  
 
-//Redfin
- var redlat =Number(47.611487 );
-  var redlon= Number(-122.343793  );
-  if ( lat >= (redlat-lattolr) && lat <=(redlat+lattolr)
-  && lon <= (redlon+lontolbr) && lon >= (redlon-lontolr))
-        {
-          
-          $('#locname').html('Redfin');
-       
-        }  
 
-/*
 if($('#locname').html()==='somewhere at yale')
     {
       $('#roamcon').show();
@@ -613,7 +591,7 @@ if($('#locname').html()==='somewhere at yale')
       $(".postbox").hide();
 
     }
-   */ 
+    
 
 else{
 

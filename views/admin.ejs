@@ -1,12 +1,21 @@
   <script type='text/javascript' src="/javascripts/admin.js"></script>
+
+
 <div id="top">
   
   <img  id="logo" src="./images/logo.png" alt="Circa Logo" />
 
+  <div id='namewrapper'>
+    <div id="locname"> yale</div>
+      <img  id="locarrow" src="./images/locarrow.png" alt="You're here. Right?" />
+      <img  id="qmark" src="./images/qmark.png" alt="?" />
+      <img  id="locerror" src="./images/locerror.png" alt="Whoops! Try refreshing the page a few times." style="display:none"/>
 
-  <div id="locname"> yale</div>
+  </div>  
+    <div id='subtext'>chat with the people around you.</div>
 
   </div>
+  
   
 
 
@@ -25,9 +34,10 @@
 <div id="new_crush_box" >
     <textarea id="new_post_body" class="defaultText"
       alt="Write Your Post Here." name="post[content]" value="Write Your Post Here.">Write Your Post Here.</textarea>
+    <input type=text id="admin_user_id"  />
    
     
-    <button id="submit_post">Submit </button>
+    <button id="submit_admin_post">Submit </button>
 
   </div>
 
@@ -163,8 +173,48 @@
                  name = "room[name]"
                  value = "yale" />
           <label>yale</label>
-
+          <br/> 
+          <input type = "radio"
+                 name = "room[name]"
+                 value = "SLB Auditorium" />
+          <label>SLB Aud</label>
+          <br/>
+                    <input type = "radio"
+                 name = "room[name]"
+                 value = "Stacks" />
+          <label>Stacks</label>
+          <br/>
           
+                    <input type = "radio"
+                 name = "room[name]"
+                 value = "Kroon" />
+          <label>Kroon</label>
+          <br/>
+           <input type = "radio"
+                 name = "room[name]"
+                 value = "SLB 127" />
+          <label>SLB 27</label>
+          <br/>
+          <input type = "radio"
+                 name = "room[name]"
+                 value = "Society Reading Room" />
+          <label>Soc reading room</label>
+           <br/>
+          <input type = "radio"
+                 name = "room[name]"
+                 value = "Redfin" />
+          <label>Redfin</label>
+
+
+
+
+
+
+
+
+
+          <br/>
+           <br/>
         
     </div>
 
@@ -172,12 +222,13 @@
   <div id="postlist">
     
 
-<div class="postbox"  style="display:none">
+<div class="postbox" id="tpostbox" style="display:none">
     <h2 class="post_body"></h2>
     <span class="post_title"></span>
     <span class="elapsed" class="post_time"></span>
     <form action="/admin!!5423" method="Post">
     <input type="hidden" class="post_id" name="post[id]" val="0"></input>
+
     <button type="Submit">Destroy Post</button>
   </div>
 
@@ -198,7 +249,7 @@
     <div id="lon" style="display:none"> </div>
     <div id="tol" style="display:none"> </div>
    
-      <div id="username" />black</div>
+      <div id="username" />capt.starfish</div>
     
   
  

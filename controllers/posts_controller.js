@@ -6,10 +6,13 @@ var Post = require( '../models/post.js' );
 var util = require( 'util' );
 var tolerance = 0;
 
-var i =0; 
-var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
+var list1 = require( '../models/adj.js' );
+var list2 = require( '../models/noun.js' );
+//var i =0; 
+//var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
 
-
+//var list1 = ["1","2","3","4"];
+//var list2 = ["a","b","c","d"];
 
 
 
@@ -22,7 +25,7 @@ if (passCookie !== undefined)
 		Post.find( function ( err, posts ) {
 
 			
-		res.render( 'index.ejs', { title: 'Circa', posts: posts.reverse() } );
+		res.render( 'index.ejs', { posts: posts.reverse() } );
 		
 		
 	} )
@@ -30,45 +33,32 @@ if (passCookie !== undefined)
 
 else{
 	console.log("passcookie statement initiated");
-	name = namelist[0];
-namelist.push(name);
-for(var j=0; j<((namelist.length)-1); j++)
-{
-	namelist[j]=namelist[(j+1)];
-	
+	var indexa = Math.floor(Math.random()*list1.length);
+	var indexb = Math.floor(Math.random()*list2.length);
 
-};
-namelist.pop();
+	console.log("list1lenght is " + list1.length);
+	name = list1[indexa] + list2[indexb];
 
-
-if (i<namelist.length)
-{
-	i++;
-}
-else{
-	
-i=0;
-
-}
 	Post.find( function ( err, posts ) {
 		console.log("name in the else statement is" + name);
-		res.cookie('uname', name , { maxAge: 10000 });
-		res.render( 'index.ejs', { title: 'Circa', posts: posts.reverse() } );
+		res.cookie('uname', name , { maxAge: 5400000 });
+		res.render( 'index.ejs', {  posts: posts.reverse() } );
 		
 		
 	} )
 	
-
-}
-
-
+	}
 
 };
+
+
+
+
 
 module.exports.admin_list = exports.list_posts = function( req, res ) {
   
 	Post.find( function ( err, posts ) {
-		res.render( 'admin.ejs', { title: 'Circa', posts: posts.reverse() } );
+		res.render( 'admin.ejs', {  posts: posts.reverse() } );
 		
 	} )
 
@@ -111,7 +101,7 @@ console.log("req.body in delete_post is " + req.body.post.id);
  Post.findOne( { _id: req.body.post.id}).remove( function (err, posts) {
 		
 		
-		res.render( 'admin.ejs', { title: 'Circa' } );
+		res.render( 'admin.ejs' );
 
 	} );
 
@@ -125,7 +115,7 @@ module.exports.get_posts = function( req, res ) {
   console.log( "req query is" + util.inspect( req.query ) );
 	var loc = req.query.location;
 	
-console.log("i at the beginning of the function is " + i);
+
 
 
 //"houdini", "wow", "user2", "user 3"
@@ -134,7 +124,7 @@ console.log("i at the beginning of the function is " + i);
   	
 	
   Post
-  .where('location', loc)
+  .where('location', loc).asc('date')
   .run( function( err, posts ) {
 
   	

@@ -2,10 +2,12 @@ $(  document).ready( function () {
     
     //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
     var socket = io.connect( 'http://localhost/' );
-
     socket.on( 'new_post_created', function ( data ) {
+      
+
+      if($('#locname').html()===data.location){
       createPost( data );
-  
+      }
     } );
     
     // Atttach click handler to #new_crush_button
@@ -44,10 +46,47 @@ $(  document).ready( function () {
           $( this ).css('color','#ccc');
     } );
 
+ 
+
+  //exp button
+ $( '#explanation' ).mouseover( function () {
+        $(this).fadeOut(500);
+        $('#exphover').fadeIn(500);
+        $('#join').hide();
+        }
+      );
+      
+   $( '#exphover' ).mouseout( function () {
+        $(this).fadeOut(100);
+        $('#explanation').fadeIn(100);
+        $('#join').show();
+        }
+      );  
+
+  // question button
+   $( '#qmark' ).mouseover( function () {
+        $(this).hide()
+        $('#locerror').show();
+        }
+      );
+      
+   $( '#locerror' ).mouseout( function () {
+        $(this).hide();
+        $('#qmark').show();
+        }
+      );  
+
   
+     $( '#legal' ).click( function () {
+        alert('Circa does not have permission to use the yale name.')
+      } );
+
+   $( '#join' ).click( function () {
+        alert('We need good people, especially a tech lead. Email circacampus@gmail.com.')
+      } );
     // End placeholder code
    
-
+ $('.postbox').last().css("border-bottom", "0px") ;
 
 
       if(navigator.geolocation) {
@@ -87,12 +126,14 @@ function ajaxPosts( location ) {
     { location: location },
     function ( json ) {
       var posts = JSON.parse(json.posts);
+      console.log(posts);
+       posts=posts.reverse();
 
       //$('.postbox').slice(1).remove();
 
 
-         for ( var i = 0; i < posts.length; i++ )  { 
-          $new_post = $( '.postbox' ).first().clone();
+         for ( var i = 0; i <25; i++ )  { 
+          $new_post = $( '#tpostbox' ).clone();
           $new_post.find(".post_title").html(posts[i].username);
           $new_post.find(".post_body").html(posts[ i ].content);
           $new_post.find('.post_id').val(posts[i]._id);
@@ -104,8 +145,8 @@ function ajaxPosts( location ) {
          $new_post.attr('data-datetime',d );
            updateElapsed(".postbox",1000);
           
-          $first_post=$('.postbox').first();
-          $first_post.before( $new_post );
+          $last_post=$('.postbox').last();
+          $last_post.before( $new_post );
           $new_post.show();
 
  
@@ -113,7 +154,7 @@ function ajaxPosts( location ) {
 
            //var socket = io.connect( 'http://localhost/' );
             
-           $('.postbox').last().css("border-bottom", "0px") ;
+          
             console.log("css on last post is" + $('.postbox').last().css("border-bottom", "0px"));
             
             //socket.on('new_post_deleted')
@@ -130,13 +171,17 @@ function ajaxPosts( location ) {
 
 
 
-
+var c =0;
 
 function createPost( data ) {
   var now = new Date();
   console.log('entering create post method');
+ 
   // Clone an existing post, and set values of the new post
-  $new_post = $( '.postbox' ).first().clone();
+
+
+
+  $new_post = $( '#tpostbox' ).clone();
   $new_post.find( '.post_body' ).html( data.content );
   $new_post.find( '.post_title' ).html( data.username );
   $new_post.find( '.post_time' ).html("");
@@ -157,6 +202,32 @@ function createPost( data ) {
   //$( '#new_crush_button' ).show();
   $new_post.slideDown( 'slow', function () {
   } );
+
+$('.postbox').css('margin-top','0px');
+
+$('.postbox').css('padding','10px');
+$('.postbox').css('text-align','left');
+$('.postbox').css('color','#000');
+$('.postbox').css('height','auto');
+  
+  
+
+c++;
+  $('title').html('Circa (' + c + ')');
+  
+  $( 'body' ).mousemove( function () {
+        $('title').html('Circa');
+        c=0;
+        }
+      );
+      
+
+  //setTimeout("$('title').html('Circa:Yale');",60000);
+
+  
+
+
+  
 }
 
 // Create post using socket post
