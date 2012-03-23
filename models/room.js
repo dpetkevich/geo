@@ -3,7 +3,7 @@ var mongoose = require( 'mongoose' )
 	
 var roomSchema = new Schema( {
 		name		: String
-	,   latitude : { type: Number, default: 5 }
+	, latitude : { type: Number, default: 5 }
 	,	longitude : { type: Number, default: 5 }
 } );
 

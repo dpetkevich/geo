@@ -31,7 +31,7 @@ app.configure(function () {
 app.configure( 'development', function () {
   console.log( 'development' );
   app.use( express.errorHandler( { dumpExceptions: true, showStack: true } ) );
-	var mongoose_uri = 'mongodb://localhost/crushFlow';
+	var mongoose_uri = 'mongodb://circa:circa@ds031657.mongolab.com:31657/circa_test';
 	mongoose.connect( mongoose_uri );
 } );
 
