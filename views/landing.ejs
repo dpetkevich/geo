@@ -92,8 +92,26 @@
   
  
 
-  <div id="lightpost" >
+<div id="lightpost" >
+<div id="lanwrap">
+  <div id="contentwrap" style="display:none">
+      <img  id="logolan" src="./images/logov3.png" alt="Circa Logo" />
 
+        <div id="text">
+          Circa is a way to connect with people in the same place as you. It recently released at Yale University as a chatroom for students in the same lecture hall or library. 
+
+          <br/>
+          <br/>
+          We're currently working on the next version of Circa. If you're interested in joining the circa team, or you want to learn more about it, email circacampus@gmail.com.
+
+           <br/>
+          <br/>
+          <br />
+
+        - the Circa Team
+        </div>
+  </div>
+</div>
                 <img  id="chromebox" class="lightbox" src="./images/chromearrow.png" alt="lightbox text" style="display:none" />
                 <img  id="firefoxbox" class="lightbox" src="./images/firefoxarrow.png" alt="lightbox text" style="display:none" />
                 <img  id="safaribox" class="lightbox" src="./images/safariarrow.png" alt="lightbox text" style="display:none" />   
@@ -111,35 +129,12 @@
   
  
 
-  if (BrowserDetect.browser==="Chrome")
-  {
-    if(BrowserDetect.browser==="Windows")
-    {
-      var post = $('#firefoxbox');
-      }
-    else{
-      var post = $('#chromebox');
-    }
-  }
 
-  if (BrowserDetect.browser==="Firefox" )
-  { 
-    
-      var post = $('#firefoxbox');
+      var post = $('#lanwrap');
+     
 
-  }
-
-  if (BrowserDetect.browser==="Safari")
-  {
-      var post = $('#safaribox');
-  }
-   if (BrowserDetect.browser==="Explorer")
-  {
-      var post = $('#iebox');
-  }
-
-
-     $.fancybox( post.show());
+     //uncomment this to show the landing page
+    // $.fancybox( post.show());
 
    console.log("browers is " +BrowserDetect.browser + " version is " + BrowserDetect.version);
   var cookie1 = document.cookie;
@@ -170,7 +165,6 @@ $('#username').html(name1);
   /* geolocation is available */
 
   navigator.geolocation.getCurrentPosition(function(position) {
-     $.fancybox.close();
       
 
    var lat = Number(position.coords.latitude);
