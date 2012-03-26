@@ -1,15 +1,22 @@
 var mongoose = require( 'mongoose' )
-	, Schema = mongoose.Schema;
+	, Schema = mongoose.Schema
+	, ObjectId = Schema.ObjectId;
 	
 var postSchema = new Schema( {
-		
-		content	: String
-	,   latitude : { type: Number, default: 5 }
-	,	longitude : { type: Number, default: 5 }
-	,	date    : { type: Date, default: Date.now }
-	, 	location : String
-	, 	username : { type: String, default: "username" }
-	//,	display_date : { type: String, default: "Sometime"}
+	content: {type: String, required: true}, 
+	location: {
+		lat: {type: Number, required: true},
+		long: {type: Number, required: true}
+	},
+	date: { type: Date, default: Date.now },
+	place: String,
+	username: { type: String, default: "username" },
+	comments: [
+		{type: ObjectId, ref: "Comment"}
+	],
+	likes: {type: Number, required: true, default: 0}
+
+	//poster: {type: ObjectId, ref: "Poster"},
 
 } );
 
@@ -17,7 +24,9 @@ postSchema.methods.date_display = function ( cb ) {
 	var date = this.date.getDate();
 	var month = this.date.getMonth() + 1;
 	var year = this.date.getFullYear();
-	var dateString = month + "/" + date + "/" + year;
-	return dateString;
+	return month + "/" + date + "/" + year;
+	return this.date.toLocaleDateString();
+	return this.date.toLocaleTimeString();
 };
+
 module.exports = mongoose.model( 'Post', postSchema );

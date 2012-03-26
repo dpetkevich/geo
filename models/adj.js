@@ -21,10 +21,11 @@ var list1 =
 ,'section'
 ,'mc'
 ,'prancing'
+,'fierce'
+,'enormous'
+,'slithering'
+,'majaraja'
+,'sir'
 ];
-
-
-
-
 
 module.exports = list1;

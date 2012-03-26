@@ -1,3 +1,20 @@
+#top
+  img#logo(src="/images/logo.png", alt="Circa Logo")
+
+  #namewrapper
+    #locname somewhere
+      img#locarrow(src='/images/locarrow.png', alt="You're here. Right?")
+      img#qmark(src="/images/qmark.png", alt="?")
+
+#midsection
+  #bar2
+    #pointercon
+    #bubblecon
+    #roamcon
+
+    #new_crush_box
+      textarea#new_post_body.defaultText(name='post[content]', value="My sweet post")
+
 
 <div id="top">
   
@@ -33,8 +50,8 @@
            <img  id="bubble" src="./images/roaming1.png" alt="textPointer" />
           </div>  
     <div id="new_crush_box" >
-        <textarea id="new_post_body" class="defaultText"
-          alt="Write Your Post Here." name="post[content]" value="Write Your Post Here.">Write Your Post Here.</textarea>
+        <textarea id="new_post_body"
+          alt="Write Your Post Here." name="post[content]" placeholder="Write something!"></textarea>
         <button id="submit_post">Submit </button>
     </div>
 

@@ -1,4 +1,4 @@
-/*
+  /*
  * GET home page.
  */
 
@@ -8,15 +8,19 @@ var tolerance = 0;
 
 var list1 = require( '../models/adj.js' );
 var list2 = require( '../models/noun.js' );
+//var i =0; 
+//var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
 
-module.exports.index = exports.list_posts = function( req, res ) {
+//var list1 = ["1","2","3","4"];
+//var list2 = ["a","b","c","d"];
+
+exports.index = function( req, res ) {
   console.log("req.cookies.uname is " + req.cookies.uname);
   var passCookie= req.cookies.uname;
   if (passCookie !== undefined) {
   		
   		Post.find( function ( err, posts ) {
   		res.render( 'index.ejs', { posts: posts.reverse() } );
-  		
   	} )
 	}
 
@@ -36,61 +40,42 @@ module.exports.index = exports.list_posts = function( req, res ) {
 	}
 };
 
-
-
-
-
-module.exports.admin_list = exports.list_posts = function( req, res ) {
-  
-	Post.find( function ( err, posts ) {
-		res.render( 'admin.ejs', {  posts: posts.reverse() } );
-		
-	} )
-
-};
-
-
 /*
  * Handler to create new post
  */	
 
-module.exports.create_post = function( data, socket ) {
+exports.create_post = function( data ) {
 
-	
-console.log("here's the create post method");
-
-	new Post( {  content: data.content, latitude: data.latitude, longitude: data.longitude, location: data.location, username: data.username}
-	 ).save( function (err) {
-		
+  socket = this;
+	new Post( {
+    content: data.content, 
+    location: data.location, 
+    place: data.place, 
+    username: data.username
+  }).save( function (err) {
 		if ( !err ) {
-			console.log( 'Success!' );
-			
 			// Emit message to all other sockets
 			socket.broadcast.emit( 'new_post_created', data );
 			
 			// Also emit message to the socket that created it
 			socket.emit( 'new_post_created', data );
-			
-		} else {
-			console.log( 'Had an error' + err );
-		}
-		
- 
-	} );
-
+      console.log("post created")
+		} else
+			console.log(err);
+	});
 };
 
-module.exports.delete_post = exports.list_posts =function (req,res ){
+exports.list_posts =function (req,res ){
 		
-console.log("req.body in delete_post is " + req.body.post.id);
- Post.findOne( { _id: req.body.post.id}).remove( function (err, posts) {
+  console.log("req.body in delete_post is " + req.body.post.id);
+  Post.findOne( { _id: req.body.post.id}).remove( function (err, posts) {
 		res.render( 'admin.ejs' );
 	} );
 };
 
 /**** WTG START ****/
 
-module.exports.get_posts = function( req, res ) {
+exports.get_posts = function( req, res ) {
   console.log( "req query is" + util.inspect( req.query ) );
 	var loc = req.query.location;
 	
@@ -99,29 +84,19 @@ module.exports.get_posts = function( req, res ) {
   .where('location', loc).asc('date')
   .run( function( err, posts ) {
 
-  	
-  	
     res.send( { posts: JSON.stringify( posts ) } );
   } ) 
 };
 
-module.exports.admin_get  = function( req, res ) {
+exports.admin_get  = function( req, res ) {
  //console.log( "req params is" + req.body.room.name );
 
   var loc = req.query.location;
-
-
   Post
   .where('location', loc)
   .run( function( err, posts ) {
-
-  		
         res.send( { posts: JSON.stringify( posts ) } );
   } ) 
-  
- 
 };
-
-
 
 /**** WTG STOP ****/

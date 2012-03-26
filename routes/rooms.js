@@ -7,7 +7,7 @@ var util = require( 'util' );
 var tolerance = 0;
 
 
-module.exports.index = exports.list_posts = function( req, res ) {
+exports.list_posts = function( req, res ) {
   
 	Post
 	.where('latitude').gte(tolerance)
@@ -24,7 +24,7 @@ module.exports.index = exports.list_posts = function( req, res ) {
  * Handler to create new post
  */	
 
-module.exports.create_post = function( data, socket ) {
+exports.create_post = function( data, socket ) {
 
 	new Post( { title: data.title, content: data.content, latitude: data.latitude, longitude: data.longitude }
 	 ).save( function (err) {

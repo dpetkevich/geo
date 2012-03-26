@@ -20,11 +20,14 @@ var list2 =
 ,'squeeze'
 ,'beast'
 ,'goldman'
-, 'lovin'
+,'lovin'
 ,"unicorn"
 ,'balls'
 ,'society'
 ,'bulldog'
+,'wizard'
+,'serpent'
+,'kerfuffle'
 
 ];
 
