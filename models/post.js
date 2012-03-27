@@ -4,10 +4,7 @@ var mongoose = require( 'mongoose' )
 	
 var postSchema = new Schema( {
 	content: {type: String, required: true}, 
-	location: {
-		lat: {type: Number, required: true},
-		long: {type: Number, required: true}
-	},
+	location: {type: [Number, Number], required: true}, // LONG, LAT
 	date: { type: Date, default: Date.now },
 	place: String,
 	username: { type: String, default: "username" },

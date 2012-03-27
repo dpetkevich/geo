@@ -43,7 +43,7 @@ app.configure( 'production', function () {
 // Routes
 
 app.get("/", posts.index)
-app.get("/get_posts", posts.get_posts)
+app.get("/posts", posts.get_posts)
 app.get("/admin!!5423", admin.index)
 app.get("/get_admin_posts", posts.get_posts)
 

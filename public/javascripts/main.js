@@ -4,19 +4,30 @@ $(  document).ready( function () {
   var socket = io.connect( 'http://localhost/' );
   socket.on( 'new_post_created', function ( data ) {
     console.log("event got")
-    if($('#locname').html()===data.place){
-      createPost( data );
-    }
+    $("#postlist").prepend(data)
   } );
-
+  var lat, lon;
   if(navigator.geolocation) {
-    getCurrentPosition();
+    navigator.geolocation.getCurrentPosition(function(position) {
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+      $.get("/posts", {lat: lat, lon:lon}, function(data) {
+        console.log(data)
+        $("#postlist").fadeOut("fast", function() {
+          $("#postlist").html(data).slideDown("fast")
+        })
+      })
+      $('#lat').html(lat);
+      $('#lon').html(lon);
+    }, function(err) {
+      console.log("location error: ", err)
+    });
   }
   else{
+    // Handle solution more elegantly
     alert('Your browser does not support the Geo-Location feature');
   }
-
-
+  
   /* EVENT HANDLERS ============= */
   // Atttach click handler to #new_crush_button
   //$( '#new_crush_button' ).click( insertNewPost );
@@ -27,10 +38,16 @@ $(  document).ready( function () {
   } );
 
   $('#new_post_title').keypress(function(e) {
-    if (e.which == 13) socketPost( socket );
+    if (e.which == 13){ 
+      e.preventDefault();
+      socketPost( socket );
+    }
   });
   $('#new_post_body').keypress(function(e) {
-    if (e.which == 13) socketPost( socket );
+    if (e.which == 13){ 
+      e.preventDefault();
+      socketPost( socket );
+    }
   });
   //exp button
   $('#explanation' ).mouseover( function () {
@@ -70,26 +87,6 @@ $(  document).ready( function () {
 });
 
 /* FUNCTIONS ====== */
-
-function showPosition(position){
-  var lat = position.coords.latitude;
-  var lon = position.coords.longitude;
-  $('#lat').html(position.coords.latitude);
-  $( '#lon').html(position.coords.longitude);
-}
- 
-function errorMan(){
-  alert('Oops; There seems to be some problem');
-}
- 
-function getCurrentPosition(){
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, errorMan);
-  }
-  else{
-    alert('Your browser does not support the Geo-Location feature');
-  }
-}
 
 /**** WTG START ****/
 
@@ -185,10 +182,11 @@ function socketPost( socket ) {
     var username = $('#username').html()
     socket.emit( 'create_post', {
       content: content, 
-      location: { lat: latitude, long: longitude }, 
+      location: [longitude, latitude], 
       place: location, 
       username: username
     });
+    $("#new_post_body").val("")
   }
   else{
     jAlert("You've gotta write a post!", "Circa");

@@ -17,27 +17,16 @@ var list2 = require( '../models/noun.js' );
 exports.index = function( req, res ) {
   console.log("req.cookies.uname is " + req.cookies.uname);
   var passCookie= req.cookies.uname;
-  if (passCookie !== undefined) {
-  		
-  		Post.find( function ( err, posts ) {
-  		res.render( 'index.ejs', { posts: posts.reverse() } );
-  	} )
-	}
 
-  else{
-  	console.log("passcookie statement initiated");
-  	var indexa = Math.floor(Math.random()*list1.length);
-  	var indexb = Math.floor(Math.random()*list2.length);
+  var name = req.cookies.uname;
 
-  	console.log("list1lenght is " + list1.length);
-  	name = list1[indexa] + list2[indexb];
-
-  	Post.find( function ( err, posts ) {
-  		console.log("name in the else statement is" + name);
-  		res.cookie('uname', name , { maxAge: 5400000 });
-  		res.render( 'index.ejs', {  posts: posts.reverse() } );
-  	} )
-	}
+  if(!name) {
+    a = Math.floor(Math.random()*list1.length);
+    b = Math.floor(Math.random()*list2.length);
+    name = list1[a] + list2[a]
+    res.cookie('uname', name, { maxAge: 5400000});
+  }
+  res.render( 'index.ejs');
 };
 
 /*
@@ -53,15 +42,18 @@ exports.create_post = function( data ) {
     place: data.place, 
     username: data.username
   }).save( function (err) {
-		if ( !err ) {
-			// Emit message to all other sockets
-			socket.broadcast.emit( 'new_post_created', data );
-			
-			// Also emit message to the socket that created it
-			socket.emit( 'new_post_created', data );
-      console.log("post created")
-		} else
-			console.log(err);
+		if ( err ) throw err;
+    partial("_postbox.jade", function(err, data) {
+      if (err) throw err;
+
+      // Emit message to all other sockets
+      socket.broadcast.emit( 'new_post_created', data );
+
+      // Also emit message to the socket that created it
+      socket.emit( 'new_post_created', data );
+    })
+		
+    console.log("post created")
 	});
 };
 
@@ -77,14 +69,27 @@ exports.list_posts =function (req,res ){
 
 exports.get_posts = function( req, res ) {
   console.log( "req query is" + util.inspect( req.query ) );
-	var loc = req.query.location;
+	var lat = req.query.lat;
+  var lon = req.query.lon;
 	
-//"houdini", "wow", "user2", "user 3"
-  Post
-  .where('location', loc).asc('date')
-  .run( function( err, posts ) {
 
-    res.send( { posts: JSON.stringify( posts ) } );
+  Post.find({})
+  //.where('location')
+  //.near([lon, lat])
+  //.maxDistance(1)
+  .desc('date')
+  .limit(25)
+  .run( function( err, posts ) {
+    html = "";
+    for( p in posts) {
+      console.log(posts[p].content)
+      partial("_postbox.jade", {post: posts[p]}, function(err, data){
+        if (err) throw err;
+        html += data;
+      })
+    }
+    res.send(html)
+    //res.send( { posts: JSON.stringify( posts ) } );
   } ) 
 };
 

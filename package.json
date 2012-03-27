@@ -12,7 +12,8 @@
     "mongoose": "2.5.5",
     "hooks": "0.1.9",
     "socket.io-client": "0.8.7",
-    "uglify-js": "1.0.6"
+    "uglify-js": "1.0.6",
+    "jade": ">= 0.0.1"
   },
   "subdomain": "circa",
   "scripts": {
