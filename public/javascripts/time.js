@@ -1,26 +1,17 @@
-function updateElapsed( selector, interval ) {
+function updateElapsed( selector, dest, interval ) {
   // Sets an interval to update time elapsed for updates and the like
   
   if ( typeof interval === "undefined" ) {
-    interval = 16000; // Default to updating every 16 seconds
+    interval = 5000; // Default to updating every 16 seconds
   }
   
   var sI = setInterval( function() {
-  	  var toUpdate = $( selector );
-  
-  	  var now = new Date();
-  	  var obj;
-  	  var created;
-  	  var elapsed;
-  	  for ( var i = 0; i < toUpdate.length; i++ ) {
-        obj = toUpdate[ i ];
-        created = $( obj ).attr( 'data-datetime' );
-        created = new Date( created );
-        elapsed = now - created;
-        $( obj ).find( '.elapsed' ).html( displayElapsed( elapsed ) );
-  	  }
-	  }, interval );
-    
+    $.each($(selector), function(key, obj) {
+      date = new Date($(obj).attr('data-datetime'));
+      elapsed = Date.now() - date;
+      $( obj ).find( dest ).html( displayElapsed( elapsed ) );
+    })
+  }, interval );
 }
 
 function displayElapsed( elapsed ) {

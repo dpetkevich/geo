@@ -41,17 +41,13 @@ exports.create_post = function( data ) {
     location: data.location, 
     place: data.place, 
     username: data.username
-  }).save( function (err) {
-		if ( err ) throw err;
-    partial("_postbox.jade", function(err, data) {
-      if (err) throw err;
+  }).save( function (err, post) {
 
-      // Emit message to all other sockets
-      socket.broadcast.emit( 'new_post_created', data );
+    // Emit message to all other sockets
+    socket.broadcast.emit( 'new_post_created', post );
 
-      // Also emit message to the socket that created it
-      socket.emit( 'new_post_created', data );
-    })
+    // Also emit message to the socket that created it
+    socket.emit( 'new_post_created', post );
 		
     console.log("post created")
 	});
@@ -65,6 +61,22 @@ exports.list_posts =function (req,res ){
 	} );
 };
 
+exports.like = function(data) {
+  socket = this;
+  id = data.id || '';
+  action = data.action || '';
+  Post.findById(id, function(err, post) {
+    if (err) throw err;
+    if (action === "like") post.likes ++;
+    else if (action === "unlike" && post.likes > 0) post.likes --;
+    post.save(function(err) {
+      if (err) throw err;
+      socket.broadcast.emit("postlike", {id: id, likes: post.likes});
+      socket.emit("postlike", {id: id, likes: post.likes})
+    });
+  })
+}
+
 /**** WTG START ****/
 
 exports.get_posts = function( req, res ) {
@@ -72,24 +84,16 @@ exports.get_posts = function( req, res ) {
 	var lat = req.query.lat;
   var lon = req.query.lon;
 	
-
   Post.find({})
   //.where('location')
   //.near([lon, lat])
   //.maxDistance(1)
   .desc('date')
   .limit(25)
+  .populate("comments")
   .run( function( err, posts ) {
-    html = "";
-    for( p in posts) {
-      console.log(posts[p].content)
-      partial("_postbox.jade", {post: posts[p]}, function(err, data){
-        if (err) throw err;
-        html += data;
-      })
-    }
-    res.send(html)
-    //res.send( { posts: JSON.stringify( posts ) } );
+
+    res.send( { posts: JSON.stringify( posts ) } );
   } ) 
 };
 

@@ -2,19 +2,55 @@ $(  document).ready( function () {
     
   //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
   var socket = io.connect( 'http://localhost/' );
-  socket.on( 'new_post_created', function ( data ) {
-    console.log("event got")
-    $("#postlist").prepend(data)
+  
+
+  socket.on('new_post_created', function ( data ) {
+    console.log(data)
+    render_post(data, function(html) {
+      $("#postlist").prepend(html)
+    })
   } );
+  socket.on('postlike', function(data) {
+    post = $(".post[post-id='"+data.id+"']");
+    if(post) {
+      $(post).find(".likes").html(data.likes)
+    }
+  });
+  socket.on('commentlike', function(data) {
+    com = $(".comment[comment-id='"+data.id+"']");
+    if(com) {
+      $(com).find(".likes").html(data.likes)
+    }
+  });
+  socket.on('newcomment', function(comment) {
+    console.log(comment)
+    ctext = render_comment(comment, function(ctext) {
+      post = $(".post[post-id='"+comment.post+"']");
+      comments = $(post).parents(".postbox").find(".comments");
+      console.log(ctext)
+      $(comments[0]).append(ctext);
+      console.log("after")
+      console.log(comments[0])
+
+    });
+  })
+
   var lat, lon;
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       lat = position.coords.latitude;
       lon = position.coords.longitude;
       $.get("/posts", {lat: lat, lon:lon}, function(data) {
+        data = JSON.parse(data.posts)
         console.log(data)
+        html = "";
+        $.each(data, function(key, val) {
+          html += render_post(val);
+        })
         $("#postlist").fadeOut("fast", function() {
-          $("#postlist").html(data).slideDown("fast")
+          $("#postlist").html(html).slideDown("fast");
+
+          updateElapsed(".time", ".elapsed", 1000)
         })
       })
       $('#lat').html(lat);
@@ -32,10 +68,54 @@ $(  document).ready( function () {
   // Atttach click handler to #new_crush_button
   //$( '#new_crush_button' ).click( insertNewPost );
 
+  $("#postlist").click(function(e) {
+    t = e.target;
+    if($(t).hasClass("post_like")) {
+      $(t).hide();
+      var id = $(t).parents(".post").attr("post-id");
+      //a = $(t).parent().children(".likes");
+      if($(t).hasClass("like")) {
+        //$(a).html(parseInt($(a).html())+1);
+        $(t).parent().children(".unlike").show();
+        socket.emit("postlike", {id: id, action: "like"});
+      }
+      else if($(t).hasClass("unlike")) {
+        //$(a).html(parseInt($(a).html())-1);
+        $(t).parent().children(".like").show();
+        socket.emit("postlike", {id: id, action: "unlike"});
+      }
+    }
+    else if($(t).hasClass("comment_like")) {
+      $(t).hide();
+      var id = $(t).parents(".comment").attr("comment-id");
+      if($(t).hasClass("like")) {
+        $(t).parent().children(".unlike").show();
+        socket.emit("commentlike", {id: id, action: "like"});
+      }
+      else if($(t).hasClass("unlike")) {
+        //$(a).html(parseInt($(a).html())-1);
+        $(t).parent().children(".like").show();
+        socket.emit("commentlike", {id: id, action: "unlike"});
+      }
+    }
+    else if($(t).hasClass("show_comments")) {
+      $(t).parents(".postbox").children(".commentbox").slideToggle("fast");
+    }
+  });
+  $("#postlist").keypress(function(e) {
+    if(e.which == 13 && $(e.target).hasClass("comment_input")) {
+      t = e.target;
+      if($(t).val() != "") {
+        post_id = $(t).parents(".postbox").children(".post").attr("post-id");
+
+        socket.emit("newcomment", {post_id: post_id, content: $(t).val()})
+        $(t).val("");
+
+      }
+    }
+  });
+
   // Attach click handler to #submit_post button
-  $( '#submit_post' ).click( function () {
-    socketPost( socket );
-  } );
 
   $('#new_post_title').keypress(function(e) {
     if (e.which == 13){ 
@@ -87,6 +167,47 @@ $(  document).ready( function () {
 });
 
 /* FUNCTIONS ====== */
+
+/* Renders a post from the post object */
+function render_post(post, cb) {
+  // The template into which we place our values
+  var text = 
+  '<div class="postbox">\
+    <div class="post time" data-datetime="'+post.date+'" post-id="'+post._id+'">\
+      <div class="post_user">'+post.username+'</div>\
+      <div class="post_body">'+post.content+'</div>\
+      <div class="elapsed post_time"></div>\
+      <span class="like post_like">Like!</span>\
+      <span class="unlike post_like">Unlike</span>\
+      <div class="likes post_like">'+post.likes+'</div>\
+      <a class="show_comments" href="#">Comments ('+post.comments.length+')</a>\
+    </div>\
+    <div class="commentbox"><div class="comments">';
+    $.each(post.comments, function(key, comment) {
+      console.log(comment)
+      text += render_comment(comment)
+    })
+    text += '</div><input class=comment_input placeholder="Write a comment!" />'
+    text += '</div></div>'
+
+  if(typeof cb === "function") cb(text);
+  else return text;
+
+}
+
+function render_comment(comment, cb) {
+  text = 
+  '<div class="comment time" data-datetime='+comment.date+' comment-id="'+comment._id+'"+>\
+    <div class="comment_user">'+comment.username+'</div>\
+    <div class="comment_content">'+comment.content+'</div>\
+    <div class="elapsed comment_time"></div>\
+    <span class="like comment_like">Like!</span>\
+    <span class="unlike comment_like">Unlike</span>\
+    <div class="likes comment_likes">'+comment.likes+'</div>\
+  </div>';
+  if (typeof cb === "function") cb(text);
+  else return text;
+}
 
 /**** WTG START ****/
 

@@ -1,13 +1,25 @@
 body {
     margin:0px;
-    font-family: 'Garamond', 'Helvetica Neue', Helvetica, Lucida, Arial, sans-serif;
-    font-size:12px;
-    background-color:#27AAE1;
+    font-family: 'Helvetica Neue', Helvetica, Lucida, Arial, sans-serif;
+    font-size: 12px;
+    background-color: #27AAE1;
     min-width:960px;
     position:relative;
-
 }
 
+.like, .unlike {
+    cursor: pointer;
+    color: blue;
+}
+
+.unlike {
+    display: none;
+}
+
+.commentbox {
+    display: none;
+    background-color: #aaa;
+}
 
 #lanwrap{
     width:600px;
