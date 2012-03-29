@@ -6,27 +6,30 @@ var Post = require( '../models/post.js' );
 var util = require( 'util' );
 var tolerance = 0;
 
-var list1 = require( '../models/adj.js' );
-var list2 = require( '../models/noun.js' );
-//var i =0; 
-//var namelist = ["Masterblaster1", "loserface2", "googlybear3", "wanger4" ];
+var adjectives = require( '../models/adj.js' );
+var nouns = require( '../models/noun.js' );
 
-//var list1 = ["1","2","3","4"];
-//var list2 = ["a","b","c","d"];
+/* ROUTES FROM ROUTER */
 
-exports.index = function( req, res ) {
-  console.log("req.cookies.uname is " + req.cookies.uname);
-  var passCookie= req.cookies.uname;
 
+exports.index = function( req, res, socket ) { // All sockets in this session
+  console.log("socket:")
+  socket.emit('ready', {data: "hi"})
+  console.log("emitted ready")
+  var maxage = 60000*60*3; // 3 hours
   var name = req.cookies.uname;
 
   if(!name) {
-    a = Math.floor(Math.random()*list1.length);
-    b = Math.floor(Math.random()*list2.length);
-    name = list1[a] + list2[a]
-    res.cookie('uname', name, { maxAge: 5400000});
+    a = Math.floor(Math.random()*adjectives.length);
+    b = Math.floor(Math.random()*nouns.length);
+    name = adjectives[a] +"-"+ nouns[b]
+    res.cookie('uname', name, { maxAge: maxage}); // 3 hours
   }
+<<<<<<< HEAD
   res.render( 'index.jade');
+=======
+  res.render('index');
+>>>>>>> 433f942ad199999cda226e5578463554860a72c4
 };
 
 /*
@@ -34,32 +37,34 @@ exports.index = function( req, res ) {
  */	
 
 exports.create_post = function( data ) {
-
+  
   socket = this;
+  c = data.content;
+  hashtags = c.match(/#[a-zA-z_]+\w*/g);
+  console.log(c)
+  console.log(hashtags)
 	new Post( {
-    content: data.content, 
+    content: c, 
     location: data.location, 
     place: data.place, 
     username: data.username
   }).save( function (err, post) {
-
     // Emit message to all other sockets
-    socket.broadcast.emit( 'new_post_created', post );
+    socket.broadcast.emit( 'new_post', post );
 
     // Also emit message to the socket that created it
-    socket.emit( 'new_post_created', post );
-		
-    console.log("post created")
+    socket.emit( 'new_post', post );
+		console.log("new post", util.inspect(post, false, null))
 	});
 };
 
 exports.list_posts =function (req,res ){
-		
-  console.log("req.body in delete_post is " + req.body.post.id);
   Post.findOne( { _id: req.body.post.id}).remove( function (err, posts) {
 		res.render( 'admin.ejs' );
 	} );
 };
+
+/* SOCKET ROUTES */
 
 exports.like = function(data) {
   socket = this;
@@ -77,13 +82,10 @@ exports.like = function(data) {
   })
 }
 
-/**** WTG START ****/
-
-exports.get_posts = function( req, res ) {
+exports.all = function( req, res ) {
   console.log( "req query is" + util.inspect( req.query ) );
 	var lat = req.query.lat;
   var lon = req.query.lon;
-	
   Post.find({})
   //.where('location')
   //.near([lon, lat])
