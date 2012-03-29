@@ -13,7 +13,7 @@ exports.list_posts = function( req, res ) {
 	.where('latitude').gte(tolerance)
 
 	.run( function ( err, posts ) {
-		res.render( 'index.ejs', { title: 'CrushFlow', posts: posts.reverse() } );
+		res.render( 'index.jade', { title: 'CrushFlow', posts: posts.reverse() } );
 		
 	} )
 

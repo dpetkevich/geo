@@ -3,5 +3,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index.jade', { title: 'Something different' })
+  res.render('index', { title: 'Something different' })
 };

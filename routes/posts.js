@@ -26,7 +26,7 @@ exports.index = function( req, res ) {
     name = list1[a] + list2[a]
     res.cookie('uname', name, { maxAge: 5400000});
   }
-  res.render( 'index.ejs');
+  res.render( 'index.jade');
 };
 
 /*

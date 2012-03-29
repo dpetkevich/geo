@@ -15,7 +15,7 @@ module.exports.index = exports.list_posts = function( req, res ) {
   if (passCookie !== undefined) {
   		
   		Post.find( function ( err, posts ) {
-  		res.render( 'index.ejs', { posts: posts.reverse() } );
+  		res.render( 'index.jade', { posts: posts.reverse() } );
   		
   	} )
 	}
@@ -31,7 +31,7 @@ module.exports.index = exports.list_posts = function( req, res ) {
   	Post.find( function ( err, posts ) {
   		console.log("name in the else statement is" + name);
   		res.cookie('uname', name , { maxAge: 5400000 });
-  		res.render( 'index.ejs', {  posts: posts.reverse() } );
+  		res.render( 'index.jade', {  posts: posts.reverse() } );
   	} )
 	}
 };
