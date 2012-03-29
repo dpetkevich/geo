@@ -25,11 +25,8 @@ exports.index = function( req, res, socket ) { // All sockets in this session
     name = adjectives[a] +"-"+ nouns[b]
     res.cookie('uname', name, { maxAge: maxage}); // 3 hours
   }
-<<<<<<< HEAD
-  res.render( 'index.jade');
-=======
+
   res.render('index');
->>>>>>> 433f942ad199999cda226e5578463554860a72c4
 };
 
 /*

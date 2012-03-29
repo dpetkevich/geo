@@ -19,6 +19,8 @@ html
     link(rel='stylesheet', href='/stylesheets/jquery.fancybox.css')
     link(rel='stylesheet', href='/stylesheets/normalize.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/jquery-ui-1.8.18.custom.css')
+
     link(rel='icon', href='./images/favicon.png')
     script(type='text/javascript', src='/javascripts/jquery.js')
     script(src='/socket.io/socket.io.js')
@@ -32,10 +34,14 @@ html
     script(type='text/javascript', src='/javascripts/bdetect.js')
     script(type='text/javascript', src='/javascripts/time.js')
     script(type='text/javascript', src='/javascripts/main.js')
-<<<<<<< HEAD
-     script(type='text/javascript', src='/javascripts/main2.js')
-=======
+    script(type='text/javascript', src='/javascripts/main2.js')
+    script(type='text/javascript', src='/javascripts/h5utils.js')
+    meta(name='viewport', content='width=620')
+    script(src='http://maps.google.com/maps/api/js?sensor=false')
+    script(type='text/javascript', src='/javascripts/jquery_ui.js')
 
->>>>>>> 433f942ad199999cda226e5578463554860a72c4
+    script(type='text/javascript', src='/javascripts/map.js')
+    script(src='/javascripts/prettify.packed.js')
     meta(name='google-site-verification', content='TWJa8mR9tbnmnGCrakuUspm0xEdcDAfj6IZGMGGZNLw')
-  body!= body
+  body
+    include _map
