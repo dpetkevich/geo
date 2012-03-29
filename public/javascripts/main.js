@@ -1,10 +1,14 @@
 $(  document).ready( function () {
     
-  //var socket = io.connect( 'http://simple-night-1895.herokuapp.com/' );
+  //var socket = io.connect( 'http://circa.nodejitsu.com/' );
   var socket = io.connect( 'http://localhost/' );
   
+  socket.on('ready', function(data){
+    console.log("ready")
+    console.log(data)
+  })
 
-  socket.on('new_post_created', function ( data ) {
+  socket.on('new_post', function ( data ) {
     console.log(data)
     render_post(data, function(html) {
       $("#postlist").prepend(html)
@@ -23,14 +27,12 @@ $(  document).ready( function () {
     }
   });
   socket.on('newcomment', function(comment) {
-    console.log(comment)
+
     ctext = render_comment(comment, function(ctext) {
       post = $(".post[post-id='"+comment.post+"']");
       comments = $(post).parents(".postbox").find(".comments");
-      console.log(ctext)
+      console.log(ctext);
       $(comments[0]).append(ctext);
-      console.log("after")
-      console.log(comments[0])
 
     });
   })
@@ -60,27 +62,23 @@ $(  document).ready( function () {
     });
   }
   else{
-    // Handle solution more elegantly
+    // Handle error more elegantly
     alert('Your browser does not support the Geo-Location feature');
   }
   
-  /* EVENT HANDLERS ============= */
-  // Atttach click handler to #new_crush_button
-  //$( '#new_crush_button' ).click( insertNewPost );
+  /* ============= EVENT HANDLERS ============= */
+
 
   $("#postlist").click(function(e) {
     t = e.target;
     if($(t).hasClass("post_like")) {
       $(t).hide();
       var id = $(t).parents(".post").attr("post-id");
-      //a = $(t).parent().children(".likes");
       if($(t).hasClass("like")) {
-        //$(a).html(parseInt($(a).html())+1);
         $(t).parent().children(".unlike").show();
         socket.emit("postlike", {id: id, action: "like"});
       }
       else if($(t).hasClass("unlike")) {
-        //$(a).html(parseInt($(a).html())-1);
         $(t).parent().children(".like").show();
         socket.emit("postlike", {id: id, action: "unlike"});
       }
@@ -93,7 +91,6 @@ $(  document).ready( function () {
         socket.emit("commentlike", {id: id, action: "like"});
       }
       else if($(t).hasClass("unlike")) {
-        //$(a).html(parseInt($(a).html())-1);
         $(t).parent().children(".like").show();
         socket.emit("commentlike", {id: id, action: "unlike"});
       }
@@ -115,20 +112,20 @@ $(  document).ready( function () {
     }
   });
 
-  // Attach click handler to #submit_post button
-
-  $('#new_post_title').keypress(function(e) {
-    if (e.which == 13){ 
-      e.preventDefault();
-      socketPost( socket );
-    }
-  });
   $('#new_post_body').keypress(function(e) {
     if (e.which == 13){ 
       e.preventDefault();
       socketPost( socket );
     }
   });
+  /*
+  $('#new_post_body').keypress(function(e) {
+    if (e.which == 13){ 
+      e.preventDefault();
+      socketPost( socket );
+    }
+  });
+*/
   //exp button
   $('#explanation' ).mouseover( function () {
     $(this).fadeOut(500);
@@ -166,7 +163,7 @@ $(  document).ready( function () {
 
 });
 
-/* FUNCTIONS ====== */
+/* ============= FUNCTIONS =========== */
 
 /* Renders a post from the post object */
 function render_post(post, cb) {
@@ -210,8 +207,9 @@ function render_comment(comment, cb) {
 }
 
 /**** WTG START ****/
-
+/*
 function ajaxPosts( location ) {
+
   $.getJSON( '/get_posts', { location: location }, function ( json ) {
     var posts = JSON.parse(json.posts);
     console.log(posts);
@@ -243,7 +241,7 @@ function ajaxPosts( location ) {
     }
   )
 }
-
+*/
 /**** WTG STOP ****/
 
 var c =0;
@@ -296,21 +294,13 @@ function createPost( data ) {
 function socketPost( socket ) {
  
   if($("#new_post_body").val()!==""){
-    var content = $( '#new_crush_box' ).find( 'textarea' ).val();
-    var latitude= $('#lat').html();
-    var longitude= $('#lon').html();
-    var location = $('#locname').html();
-    var username = $('#username').html()
-    socket.emit( 'create_post', {
-      content: content, 
-      location: [longitude, latitude], 
-      place: location, 
-      username: username
-    });
+    var text = $( '#new_post_body' ).val();
+    var lat= $('#lat').html();
+    var lon= $('#lon').html();
+    var place = $('#locname').html();
+    var username = $('#username').html();
+    socket.emit('create_post', {content: text, location: [lon, lat], place: place});
     $("#new_post_body").val("")
-  }
-  else{
-    jAlert("You've gotta write a post!", "Circa");
   }
 }
 

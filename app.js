@@ -3,11 +3,12 @@
  */
 
 var express = require( 'express' )
-  , mongoose = require( 'mongoose' );
+  , mongoose = require( 'mongoose' )
+  , sio = require('socket.io')
 
 // App
 var app = module.exports = express.createServer()
-  , io = require( 'socket.io' ).listen( app );
+  , io = sio.listen( app )
 
 // Import routes
 
@@ -19,9 +20,12 @@ var routes = require( './routes/index.js' )
 
 app.configure(function () {
   app.set( 'views' , __dirname + '/views' );
-  app.set( 'view engine', 'ejs' );
+  app.set( 'view engine', 'jade' );
   app.use( express.bodyParser() );
   app.use(express.cookieParser());
+  app.use(express.session({
+    secret: "loriab50"
+  }));
   //app.use(express.session({ secret: "keyboard cat", store: new RedisStore }));
   app.use( express.methodOverride() );
   app.use(express.compiler({ src: __dirname + '/public', enable: ['less'] }));
@@ -42,11 +46,16 @@ app.configure( 'production', function () {
 	mongoose.connect( mongoose_uri );
 } );
 
-
 // Routes
 
-app.get("/", posts.index);
-app.get("/posts", posts.get_posts);
+app.get("/", function(req, res) {
+  
+  sockets = io.sockets.in(req.sessionID);
+  io.sockets.in(req.sessionID).send("ready");
+
+  posts.index(req, res, sockets);
+});
+app.get("/posts", posts.all);
 app.get("/admin!!5423", admin.index)
 app.get("/get_admin_posts", posts.get_posts)
 
@@ -54,17 +63,17 @@ app.post("/", posts.create_post)
 app.post("/like", posts.like);
 app.post("/admin!!5432", admin.delete)
 
-
 // Attach socket listeners
-io.sockets.on( 'connection', function ( socket ) {
+
+io.sockets.on('connection', function ( socket ) {
+    socket.join(socket.handshake.sessionID)
     socket.on('create_post', posts.create_post);
     socket.on('postlike', posts.like)
     socket.on('commentlike', comments.like)
     socket.on('newcomment', comments.create)
 } );
 
-
 var port = process.env.PORT || 3000;
 
 app.listen( port );
-console.log( "Express server listening on port %d in %s mode", app.address().port, app.settings.env );
+//console.log( "Express server listening on port %d in %s mode", app.address().port, app.settings.env );
