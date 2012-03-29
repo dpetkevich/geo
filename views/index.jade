@@ -1,0 +1,49 @@
+#top
+    img#logo(src='./images/logo.png', alt='Circa Logo')
+      #namewrapper
+        #locname somewhere at yale
+        img#locarrow(src='./images/locarrow.png', alt='You\'re here. Right?')
+        img#qmark(src='./images/qmark.png', alt='?')
+        img#locerror(src='./images/locerror.png', alt='Whoops! Try refreshing the page a few times.', style='display: none;')
+      #subtext chat with the people around you.
+    #legal
+      img#legal(src='./images/legal.png', alt='Circa does not have permission to use the yale name.')
+    #midsection
+      #bar2
+        #pointercon
+          img#pointer(src='./images/pointer.png', alt='textPointer')
+        #bubblecon
+          img#bubble(src='./images/bubble.png', alt='textPointer')
+        #roamcon(style='display: none;')
+          img#bubble(src='./images/roaming1.png', alt='textPointer')
+        #new_crush_box
+          textarea#new_post_body(alt='Write Your Post Here.', name='post[content]', placeholder='Write something!')
+      img#explanation(src='./images/exp.png', alt='explanation')
+      img#exphover(src='./images/explanation.png', alt='explanation', style='display: none;')
+      img#join(src='./images/join.png', alt='join')
+      #postlist
+        #tpostbox.postbox(data-datetime='blank', style='display: none;')
+          .post_title
+          .post_body
+          .post_time
+        .postbox(data-datetime='blank')
+          .post_title circamaster
+          .post_body
+            | Welcome to Circa:Yale.
+            br
+            | Share notes, talk smack, find a valentine, write a haiku for Mary Miller. Go ahead. Make a post.
+          .post_time circa 45 seconds ago
+    #footer
+      | Copyright Circa:Yale 2012. Contact: circayale@gmail.com
+      a(style='position: fixed; right: 6px; bottom: 6px;', href='http://hackuniversity.com')
+        img#hyale(src='http://hackuniversity.com/favicon.png', style='width: 32px;')
+    #positions(style='display: none;')
+      #lat  
+      #lon  
+      #tol  
+    #username(style='display: none;') nolikecookies
+    #lightpost
+      img#chromebox.lightbox(src='./images/chromearrow.png', alt='lightbox text', style='display: none;')
+      img#firefoxbox.lightbox(src='./images/firefoxarrow.png', alt='lightbox text', style='display: none;')
+      img#safaribox.lightbox(src='./images/safariarrow.png', alt='lightbox text', style='display: none;')
+      img#iebox.lightbox(src='./images/iearrow.png', alt='lightbox text', style='display: none;')
