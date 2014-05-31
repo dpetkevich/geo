@@ -17,7 +17,10 @@ var list2 = require( '../models/noun.js' );
 
 
 module.exports.index = exports.list_posts = function( req, res ) {
-console.log("req.cookies.uname is " + req.cookies.uname);
+
+
+
+console.log("req.cookies.uname iholas " + req.cookies.uname);
 var passCookie= req.cookies.uname;
 if (passCookie !== undefined)
 	{
@@ -38,9 +41,11 @@ else{
 
 	console.log("list1lenght is " + list1.length);
 	name = list1[indexa] + list2[indexb];
+	console.log('name is ' + name)
 
 	Post.find( function ( err, posts ) {
 		console.log("name in the else statement is" + name);
+		console.log('posts are ' + posts)
 		res.cookie('uname', name , { maxAge: 5400000 });
 		res.render( 'index.ejs', {  posts: posts.reverse() } );
 		
@@ -112,10 +117,10 @@ console.log("req.body in delete_post is " + req.body.post.id);
 /**** WTG START ****/
 
 module.exports.get_posts = function( req, res ) {
-  console.log( "req query is" + util.inspect( req.query ) );
+  console.log( "req query is" + req.query.location );
 	var loc = req.query.location;
 	
-
+console.log("loc is" + loc)
 
 
 //"houdini", "wow", "user2", "user 3"
@@ -124,13 +129,12 @@ module.exports.get_posts = function( req, res ) {
   	
 	
   Post
-  .where('location', loc).asc('date')
-  .run( function( err, posts ) {
-
-  	
-  	
+  .find({"location":loc})
+  .sort('date')
+  .exec( function( err, posts ) {
+  	console.log('the posts are '+ JSON.stringify(posts))
     res.send( { posts: JSON.stringify( posts ) } );
-  } ) 
+  	}) 
 };
 
 module.exports.admin_get  = function( req, res ) {
@@ -141,7 +145,7 @@ module.exports.admin_get  = function( req, res ) {
 
   Post
   .where('location', loc)
-  .run( function( err, posts ) {
+  .exec( function( err, posts ) {
 
   		
         res.send( { posts: JSON.stringify( posts ) } );

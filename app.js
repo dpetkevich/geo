@@ -31,14 +31,14 @@ app.configure(function () {
 app.configure( 'development', function () {
   console.log( 'development' );
   app.use( express.errorHandler( { dumpExceptions: true, showStack: true } ) );
-	var mongoose_uri = 'mongodb://localhost/crushFlow';
+	var mongoose_uri = 'mongodb://dan:loraxborax@ds029287.mongolab.com:29287/heroku_app2139216';
 	mongoose.connect( mongoose_uri );
 } );
 
 app.configure( 'production', function () {
   console.log( 'production' );
   app.use(express.errorHandler() ); 
-	var mongoose_uri = 'mongodb://heroku_app2139216:sfu8ge6non27flbb19sp03pjcm@ds029287.mongolab.com:29287/heroku_app2139216';
+	var mongoose_uri = 'mongodb://dan:loraxborax@ds029287.mongolab.com:29287/heroku_app2139216';
 	mongoose.connect( mongoose_uri );
 
 

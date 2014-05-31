@@ -127,6 +127,7 @@ function ajaxPosts( location ) {
     '/get_posts',
     { location: location },
     function ( json ) {
+      console.log(json)
       var posts = JSON.parse(json.posts);
       console.log(posts);
        posts=posts.reverse();
